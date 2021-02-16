@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0B8B697925DB646000B9F55E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B697825DB646000B9F55E /* AppDelegate.swift */; };
 		0B8B697B25DB646000B9F55E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B697A25DB646000B9F55E /* SceneDelegate.swift */; };
-		0B8B697D25DB646000B9F55E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B697C25DB646000B9F55E /* ViewController.swift */; };
 		0B8B698025DB646000B9F55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B697E25DB646000B9F55E /* Main.storyboard */; };
 		0B8B698225DB646200B9F55E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B698125DB646200B9F55E /* Assets.xcassets */; };
 		0B8B698525DB646200B9F55E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B698325DB646200B9F55E /* LaunchScreen.storyboard */; };
@@ -19,7 +18,6 @@
 		0B8B697525DB646000B9F55E /* Expense and Budget Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense and Budget Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8B697825DB646000B9F55E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B8B697A25DB646000B9F55E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0B8B697C25DB646000B9F55E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0B8B697F25DB646000B9F55E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0B8B698125DB646200B9F55E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B8B698425DB646200B9F55E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,15 +54,62 @@
 		0B8B697725DB646000B9F55E /* Expense and Budget Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				0B8B697825DB646000B9F55E /* AppDelegate.swift */,
-				0B8B697A25DB646000B9F55E /* SceneDelegate.swift */,
-				0B8B697C25DB646000B9F55E /* ViewController.swift */,
-				0B8B697E25DB646000B9F55E /* Main.storyboard */,
-				0B8B698125DB646200B9F55E /* Assets.xcassets */,
-				0B8B698325DB646200B9F55E /* LaunchScreen.storyboard */,
-				0B8B698625DB646200B9F55E /* Info.plist */,
+				0B8B699425DB64F000B9F55E /* Model */,
+				0B8B699325DB64DD00B9F55E /* ModelController */,
+				0B8B699225DB64AB00B9F55E /* Views */,
+				0B8B699125DB649F00B9F55E /* ViewControllers */,
+				0B8B699025DB649400B9F55E /* Storyboards */,
+				0B8B698D25DB648300B9F55E /* Resources */,
 			);
 			path = "Expense and Budget Tracker";
+			sourceTree = "<group>";
+		};
+		0B8B698D25DB648300B9F55E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0B8B697825DB646000B9F55E /* AppDelegate.swift */,
+				0B8B697A25DB646000B9F55E /* SceneDelegate.swift */,
+				0B8B698125DB646200B9F55E /* Assets.xcassets */,
+				0B8B698625DB646200B9F55E /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0B8B699025DB649400B9F55E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0B8B697E25DB646000B9F55E /* Main.storyboard */,
+				0B8B698325DB646200B9F55E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		0B8B699125DB649F00B9F55E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0B8B699225DB64AB00B9F55E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0B8B699325DB64DD00B9F55E /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelController;
+			sourceTree = "<group>";
+		};
+		0B8B699425DB64F000B9F55E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +182,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B8B697D25DB646000B9F55E /* ViewController.swift in Sources */,
 				0B8B697925DB646000B9F55E /* AppDelegate.swift in Sources */,
 				0B8B697B25DB646000B9F55E /* SceneDelegate.swift in Sources */,
 			);
