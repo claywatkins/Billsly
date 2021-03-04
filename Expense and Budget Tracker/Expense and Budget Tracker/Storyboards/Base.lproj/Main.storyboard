@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Expenses View Controller-->
         <scene sceneID="xJM-MZ-9sK">
             <objects>
-                <viewController id="Iup-Cs-b2t" sceneMemberID="viewController">
+                <viewController id="Iup-Cs-b2t" customClass="ExpensesViewController" customModule="Expense_and_Budget_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4JB-UM-n9H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,12 +35,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="74n-aN-Bv5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExpenseCell" textLabel="7gQ-Z7-Npn" style="IBUITableViewCellStyleDefault" id="74n-aN-Bv5">
                                         <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="74n-aN-Bv5" id="gHk-gw-XUd">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7gQ-Z7-Npn">
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -59,6 +68,9 @@
                                 <state key="normal" title="Button" image="plus" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="28" scale="default" weight="regular"/>
                                 </state>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="Iup-Cs-b2t" eventType="touchUpInside" id="SnH-hP-IXc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pPp-bh-1LF"/>
@@ -67,6 +79,9 @@
                     <navigationItem key="navigationItem" id="Jsa-Nt-Jn9">
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="fhF-NZ-CqX"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="3gi-M5-Jf4" id="Rfm-Hw-d4w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pya-TV-xCo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,29 +138,40 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BillCell" rowHeight="70" id="xyV-nN-nlr" customClass="BillTableViewCell" customModule="Expense_and_Budget_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BillCell" rowHeight="84" id="xyV-nN-nlr" customClass="BillTableViewCell" customModule="Expense_and_Budget_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xyV-nN-nlr" id="J2R-H7-BkM">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4n8-Hd-Pt8">
-                                                    <rect key="frame" x="0.0" y="11" width="50" height="50"/>
+                                                    <rect key="frame" x="12" y="17" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="4n8-Hd-Pt8" secondAttribute="height" multiplier="1:1" id="EnM-4Q-oWV"/>
+                                                    </constraints>
                                                     <state key="normal" image="unchecked"/>
+                                                    <connections>
+                                                        <action selector="billPaidButtonTapped:" destination="xyV-nN-nlr" eventType="touchUpInside" id="jbQ-6g-zcn"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOF-kQ-EB7">
-                                                    <rect key="frame" x="70" y="25" width="72" height="21"/>
+                                                    <rect key="frame" x="83" y="31.5" width="72" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="4n8-Hd-Pt8" firstAttribute="leading" secondItem="J2R-H7-BkM" secondAttribute="leading" id="1qg-KF-mEB"/>
-                                                <constraint firstItem="wOF-kQ-EB7" firstAttribute="top" secondItem="J2R-H7-BkM" secondAttribute="topMargin" constant="14" id="9Ll-Mh-N9c"/>
-                                                <constraint firstItem="wOF-kQ-EB7" firstAttribute="leading" secondItem="4n8-Hd-Pt8" secondAttribute="trailing" constant="20" id="LdG-tw-NSd"/>
-                                                <constraint firstItem="4n8-Hd-Pt8" firstAttribute="top" secondItem="J2R-H7-BkM" secondAttribute="top" constant="11" id="dUH-ls-ZZ8"/>
+                                                <constraint firstItem="wOF-kQ-EB7" firstAttribute="centerY" secondItem="J2R-H7-BkM" secondAttribute="centerY" id="B9w-6e-UWR"/>
+                                                <constraint firstItem="4n8-Hd-Pt8" firstAttribute="top" secondItem="J2R-H7-BkM" secondAttribute="top" constant="17" id="G7c-LR-TPy"/>
+                                                <constraint firstAttribute="bottom" secondItem="4n8-Hd-Pt8" secondAttribute="bottom" constant="17" id="HJa-U2-uj4"/>
+                                                <constraint firstItem="4n8-Hd-Pt8" firstAttribute="leading" secondItem="J2R-H7-BkM" secondAttribute="leading" constant="12" id="Tlt-MG-Yn8"/>
+                                                <constraint firstItem="4n8-Hd-Pt8" firstAttribute="centerY" secondItem="J2R-H7-BkM" secondAttribute="centerY" id="UKT-GU-Hfx"/>
+                                                <constraint firstItem="wOF-kQ-EB7" firstAttribute="top" secondItem="J2R-H7-BkM" secondAttribute="topMargin" constant="20.5" id="YzR-rS-0J6"/>
+                                                <constraint firstItem="wOF-kQ-EB7" firstAttribute="leading" secondItem="4n8-Hd-Pt8" secondAttribute="trailing" constant="21" id="dFn-Lg-Aya"/>
+                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="wOF-kQ-EB7" secondAttribute="trailing" constant="239" id="gMN-AL-lvA"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="wOF-kQ-EB7" secondAttribute="bottom" constant="20.5" id="sLQ-gk-EQf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -154,13 +180,21 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bYO-ah-Sh8" id="aW8-xU-uty"/>
+                                    <outlet property="delegate" destination="bYO-ah-Sh8" id="kD9-Ar-EYI"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bbP-Ae-6LA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="8hg-25-yZK">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BLa-Nf-wsC"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BLa-Nf-wsC">
+                            <connections>
+                                <action selector="addBillTapped:" destination="bYO-ah-Sh8" id="H86-Aj-7x7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="wVS-57-uYH" id="Y6h-eE-48q"/>
