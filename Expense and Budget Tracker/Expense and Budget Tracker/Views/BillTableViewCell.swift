@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol BillTableViewCellDelegate {
+    func toggleHasBeenPaid(for cell: BillTableViewCell)
+}
+
 class BillTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
@@ -19,6 +23,7 @@ class BillTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    var delegate: BillTableViewCellDelegate?
     
     // MARK: - Private Methods
     private func updateViews(){
@@ -33,5 +38,10 @@ class BillTableViewCell: UITableViewCell {
                 paidUnpaidButton.setImage(image, for: .normal)
             }
         }
+    }
+    
+    // MARK: - IBAction
+    @IBAction func billPaidButtonTapped(_ sender: Any) {
+        delegate?.toggleHasBeenPaid(for: self)
     }
 }
