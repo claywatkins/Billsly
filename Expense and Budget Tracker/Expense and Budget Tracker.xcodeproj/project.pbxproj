@@ -17,6 +17,7 @@
 		0BF254E925F0C5A90078BD9F /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E825F0C5A90078BD9F /* Bill.swift */; };
 		0BF254ED25F0CCE30078BD9F /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254EC25F0CCE30078BD9F /* ExpensesViewController.swift */; };
 		0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */; };
+		0BF254F325F0CF510078BD9F /* BillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254F225F0CF510078BD9F /* BillTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		0BF254E825F0C5A90078BD9F /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		0BF254EC25F0CCE30078BD9F /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
 		0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsViewController.swift; sourceTree = "<group>"; };
+		0BF254F225F0CF510078BD9F /* BillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		0BF254DE25F0C47F0078BD9F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0BF254F225F0CF510078BD9F /* BillTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BF254F325F0CF510078BD9F /* BillTableViewCell.swift in Sources */,
 				0BF254E225F0C4DB0078BD9F /* Expense.swift in Sources */,
 				0BF254E925F0C5A90078BD9F /* Bill.swift in Sources */,
 				0B8B697925DB646000B9F55E /* AppDelegate.swift in Sources */,

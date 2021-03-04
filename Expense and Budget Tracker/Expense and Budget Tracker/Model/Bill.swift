@@ -11,6 +11,7 @@ struct Bill: Codable{
     var name: String
     var dollarAmount: Double
     var dueByDate: Date
+    var hasBeenPaid: Bool
     var category: String?
     var description: String?
 }
