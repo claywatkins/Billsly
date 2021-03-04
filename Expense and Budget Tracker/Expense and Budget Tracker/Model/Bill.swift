@@ -1,5 +1,5 @@
 //
-//  Expense.swift
+//  Bill.swift
 //  Expense and Budget Tracker
 //
 //  Created by Clayton Watkins on 3/3/21.
@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct Expense: Codable{
+struct Bill: Codable{
     var name: String
     var dollarAmount: Double
-    var description: String?
+    var dueByDate: Date
     var category: String?
+    var description: String?
 }
