@@ -21,6 +21,22 @@ class BillsViewController: UIViewController {
         tableView.delegate = self
     }
     
+    // MARK: - Methods
+    func billFor(indexPath: IndexPath) -> Bill {
+        if indexPath.section == 0{
+            return userController.paidBills[indexPath.row]
+        } else {
+            return userController.unpaidBills[indexPath.row]
+        }
+    }
+    
+    func toggleHasBeenPaid(for cell: BillTableViewCell) {
+        guard let selectedBill = tableView.indexPath(for: cell) else { return }
+        let bill = billFor(indexPath: selectedBill)
+        userController.updateBillHasBeenPaid(bill: bill)
+        tableView.reloadData()
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
