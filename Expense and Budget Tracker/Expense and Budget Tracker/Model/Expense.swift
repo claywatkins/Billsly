@@ -12,4 +12,11 @@ struct Expense: Codable, Equatable{
     var dollarAmount: Double
     var description: String?
     var category: String?
+    
+    internal init(name: String, dollarAmount: Double, description: String? = nil, category: String? = nil) {
+        self.name = name
+        self.dollarAmount = dollarAmount
+        self.description = description
+        self.category = category
+    }
 }
