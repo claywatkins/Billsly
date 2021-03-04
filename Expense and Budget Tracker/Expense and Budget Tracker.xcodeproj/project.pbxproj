@@ -15,6 +15,8 @@
 		0BF254E225F0C4DB0078BD9F /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E125F0C4DB0078BD9F /* Expense.swift */; };
 		0BF254E525F0C5430078BD9F /* userController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E425F0C5430078BD9F /* userController.swift */; };
 		0BF254E925F0C5A90078BD9F /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E825F0C5A90078BD9F /* Bill.swift */; };
+		0BF254ED25F0CCE30078BD9F /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254EC25F0CCE30078BD9F /* ExpensesViewController.swift */; };
+		0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		0BF254E125F0C4DB0078BD9F /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		0BF254E425F0C5430078BD9F /* userController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userController.swift; sourceTree = "<group>"; };
 		0BF254E825F0C5A90078BD9F /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		0BF254EC25F0CCE30078BD9F /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
+		0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 		0BF254DF25F0C4830078BD9F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0BF254EC25F0CCE30078BD9F /* ExpensesViewController.swift */,
+				0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -196,6 +202,8 @@
 				0B8B697925DB646000B9F55E /* AppDelegate.swift in Sources */,
 				0BF254E525F0C5430078BD9F /* userController.swift in Sources */,
 				0B8B697B25DB646000B9F55E /* SceneDelegate.swift in Sources */,
+				0BF254ED25F0CCE30078BD9F /* ExpensesViewController.swift in Sources */,
+				0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

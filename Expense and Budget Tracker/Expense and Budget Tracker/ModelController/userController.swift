@@ -10,6 +10,7 @@ import Foundation
 class UserController {
     
     // MARK: - Properties
+    static let shared = UserController()
     var userExpenses: [Expense] = []
     var userBills: [Bill] = []
     var persistentFileURL: URL? {

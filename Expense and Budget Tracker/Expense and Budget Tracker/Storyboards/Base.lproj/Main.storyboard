@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="1422" y="32"/>
         </scene>
-        <!--View Controller-->
+        <!--Bills View Controller-->
         <scene sceneID="QZe-26-O0t">
             <objects>
-                <viewController id="bYO-ah-Sh8" sceneMemberID="viewController">
+                <viewController id="bYO-ah-Sh8" customClass="BillsViewController" customModule="Expense_and_Budget_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xhk-9I-duQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,7 +123,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="xyV-nN-nlr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BillCell" rowHeight="70" id="xyV-nN-nlr">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xyV-nN-nlr" id="J2R-H7-BkM">
@@ -158,6 +158,9 @@
                     <navigationItem key="navigationItem" id="8hg-25-yZK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BLa-Nf-wsC"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="wVS-57-uYH" id="Y6h-eE-48q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xil-mh-jGA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
