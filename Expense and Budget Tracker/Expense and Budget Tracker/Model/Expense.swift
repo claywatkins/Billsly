@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Expense: Codable{
+struct Expense: Codable, Equatable{
     var name: String
     var dollarAmount: Double
     var description: String?
