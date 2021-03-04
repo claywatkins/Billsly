@@ -18,6 +18,16 @@ class UserController {
         let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first
         return documents?.appendingPathExtension("userData.plist")
     }
+    var paidBills: [Bill] {
+        let bills = userBills
+        let filteredPaidBills = bills.filter{ (bills) -> Bool in bills.hasBeenPaid == true }
+        return filteredPaidBills
+    }
+    var unpaidBills: [Bill] {
+        let bills = userBills
+        let filteredUnpaidBills = bills.filter { (bills) -> Bool in bills.hasBeenPaid == false }
+        return filteredUnpaidBills
+    }
     
     // MARK: - CRUD
     func saveBillsToPersistentStore() {
@@ -63,10 +73,21 @@ class UserController {
     }
     
     func deleteBillData(bill: Bill){
-        
+        guard let billIndex = userBills.firstIndex(of: bill) else { return }
+        userBills.remove(at: billIndex)
+        saveBillsToPersistentStore()
     }
     
     func deleteExpenseData(expense: Expense){
-        
+        guard let expenseIndex = userExpenses.firstIndex(of: expense) else { return }
+        userExpenses.remove(at: expenseIndex)
+        saveExpensesToPersistentStore()
+    }
+    
+    func updateBillHasBeenPaid(bill: Bill) {
+        if let billIndex = userBills.firstIndex(of: bill) {
+            userBills[billIndex].hasBeenPaid.toggle()
+        }
+        saveBillsToPersistentStore()
     }
 }
