@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Bill: Codable{
+struct Bill: Codable, Equatable{
     var name: String
     var dollarAmount: Double
     var dueByDate: Date
