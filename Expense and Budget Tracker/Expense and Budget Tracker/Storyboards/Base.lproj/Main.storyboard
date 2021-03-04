@@ -70,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pya-TV-xCo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2239" y="100"/>
+            <point key="canvasLocation" x="1422" y="751"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zy3-16-nbe">
@@ -78,16 +78,18 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TIE-t0-sC7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MeP-GI-ESs">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="kDW-7W-Wgp" kind="relationship" relationship="viewControllers" id="4oA-Sm-j2i"/>
+                        <segue destination="EcG-g0-r9u" kind="relationship" relationship="viewControllers" id="Ulo-gb-SaY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agk-n7-qVE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="760.86956521739137" y="99.776785714285708"/>
+            <point key="canvasLocation" x="2004" y="-713"/>
         </scene>
         <!--Home-->
         <scene sceneID="ott-ww-xS8">
@@ -106,12 +108,86 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxl-IU-nAu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1487" y="100"/>
+            <point key="canvasLocation" x="1422" y="32"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QZe-26-O0t">
+            <objects>
+                <viewController id="bYO-ah-Sh8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xhk-9I-duQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wVS-57-uYH">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="xyV-nN-nlr">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xyV-nN-nlr" id="J2R-H7-BkM">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4n8-Hd-Pt8">
+                                                    <rect key="frame" x="0.0" y="11" width="50" height="50"/>
+                                                    <state key="normal" image="unchecked"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOF-kQ-EB7">
+                                                    <rect key="frame" x="70" y="25" width="72" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4n8-Hd-Pt8" firstAttribute="leading" secondItem="J2R-H7-BkM" secondAttribute="leading" id="1qg-KF-mEB"/>
+                                                <constraint firstItem="wOF-kQ-EB7" firstAttribute="top" secondItem="J2R-H7-BkM" secondAttribute="topMargin" constant="14" id="9Ll-Mh-N9c"/>
+                                                <constraint firstItem="wOF-kQ-EB7" firstAttribute="leading" secondItem="4n8-Hd-Pt8" secondAttribute="trailing" constant="20" id="LdG-tw-NSd"/>
+                                                <constraint firstItem="4n8-Hd-Pt8" firstAttribute="top" secondItem="J2R-H7-BkM" secondAttribute="top" constant="11" id="dUH-ls-ZZ8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bbP-Ae-6LA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8hg-25-yZK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BLa-Nf-wsC"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xil-mh-jGA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2489.8550724637685" y="750.66964285714278"/>
+        </scene>
+        <!--Bills-->
+        <scene sceneID="PaV-4Q-J0d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EcG-g0-r9u" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bills" image="dollarsign.circle.fill" catalog="system" id="Tbe-RD-MaJ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BM3-We-FlM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bYO-ah-Sh8" kind="relationship" relationship="rootViewController" id="qeU-mT-EcO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Qx-vs-fAz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2490" y="31"/>
         </scene>
     </scenes>
     <resources>
+        <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="unchecked" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
