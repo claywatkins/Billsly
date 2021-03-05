@@ -16,6 +16,7 @@ class BillTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet weak var billName: UILabel!
     @IBOutlet weak var paidUnpaidButton: UIButton!
+    @IBOutlet weak var dateDueLabel: UILabel!
     
     // MARK: - Properties
     var bill: Bill? {

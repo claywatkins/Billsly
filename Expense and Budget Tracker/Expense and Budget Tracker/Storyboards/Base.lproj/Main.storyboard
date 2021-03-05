@@ -148,7 +148,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4n8-Hd-Pt8">
                                                     <rect key="frame" x="12" y="17" width="50" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="4n8-Hd-Pt8" secondAttribute="height" multiplier="1:1" id="EnM-4Q-oWV"/>
+                                                        <constraint firstAttribute="width" secondItem="4n8-Hd-Pt8" secondAttribute="height" multiplier="1:1" id="zxr-cr-qWJ"/>
                                                     </constraints>
                                                     <state key="normal" image="unchecked"/>
                                                     <connections>
@@ -156,26 +156,33 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOF-kQ-EB7">
-                                                    <rect key="frame" x="83" y="31.5" width="72" height="21"/>
+                                                    <rect key="frame" x="70" y="32" width="71.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3VO-tP-NoK">
+                                                    <rect key="frame" x="369" y="31.5" width="36" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="wOF-kQ-EB7" firstAttribute="centerY" secondItem="J2R-H7-BkM" secondAttribute="centerY" id="B9w-6e-UWR"/>
-                                                <constraint firstItem="4n8-Hd-Pt8" firstAttribute="top" secondItem="J2R-H7-BkM" secondAttribute="top" constant="17" id="G7c-LR-TPy"/>
-                                                <constraint firstAttribute="bottom" secondItem="4n8-Hd-Pt8" secondAttribute="bottom" constant="17" id="HJa-U2-uj4"/>
-                                                <constraint firstItem="4n8-Hd-Pt8" firstAttribute="leading" secondItem="J2R-H7-BkM" secondAttribute="leading" constant="12" id="Tlt-MG-Yn8"/>
-                                                <constraint firstItem="4n8-Hd-Pt8" firstAttribute="centerY" secondItem="J2R-H7-BkM" secondAttribute="centerY" id="UKT-GU-Hfx"/>
-                                                <constraint firstItem="wOF-kQ-EB7" firstAttribute="top" secondItem="J2R-H7-BkM" secondAttribute="topMargin" constant="20.5" id="YzR-rS-0J6"/>
-                                                <constraint firstItem="wOF-kQ-EB7" firstAttribute="leading" secondItem="4n8-Hd-Pt8" secondAttribute="trailing" constant="21" id="dFn-Lg-Aya"/>
-                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="wOF-kQ-EB7" secondAttribute="trailing" constant="239" id="gMN-AL-lvA"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="wOF-kQ-EB7" secondAttribute="bottom" constant="20.5" id="sLQ-gk-EQf"/>
+                                                <constraint firstItem="4n8-Hd-Pt8" firstAttribute="leading" secondItem="J2R-H7-BkM" secondAttribute="leading" constant="12" id="AHc-4F-dmd"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="wOF-kQ-EB7" secondAttribute="bottom" constant="20" id="Gwp-Nd-oXq"/>
+                                                <constraint firstItem="wOF-kQ-EB7" firstAttribute="top" secondItem="J2R-H7-BkM" secondAttribute="topMargin" constant="21" id="P0l-5A-LEO"/>
+                                                <constraint firstAttribute="bottom" secondItem="3VO-tP-NoK" secondAttribute="bottom" constant="31.5" id="Tis-m1-PUF"/>
+                                                <constraint firstAttribute="bottom" secondItem="4n8-Hd-Pt8" secondAttribute="bottom" constant="17" id="ak3-fe-odD"/>
+                                                <constraint firstAttribute="trailing" secondItem="3VO-tP-NoK" secondAttribute="trailing" constant="9" id="mLi-pw-EKw"/>
+                                                <constraint firstItem="wOF-kQ-EB7" firstAttribute="leading" secondItem="4n8-Hd-Pt8" secondAttribute="trailing" constant="8" symbolic="YES" id="oBV-Lt-5ob"/>
+                                                <constraint firstItem="4n8-Hd-Pt8" firstAttribute="top" secondItem="J2R-H7-BkM" secondAttribute="top" constant="17" id="sJo-w8-E6c"/>
+                                                <constraint firstItem="3VO-tP-NoK" firstAttribute="top" secondItem="J2R-H7-BkM" secondAttribute="top" constant="31.5" id="zzJ-xH-gll"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="billName" destination="wOF-kQ-EB7" id="aEb-Wa-392"/>
+                                            <outlet property="dateDueLabel" destination="3VO-tP-NoK" id="QhD-qC-b3V"/>
                                             <outlet property="paidUnpaidButton" destination="4n8-Hd-Pt8" id="Ybf-il-YZ6"/>
                                         </connections>
                                     </tableViewCell>
