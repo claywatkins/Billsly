@@ -93,6 +93,14 @@ extension BillsViewController: UITableViewDataSource, UITableViewDelegate {
             return "Unpaid Bills"
         }
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let bill = billFor(indexPath: indexPath)
+            userController.deleteBillData(bill: bill)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
 
 extension BillsViewController: BillTableViewCellDelegate {

@@ -63,5 +63,12 @@ extension ExpensesViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let expense = userController.userExpenses[indexPath.row]
+            userController.deleteExpenseData(expense: expense)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
 }
