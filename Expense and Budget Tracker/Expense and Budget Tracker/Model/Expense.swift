@@ -7,16 +7,27 @@
 
 import Foundation
 
+enum Category: String, Codable{
+    case Food = "Food"
+    case Luxury = "Luxury"
+    case Bills = "Bills"
+    case LifeNeeds = "Life Needs"
+}
+
 struct Expense: Codable, Equatable{
     var name: String
     var dollarAmount: Double
     var description: String?
-    var category: String?
+    var category: Category?
+    var date: Date?
     
-    internal init(name: String, dollarAmount: Double, description: String? = nil, category: String? = nil) {
+    init(name: String, dollarAmount: Double, description: String? = nil, category: Category? = nil, date: Date? = Date()) {
         self.name = name
         self.dollarAmount = dollarAmount
         self.description = description
         self.category = category
+        self.date = date
     }
+    
+    
 }
