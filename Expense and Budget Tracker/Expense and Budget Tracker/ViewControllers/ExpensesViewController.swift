@@ -18,7 +18,6 @@ class ExpensesViewController: UIViewController, ChartViewDelegate {
     let userController = UserController.shared
     let players = ["Clay", "Bronson", "Kim", "Coco", "Jorah", "Lenny"]
     let goals = [6, 8, 26, 30, 8, 10]
-    var popUpWindow: PopUpWindow!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,27 +29,24 @@ class ExpensesViewController: UIViewController, ChartViewDelegate {
     
     // MARK: - IBAction
     @IBAction func addButtonTapped(_ sender: Any) {
-        popUpWindow = PopUpWindow(title: "Add an expense", text: "Try adding one here", buttontext: "Save")
-        self.present(popUpWindow, animated: true)
-        
-//        let ac = UIAlertController(title: "Add a new Expense", message: nil , preferredStyle: .alert)
-//        ac.addTextField { (textField) in
-//            textField.placeholder = "Expense Name"
-//        }
-//        ac.addTextField { (textField) in
-//            textField.placeholder = "Dollar Amount"
-//        }
-//        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
-//            let firstTextField = ac.textFields![0]
-//            let secondTextField = ac.textFields![1]
-//            guard let name = firstTextField.text else { return }
-//            guard let dollarAmount = secondTextField.text else { return }
-//            self.userController.createExpense(name: name, dollarAmount: Double(dollarAmount)!)
-//            self.tableView.reloadData()
-//            self.customizeChart(dataPoints: self.userController.userExpenses)
-//        }
-//        ac.addAction(submitAction)
-//        self.present(ac, animated: true, completion: nil)
+        let ac = UIAlertController(title: "Add a new Expense", message: nil , preferredStyle: .alert)
+        ac.addTextField { (textField) in
+            textField.placeholder = "Expense Name"
+        }
+        ac.addTextField { (textField) in
+            textField.placeholder = "Dollar Amount"
+        }
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
+            let firstTextField = ac.textFields![0]
+            let secondTextField = ac.textFields![1]
+            guard let name = firstTextField.text else { return }
+            guard let dollarAmount = secondTextField.text else { return }
+            self.userController.createExpense(name: name, dollarAmount: Double(dollarAmount)!)
+            self.tableView.reloadData()
+            self.customizeChart(dataPoints: self.userController.userExpenses)
+        }
+        ac.addAction(submitAction)
+        self.present(ac, animated: true, completion: nil)
     }
     
     // MARK: - Methods
