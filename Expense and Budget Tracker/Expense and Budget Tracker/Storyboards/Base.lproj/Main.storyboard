@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="iN1-qF-iua">
-                                <rect key="frame" x="20" y="140" width="374" height="260.5"/>
+                                <rect key="frame" x="20" y="140" width="374" height="239"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PAL-2H-Pmo">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="63"/>
@@ -63,10 +63,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ITh-hS-hmO">
-                                        <rect key="frame" x="0.0" y="176" width="374" height="84.5"/>
+                                        <rect key="frame" x="0.0" y="176" width="374" height="63"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="XFg-yA-qDg">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XFg-yA-qDg">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="63"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnD-l9-D1C">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
@@ -74,27 +74,34 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xnF-vk-vfI">
+                                                        <rect key="frame" x="0.0" y="29" width="374" height="34"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gb2-GQ-9FL">
+                                                                <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="34" id="zJQ-DK-doH"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <state key="normal" image="plus" catalog="system">
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23"/>
+                                                                </state>
+                                                            </button>
+                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap  + to add category or create your own" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PiW-sa-qcd">
+                                                                <rect key="frame" x="39" y="0.0" width="335" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXk-L1-i7W">
-                                                <rect key="frame" x="0.0" y="29" width="374" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZ0-e2-QF1">
-                                                <rect key="frame" x="0.0" y="54.5" width="374" height="30"/>
-                                                <state key="normal" title="Tap to add a Category"/>
-                                                <connections>
-                                                    <action selector="addCategoryButtonTapped:" destination="ZJF-go-VFj" eventType="touchUpInside" id="wV1-PH-Tdo"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="R92-MQ-pJI">
-                                <rect key="frame" x="20" y="425.5" width="374" height="332"/>
+                                <rect key="frame" x="20" y="404" width="374" height="332"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irX-F0-OSM">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
@@ -150,7 +157,7 @@
                     <navigationItem key="navigationItem" title="Add an Expense" id="m5X-LY-SpI"/>
                     <connections>
                         <outlet property="calendarView" destination="uRz-ol-N18" id="d7e-Fi-cp5"/>
-                        <outlet property="categoryNameLabel" destination="KXk-L1-i7W" id="FDu-H8-Yzi"/>
+                        <outlet property="categoryTextField" destination="PiW-sa-qcd" id="gob-Ug-FL5"/>
                         <outlet property="dollarAmountTextFIeld" destination="3Ue-2h-ZW9" id="zM5-co-v7K"/>
                         <outlet property="expenseNameTextField" destination="H6R-R8-pM6" id="94i-K0-7Xj"/>
                         <outlet property="selectedDateLabel" destination="qpH-4I-UhW" id="lte-xc-aZL"/>
