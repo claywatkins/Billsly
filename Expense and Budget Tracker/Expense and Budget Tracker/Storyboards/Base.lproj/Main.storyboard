@@ -11,7 +11,7 @@
         <!--Add an Expense-->
         <scene sceneID="oJr-rt-srU">
             <objects>
-                <viewController id="ZJF-go-VFj" sceneMemberID="viewController">
+                <viewController id="ZJF-go-VFj" customClass="AddExpenseViewController" customModule="Expense_and_Budget_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OHS-ke-2L0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,6 +85,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZ0-e2-QF1">
                                                 <rect key="frame" x="0.0" y="54.5" width="374" height="30"/>
                                                 <state key="normal" title="Tap to add a Category"/>
+                                                <connections>
+                                                    <action selector="addCategoryButtonTapped:" destination="ZJF-go-VFj" eventType="touchUpInside" id="wV1-PH-Tdo"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -122,6 +125,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzG-ny-3pW">
                                 <rect key="frame" x="20" y="763" width="374" height="30"/>
                                 <state key="normal" title="Save Expense"/>
+                                <connections>
+                                    <action selector="saveExpenseButtonTapped:" destination="ZJF-go-VFj" eventType="touchUpInside" id="PR7-S2-vqa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Yj-Ac-xIL"/>
@@ -139,6 +145,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add an Expense" id="m5X-LY-SpI"/>
+                    <connections>
+                        <outlet property="calendarView" destination="uRz-ol-N18" id="d7e-Fi-cp5"/>
+                        <outlet property="categoryNameLabel" destination="KXk-L1-i7W" id="FDu-H8-Yzi"/>
+                        <outlet property="dollarAmountTextFIeld" destination="3Ue-2h-ZW9" id="zM5-co-v7K"/>
+                        <outlet property="expenseNameTextField" destination="H6R-R8-pM6" id="94i-K0-7Xj"/>
+                        <outlet property="selectedDateLabel" destination="qpH-4I-UhW" id="lte-xc-aZL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wku-7T-gst" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

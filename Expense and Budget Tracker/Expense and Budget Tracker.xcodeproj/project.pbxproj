@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B1FEBA225F6B2BE00F0FC87 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1FEBA125F6B2BE00F0FC87 /* AddExpenseViewController.swift */; };
 		0B57467F25F690F500EC81DA /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 0B57467E25F690F500EC81DA /* FSCalendar */; };
 		0B8B697925DB646000B9F55E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B697825DB646000B9F55E /* AppDelegate.swift */; };
 		0B8B697B25DB646000B9F55E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B697A25DB646000B9F55E /* SceneDelegate.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B1FEBA125F6B2BE00F0FC87 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		0B8B697525DB646000B9F55E /* Expense and Budget Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense and Budget Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8B697825DB646000B9F55E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B8B697A25DB646000B9F55E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				0BF254EC25F0CCE30078BD9F /* ExpensesViewController.swift */,
 				0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */,
+				0B1FEBA125F6B2BE00F0FC87 /* AddExpenseViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				0BF254E525F0C5430078BD9F /* userController.swift in Sources */,
 				0B8B697B25DB646000B9F55E /* SceneDelegate.swift in Sources */,
 				0BDFC21125F1C61800760A6F /* PopUpWindowView.swift in Sources */,
+				0B1FEBA225F6B2BE00F0FC87 /* AddExpenseViewController.swift in Sources */,
 				0BF254ED25F0CCE30078BD9F /* ExpensesViewController.swift in Sources */,
 				0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */,
 			);
