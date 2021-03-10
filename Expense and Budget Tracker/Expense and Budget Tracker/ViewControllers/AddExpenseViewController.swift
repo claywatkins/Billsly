@@ -16,6 +16,7 @@ class AddExpenseViewController: UIViewController {
     @IBOutlet weak var dollarAmountTextFIeld: UITextField!
     @IBOutlet weak var selectedDateLabel: UILabel!
     @IBOutlet weak var calendarView: FSCalendar!
+    @IBOutlet weak var addCategoryButton: UIButton!
     
     // MARK: - Properties
     let df = DateFormatter()
@@ -34,8 +35,26 @@ class AddExpenseViewController: UIViewController {
         selectedDateLabel.text = df.string(from: Date())
     }
     
-
+    
     // MARK: - IBActions
+    @IBAction func addCategoryButtonTapped(_ sender: Any) {
+        let button = sender as? UIButton
+        let buttonFrame = button?.frame ?? CGRect.zero
+        
+        let popoverContentController = self.storyboard?.instantiateViewController(withIdentifier: "CategoryPopoverViewController") as? CategoryPopoverViewController
+        popoverContentController?.modalPresentationStyle = .popover
+        
+        if let popoverPresentationController = popoverContentController?.popoverPresentationController {
+            popoverPresentationController.permittedArrowDirections = .any
+            popoverPresentationController.sourceView = addCategoryButton
+            popoverPresentationController.sourceRect = CGRect(origin: addCategoryButton.center, size: .zero)
+            popoverPresentationController.delegate = self
+            if let popoverController = popoverContentController {
+                present(popoverController, animated: true, completion: nil)
+            }
+        }
+    }
+    
     
     @IBAction func saveExpenseButtonTapped(_ sender: Any) {
         
@@ -49,5 +68,19 @@ extension AddExpenseViewController: FSCalendarDelegate, FSCalendarDataSource {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
         selectedDateLabel.text = dateFormatter.string(from: date)
+    }
+}
+
+extension AddExpenseViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        
+    }
+    
+    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+        return true
     }
 }
