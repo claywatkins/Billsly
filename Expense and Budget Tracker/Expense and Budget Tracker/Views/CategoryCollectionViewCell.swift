@@ -8,5 +8,18 @@
 import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
+    // MARK: - IBOutlets
+    @IBOutlet weak var categoryNameLabel: UILabel!
     
+    // MARK: - Properties
+    var category: Category? {
+        didSet{
+            updateViews()
+        }
+    }
+    
+    // MARK: - Methods
+    private func updateViews() {
+        categoryNameLabel.text = category?.name ?? "Unknown"
+    }
 }

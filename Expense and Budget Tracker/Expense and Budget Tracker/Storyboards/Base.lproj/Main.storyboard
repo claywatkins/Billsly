@@ -226,6 +226,9 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="131" height="88"/>
+                                        <connections>
+                                            <outlet property="categoryNameLabel" destination="aVB-BJ-rBq" id="BYC-5w-Hi3"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
