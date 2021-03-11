@@ -60,6 +60,7 @@ class UserController {
     func createCategory(name: String) {
         let newCategory = Category(name: name)
         userCategories.append(newCategory)
+        print("Category saved")
         saveCategoriesToPersistentStore()
     }
     
@@ -145,10 +146,11 @@ class UserController {
     
     func loadCategoryData() {
         let fm = FileManager.default
-        guard let url = persistentExpensesFileURL, fm.fileExists(atPath: url.path) else { return }
+        guard let url = persistentCategoriesFileURL, fm.fileExists(atPath: url.path) else { return }
         do {
             let data = try Data(contentsOf: url)
             self.userCategories = try PropertyListDecoder().decode([Category].self, from: data)
+            print("Category Loaded")
         } catch {
             print("Error loading Category data")
         }

@@ -8,7 +8,7 @@
 import UIKit
 import FSCalendar
 
-class AddExpenseViewController: UIViewController {
+class AddExpenseViewController: UIViewController{
     
     // MARK: - IBOutlets
     @IBOutlet weak var expenseNameTextField: UITextField!
@@ -22,11 +22,13 @@ class AddExpenseViewController: UIViewController {
     let df = DateFormatter()
     let picker = UIPickerView()
     let toolBar = UIToolbar()
+    let userController = UserController.shared
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        userController.loadCategoryData()
     }
     
     // MARK: - Methods
@@ -38,11 +40,9 @@ class AddExpenseViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func addCategoryButtonTapped(_ sender: Any) {
-        let button = sender as? UIButton
-        let buttonFrame = button?.frame ?? CGRect.zero
-        
         let popoverContentController = self.storyboard?.instantiateViewController(withIdentifier: "CategoryPopoverViewController") as? CategoryPopoverViewController
         popoverContentController?.modalPresentationStyle = .popover
+        popoverContentController?.delegate = self
         
         if let popoverPresentationController = popoverContentController?.popoverPresentationController {
             popoverPresentationController.permittedArrowDirections = .any
@@ -78,5 +78,11 @@ extension AddExpenseViewController: UIPopoverPresentationControllerDelegate {
     
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
         
+    }
+}
+
+extension AddExpenseViewController: CategoryCellTapped {
+    func categoryCellTapped(name: String) {
+        categoryTextField.text = name
     }
 }

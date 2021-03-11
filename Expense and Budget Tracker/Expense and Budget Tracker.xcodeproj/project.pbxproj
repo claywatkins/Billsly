@@ -23,8 +23,8 @@
 		0BF254ED25F0CCE30078BD9F /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254EC25F0CCE30078BD9F /* ExpensesViewController.swift */; };
 		0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */; };
 		0BF254F325F0CF510078BD9F /* BillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254F225F0CF510078BD9F /* BillTableViewCell.swift */; };
-		0BF2A16325F986C600308C04 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2A16225F986C600308C04 /* CategoryCollectionViewCell.swift */; };
 		0BF2A16525F9873800308C04 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2A16425F9873800308C04 /* Category.swift */; };
+		0BF2A16925F9CBFC00308C04 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2A16825F9CBFC00308C04 /* CategoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,8 +57,8 @@
 		0BF254EC25F0CCE30078BD9F /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
 		0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsViewController.swift; sourceTree = "<group>"; };
 		0BF254F225F0CF510078BD9F /* BillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillTableViewCell.swift; sourceTree = "<group>"; };
-		0BF2A16225F986C600308C04 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		0BF2A16425F9873800308C04 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		0BF2A16825F9CBFC00308C04 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +146,7 @@
 			children = (
 				0BF254F225F0CF510078BD9F /* BillTableViewCell.swift */,
 				0BDFC21025F1C61800760A6F /* PopUpWindowView.swift */,
-				0BF2A16225F986C600308C04 /* CategoryCollectionViewCell.swift */,
+				0BF2A16825F9CBFC00308C04 /* CategoryTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,13 +245,13 @@
 				0BF254E225F0C4DB0078BD9F /* Expense.swift in Sources */,
 				0BF254E925F0C5A90078BD9F /* Bill.swift in Sources */,
 				0B4E71E725F95BE000461B15 /* CategoryPopoverViewController.swift in Sources */,
-				0BF2A16325F986C600308C04 /* CategoryCollectionViewCell.swift in Sources */,
 				0B8B697925DB646000B9F55E /* AppDelegate.swift in Sources */,
 				0BF254E525F0C5430078BD9F /* userController.swift in Sources */,
 				0B8B697B25DB646000B9F55E /* SceneDelegate.swift in Sources */,
 				0BDFC21125F1C61800760A6F /* PopUpWindowView.swift in Sources */,
 				0BF2A16525F9873800308C04 /* Category.swift in Sources */,
 				0B1FEBA225F6B2BE00F0FC87 /* AddExpenseViewController.swift in Sources */,
+				0BF2A16925F9CBFC00308C04 /* CategoryTableViewCell.swift in Sources */,
 				0BF254ED25F0CCE30078BD9F /* ExpensesViewController.swift in Sources */,
 				0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */,
 			);
