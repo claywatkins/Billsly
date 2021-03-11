@@ -24,6 +24,7 @@
 		0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */; };
 		0BF254F325F0CF510078BD9F /* BillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254F225F0CF510078BD9F /* BillTableViewCell.swift */; };
 		0BF2A16325F986C600308C04 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2A16225F986C600308C04 /* CategoryCollectionViewCell.swift */; };
+		0BF2A16525F9873800308C04 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2A16425F9873800308C04 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +58,7 @@
 		0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsViewController.swift; sourceTree = "<group>"; };
 		0BF254F225F0CF510078BD9F /* BillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillTableViewCell.swift; sourceTree = "<group>"; };
 		0BF2A16225F986C600308C04 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		0BF2A16425F9873800308C04 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				0BF254E125F0C4DB0078BD9F /* Expense.swift */,
 				0BF254E825F0C5A90078BD9F /* Bill.swift */,
+				0BF2A16425F9873800308C04 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				0BF254E525F0C5430078BD9F /* userController.swift in Sources */,
 				0B8B697B25DB646000B9F55E /* SceneDelegate.swift in Sources */,
 				0BDFC21125F1C61800760A6F /* PopUpWindowView.swift in Sources */,
+				0BF2A16525F9873800308C04 /* Category.swift in Sources */,
 				0B1FEBA225F6B2BE00F0FC87 /* AddExpenseViewController.swift in Sources */,
 				0BF254ED25F0CCE30078BD9F /* ExpensesViewController.swift in Sources */,
 				0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */,

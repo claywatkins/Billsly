@@ -12,13 +12,13 @@ struct Bill: Codable, Equatable{
     var dollarAmount: Double
     var dueByDate: Date?
     var hasBeenPaid: Bool
-    var category: String?
+    var category: Category?
     var description: String?
     
     init(name: String,
          dollarAmount: Double,
          dueByDate: Date? = Date(),
-         category: String? = nil,
+         category: Category? = nil,
          description: String? = nil) {
         
         self.name = name
