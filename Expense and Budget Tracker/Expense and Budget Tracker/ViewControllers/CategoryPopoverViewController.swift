@@ -33,6 +33,8 @@ class CategoryPopoverViewController: UIViewController {
         print(userController.userCategories.count)
     }
     
+    // MARK: - Methods
+    
     // MARK: - IBActions
     @IBAction func addCategoryButtonTapped(_ sender: Any) {
         let ac = UIAlertController(title: "Add a Category", message: nil, preferredStyle: .alert)
@@ -65,6 +67,14 @@ extension CategoryPopoverViewController: UITableViewDelegate, UITableViewDataSou
         let name = userController.userCategories[indexPath.row].name
         delegate?.categoryCellTapped(name: name)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let category = userController.userCategories[indexPath.row]
+            userController.deleteCategoryData(category: category)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
 
