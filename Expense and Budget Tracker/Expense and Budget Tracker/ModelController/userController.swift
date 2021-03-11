@@ -57,6 +57,11 @@ class UserController {
         print("Expense added Successfully")
         saveExpensesToPersistentStore()
     }
+    func createCategory(name: String) {
+        let newCategory = Category(name: name)
+        userCategories.append(newCategory)
+        saveCategoriesToPersistentStore()
+    }
     
     func updateBillHasBeenPaid(bill: Bill) {
         if let billIndex = userBills.firstIndex(of: bill) {
@@ -75,6 +80,12 @@ class UserController {
         guard let expenseIndex = userExpenses.firstIndex(of: expense) else { return }
         userExpenses.remove(at: expenseIndex)
         saveExpensesToPersistentStore()
+    }
+    
+    func deleteCategoryData(category: Category) {
+        guard let categoryIndex = userCategories.firstIndex(of: category) else { return }
+        userCategories.remove(at: categoryIndex)
+        saveCategoriesToPersistentStore()
     }
     
     // MARK: - Persistence
@@ -122,6 +133,25 @@ class UserController {
         }
     }
     
-
+    func saveCategoriesToPersistentStore() {
+        guard let url = persistentCategoriesFileURL else { return }
+        do {
+            let data = try PropertyListEncoder().encode(self.userCategories)
+            try data.write(to: url)
+        } catch {
+            print("Error saving Category data")
+        }
+    }
+    
+    func loadCategoryData() {
+        let fm = FileManager.default
+        guard let url = persistentExpensesFileURL, fm.fileExists(atPath: url.path) else { return }
+        do {
+            let data = try Data(contentsOf: url)
+            self.userCategories = try PropertyListDecoder().decode([Category].self, from: data)
+        } catch {
+            print("Error loading Category data")
+        }
+    }
     
 }
