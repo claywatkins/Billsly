@@ -13,6 +13,8 @@ class UserController {
     static let shared = UserController()
     var userExpenses: [Expense] = []
     var userBills: [Bill] = []
+    var userCategories: [Category] = []
+    
     var persistentBillsFileURL: URL? {
         let fm = FileManager.default
         let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first
@@ -23,6 +25,12 @@ class UserController {
         let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first
         return documents?.appendingPathExtension("userExpenses.plist")
     }
+    var persistentCategoriesFileURL: URL? {
+        let fm = FileManager.default
+        let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first
+        return documents?.appendingPathExtension("userCategories.plist")
+    }
+    
     var paidBills: [Bill] {
         let bills = userBills
         let filteredPaidBills = bills.filter{ (bills) -> Bool in bills.hasBeenPaid == true }
