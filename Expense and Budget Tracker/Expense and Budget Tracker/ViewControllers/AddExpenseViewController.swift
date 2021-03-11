@@ -28,7 +28,6 @@ class AddExpenseViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-        userController.loadCategoryData()
     }
     
     // MARK: - Methods
