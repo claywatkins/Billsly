@@ -29,11 +29,28 @@ class CategoryPopoverViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loadDefaultCategories()
         userController.loadCategoryData()
         print(userController.userCategories.count)
     }
     
     // MARK: - Methods
+    private func loadDefaultCategories() {
+        if userController.userCategories.isEmpty {
+            let defaultCategories: [Category] = [
+                Category(name: "Subscription"),
+                Category(name: "Utility"),
+                Category(name: "Rent"),
+                Category(name: "Loan"),
+                Category(name: "CreditCard")
+            ]
+            
+            for i in defaultCategories {
+                userController.userCategories.append(i)
+            }
+            userController.saveCategoriesToPersistentStore()
+        }
+    }
     
     // MARK: - IBActions
     @IBAction func addCategoryButtonTapped(_ sender: Any) {
