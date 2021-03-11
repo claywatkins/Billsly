@@ -41,10 +41,10 @@ class CategoryPopoverViewController: UIViewController {
                 Category(name: "Subscription"),
                 Category(name: "Utility"),
                 Category(name: "Rent"),
+                Category(name: "Mortgage"),
                 Category(name: "Loan"),
                 Category(name: "CreditCard")
             ]
-            
             for i in defaultCategories {
                 userController.userCategories.append(i)
             }
