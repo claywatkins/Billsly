@@ -7,12 +7,6 @@
 
 import Foundation
 
-enum Category: String, Codable, CaseIterable{
-    case Food = "Food"
-    case Luxury = "Luxury"
-    case Bills = "Bills"
-    case LifeNeeds = "Life Needs"
-}
 
 struct Expense: Codable, Equatable{
     var name: String
