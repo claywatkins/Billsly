@@ -253,7 +253,7 @@
         <!--Welcome Back, User-->
         <scene sceneID="8Xh-oJ-cTe">
             <objects>
-                <viewController id="nUp-IN-LDS" sceneMemberID="viewController">
+                <viewController id="nUp-IN-LDS" customClass="HomeViewController" customModule="Expense_and_Budget_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CCM-C3-OU6">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -306,6 +306,9 @@
                                         <state key="normal" title="I paid a bill">
                                             <color key="titleColor" systemColor="systemBlueColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="paidBillsButtonTapped:" destination="nUp-IN-LDS" eventType="touchUpInside" id="1lp-OV-O9Q"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1f-t5-KmR">
                                         <rect key="frame" x="229" y="0.0" width="159" height="39"/>
@@ -354,6 +357,16 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="amountOfBillsPaid" destination="F7X-Tz-CiN" id="9YD-3O-kCd"/>
+                        <outlet property="calendarHostView" destination="ErR-ba-1nl" id="ydT-yz-VBP"/>
+                        <outlet property="chartHostView" destination="rNy-gZ-DA1" id="pDY-tV-KAX"/>
+                        <outlet property="dateLabel" destination="M6Z-Ac-nLp" id="qKx-a8-aIA"/>
+                        <outlet property="fsCalendarView" destination="rKe-un-9cb" id="LNM-Re-XZI"/>
+                        <outlet property="manageBillsButton" destination="w1f-t5-KmR" id="r1f-64-bm1"/>
+                        <outlet property="paidBillButton" destination="GAR-eK-U57" id="cfP-lV-Gch"/>
+                        <outlet property="pieChartView" destination="2Xe-xY-LFS" id="6oP-tZ-tnO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zmr-8h-enX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
