@@ -10,15 +10,14 @@ import Foundation
 struct Bill: Codable, Equatable{
     var name: String
     var dollarAmount: Double
-    var dueByDate: Date?
+    var dueByDate: Date
     var hasBeenPaid: Bool
-    var category: Category?
+    var category: Category
     
     init(name: String,
          dollarAmount: Double,
-         dueByDate: Date? = Date(),
-         category: Category? = nil,
-         description: String? = nil) {
+         dueByDate: Date,
+         category: Category) {
         
         self.name = name
         self.dollarAmount = dollarAmount
