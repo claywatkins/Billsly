@@ -581,6 +581,9 @@
                                                                 <state key="normal" image="plus" catalog="system">
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="addCategoryButtonTapped:" destination="yPg-7F-iaV" eventType="touchUpInside" id="jih-1p-Mp0"/>
+                                                                </connections>
                                                             </button>
                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap  + to add category or create your own" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4CL-Bp-6jX">
                                                                 <rect key="frame" x="39" y="0.0" width="349" height="34"/>

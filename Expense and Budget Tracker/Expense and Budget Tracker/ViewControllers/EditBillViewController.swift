@@ -9,6 +9,7 @@ import UIKit
 import FSCalendar
 
 class EditBillViewController: UIViewController {
+    
     // MARK: - IBOutlets
     @IBOutlet weak var billNameTextField: UITextField!
     @IBOutlet weak var dollarAmountTextField: UITextField!
@@ -21,6 +22,7 @@ class EditBillViewController: UIViewController {
     let userController = UserController.shared
     var bill: Bill?
     var amt = 0
+    var delegate: CategoryCellTapped?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -97,6 +99,21 @@ class EditBillViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func addCategoryButtonTapped(_ sender: Any) {
+        let popoverContentController = self.storyboard?.instantiateViewController(withIdentifier: "CategoryPopoverViewController") as? CategoryPopoverViewController
+        popoverContentController?.modalPresentationStyle = .popover
+        popoverContentController?.delegate = self
+        
+        if let popoverPresentationController = popoverContentController?.popoverPresentationController {
+            popoverPresentationController.permittedArrowDirections = .any
+            popoverPresentationController.sourceView = addCategoryButton
+            popoverPresentationController.sourceRect = CGRect(origin: addCategoryButton.center, size: .zero)
+            popoverPresentationController.delegate = self
+            if let popoverController = popoverContentController {
+                present(popoverController, animated: true, completion: nil)
+            }
+        }
+    }
 }
 
 extension EditBillViewController: FSCalendarDelegate, FSCalendarDataSource {
@@ -125,5 +142,17 @@ extension EditBillViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+}
+
+extension EditBillViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+}
+
+extension EditBillViewController: CategoryCellTapped {
+    func categoryCellTapped(name: String) {
+        categoryTextField.text = name
     }
 }
