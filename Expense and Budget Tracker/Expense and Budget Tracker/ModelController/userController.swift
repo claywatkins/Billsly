@@ -11,6 +11,7 @@ class UserController {
     
     // MARK: - Properties
     static let shared = UserController()
+    let df = DateFormatter()
     var userExpenses: [Expense] = []
     var userBills: [Bill] = []
     var userCategories: [Category] = []
@@ -69,6 +70,16 @@ class UserController {
     func updateBillHasBeenPaid(bill: Bill) {
         if let billIndex = userBills.firstIndex(of: bill) {
             userBills[billIndex].hasBeenPaid.toggle()
+        }
+        saveBillsToPersistentStore()
+    }
+    
+    func updateBillData(bill: Bill, name: String, dollarAmount: Double, dueByDate: Date, category: Category) {
+        if let bookIndex = userBills.firstIndex(of: bill) {
+            userBills[bookIndex].name = name
+            userBills[bookIndex].dollarAmount = dollarAmount
+            userBills[bookIndex].dueByDate = dueByDate
+            userBills[bookIndex].category = category
         }
         saveBillsToPersistentStore()
     }
