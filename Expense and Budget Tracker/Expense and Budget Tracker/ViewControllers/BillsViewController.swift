@@ -22,6 +22,11 @@ class BillsViewController: UIViewController {
         userController.loadBillData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     // MARK: - Methods
     func billFor(indexPath: IndexPath) -> Bill {
         if indexPath.section == 0{
@@ -29,27 +34,6 @@ class BillsViewController: UIViewController {
         } else {
             return userController.unpaidBills[indexPath.row]
         }
-    }
-    
-    // MARK: - IBAction
-    @IBAction func addBillTapped(_ sender: Any) {
-        let ac = UIAlertController(title: "Add a new Bill", message: nil , preferredStyle: .alert)
-        ac.addTextField { (textField) in
-            textField.placeholder = "Bill Name"
-        }
-        ac.addTextField { (textField) in
-            textField.placeholder = "Dollar Amount"
-        }
-        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
-            let firstTextField = ac.textFields![0]
-            let secondTextField = ac.textFields![1]
-            guard let name = firstTextField.text else { return }
-            guard let dollarAmount = secondTextField.text else { return }
-            self.userController.createBill(name: name, dollarAmount: Double(dollarAmount)!)
-            self.tableView.reloadData()
-        }
-        ac.addAction(submitAction)
-        self.present(ac, animated: true, completion: nil)
     }
     
     // MARK: - Navigation

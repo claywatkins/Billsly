@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B1FEBA225F6B2BE00F0FC87 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1FEBA125F6B2BE00F0FC87 /* AddExpenseViewController.swift */; };
+		0B1FEBA225F6B2BE00F0FC87 /* AddBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1FEBA125F6B2BE00F0FC87 /* AddBillViewController.swift */; };
 		0B4E71E725F95BE000461B15 /* CategoryPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E71E625F95BE000461B15 /* CategoryPopoverViewController.swift */; };
 		0B57467F25F690F500EC81DA /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 0B57467E25F690F500EC81DA /* FSCalendar */; };
 		0B7B904125FADD510059CC6E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B904025FADD510059CC6E /* HomeViewController.swift */; };
@@ -42,7 +42,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0B1FEBA125F6B2BE00F0FC87 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		0B1FEBA125F6B2BE00F0FC87 /* AddBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillViewController.swift; sourceTree = "<group>"; };
 		0B4E71E625F95BE000461B15 /* CategoryPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPopoverViewController.swift; sourceTree = "<group>"; };
 		0B7B904025FADD510059CC6E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0B8B697525DB646000B9F55E /* Expense and Budget Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense and Budget Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,7 +158,7 @@
 			children = (
 				0BF254EC25F0CCE30078BD9F /* ExpensesViewController.swift */,
 				0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */,
-				0B1FEBA125F6B2BE00F0FC87 /* AddExpenseViewController.swift */,
+				0B1FEBA125F6B2BE00F0FC87 /* AddBillViewController.swift */,
 				0B4E71E625F95BE000461B15 /* CategoryPopoverViewController.swift */,
 				0B7B904025FADD510059CC6E /* HomeViewController.swift */,
 			);
@@ -254,7 +254,7 @@
 				0B8B697B25DB646000B9F55E /* SceneDelegate.swift in Sources */,
 				0BDFC21125F1C61800760A6F /* PopUpWindowView.swift in Sources */,
 				0BF2A16525F9873800308C04 /* Category.swift in Sources */,
-				0B1FEBA225F6B2BE00F0FC87 /* AddExpenseViewController.swift in Sources */,
+				0B1FEBA225F6B2BE00F0FC87 /* AddBillViewController.swift in Sources */,
 				0BF2A16925F9CBFC00308C04 /* CategoryTableViewCell.swift in Sources */,
 				0BF254ED25F0CCE30078BD9F /* ExpensesViewController.swift in Sources */,
 				0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */,

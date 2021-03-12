@@ -11,7 +11,7 @@
         <!--Add a Bill-->
         <scene sceneID="oJr-rt-srU">
             <objects>
-                <viewController id="ZJF-go-VFj" customClass="AddExpenseViewController" customModule="Expense_and_Budget_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZJF-go-VFj" customClass="AddBillViewController" customModule="Expense_and_Budget_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OHS-ke-2L0">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,7 +87,7 @@
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="addCategoryButtonTapped:" destination="ZJF-go-VFj" eventType="touchUpInside" id="HPt-gG-bMl"/>
+                                                                    <action selector="addCategoryButtonTapped:" destination="ZJF-go-VFj" eventType="touchUpInside" id="841-Z1-LRg"/>
                                                                 </connections>
                                                             </button>
                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap  + to add category or create your own" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PiW-sa-qcd">
@@ -107,7 +107,7 @@
                                 <rect key="frame" x="20" y="833.33333333333337" width="388" height="30"/>
                                 <state key="normal" title="Save Bill"/>
                                 <connections>
-                                    <action selector="saveExpenseButtonTapped:" destination="ZJF-go-VFj" eventType="touchUpInside" id="PR7-S2-vqa"/>
+                                    <action selector="saveBillButtonTapped:" destination="ZJF-go-VFj" eventType="touchUpInside" id="k8k-jj-H1A"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="R92-MQ-pJI">
@@ -132,8 +132,8 @@
                                             <constraint firstAttribute="height" constant="308" id="VSd-BB-rjC"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="dataSource" destination="ZJF-go-VFj" id="cCB-Da-1nD"/>
-                                            <outlet property="delegate" destination="ZJF-go-VFj" id="47F-ky-KFV"/>
+                                            <outlet property="dataSource" destination="ZJF-go-VFj" id="e50-kM-7yk"/>
+                                            <outlet property="delegate" destination="ZJF-go-VFj" id="1Bw-iv-F7s"/>
                                         </connections>
                                     </view>
                                 </subviews>
@@ -155,12 +155,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add a Bill" id="m5X-LY-SpI"/>
                     <connections>
-                        <outlet property="addCategoryButton" destination="gb2-GQ-9FL" id="1eN-ak-VqE"/>
-                        <outlet property="calendarView" destination="uRz-ol-N18" id="d7e-Fi-cp5"/>
-                        <outlet property="categoryTextField" destination="PiW-sa-qcd" id="gob-Ug-FL5"/>
-                        <outlet property="dollarAmountTextFIeld" destination="3Ue-2h-ZW9" id="zM5-co-v7K"/>
-                        <outlet property="expenseNameTextField" destination="H6R-R8-pM6" id="94i-K0-7Xj"/>
-                        <outlet property="selectedDateLabel" destination="qpH-4I-UhW" id="lte-xc-aZL"/>
+                        <outlet property="addCategoryButton" destination="gb2-GQ-9FL" id="dPe-qf-yFR"/>
+                        <outlet property="billNameTextField" destination="H6R-R8-pM6" id="Myj-zL-ruV"/>
+                        <outlet property="categoryTextField" destination="PiW-sa-qcd" id="R4f-8g-uOZ"/>
+                        <outlet property="dollarAmountTextField" destination="3Ue-2h-ZW9" id="kc5-ta-8Ag"/>
+                        <outlet property="fsCalendarView" destination="uRz-ol-N18" id="Izh-D8-BUc"/>
+                        <outlet property="selectedDateLabel" destination="qpH-4I-UhW" id="MuY-PP-H5S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wku-7T-gst" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

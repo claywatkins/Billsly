@@ -20,7 +20,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var paidBillButton: UIButton!
     @IBOutlet weak var manageBillsButton: UIButton!
     
-    
     // MARK: - Properties
     let df = DateFormatter()
     let userController = UserController.shared
@@ -28,7 +27,15 @@ class HomeViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        userController.loadBillData()
+        userController.loadCategoryData()
         displayDate()
+        billsPaidThisMonth()
+        print("Bills Count: \(userController.userBills.count)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         billsPaidThisMonth()
     }
     
