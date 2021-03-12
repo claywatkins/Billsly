@@ -37,6 +37,7 @@ class EditBillViewController: UIViewController {
         fsCalendarView.today = nil
         navigationItem.title = bill.name
         billNameTextField.text = bill.name
+        userController.nf.numberStyle = .currency
         dollarAmountTextField.text = userController.nf.string(from: NSNumber(value: bill.dollarAmount))
         categoryTextField.text = bill.category.name
         userController.df.dateFormat = "EEEE, MMM d, yyyy"

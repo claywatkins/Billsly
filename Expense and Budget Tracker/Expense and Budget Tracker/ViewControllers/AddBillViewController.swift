@@ -21,6 +21,7 @@ class AddBillViewController: UIViewController{
     // MARK: - Properties
     let userController = UserController.shared
     var amt = 0
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
