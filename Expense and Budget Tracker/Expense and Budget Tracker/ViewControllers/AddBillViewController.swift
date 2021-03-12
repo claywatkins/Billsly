@@ -8,15 +8,15 @@
 import UIKit
 import FSCalendar
 
-class AddExpenseViewController: UIViewController{
+class AddBillViewController: UIViewController{
     
     // MARK: - IBOutlets
-    @IBOutlet weak var expenseNameTextField: UITextField!
+    @IBOutlet weak var billNameTextField: UITextField!
+    @IBOutlet weak var dollarAmountTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var dollarAmountTextFIeld: UITextField!
-    @IBOutlet weak var selectedDateLabel: UILabel!
-    @IBOutlet weak var calendarView: FSCalendar!
     @IBOutlet weak var addCategoryButton: UIButton!
+    @IBOutlet weak var selectedDateLabel: UILabel!
+    @IBOutlet weak var fsCalendarView: FSCalendar!
     
     // MARK: - Properties
     let df = DateFormatter()
@@ -32,7 +32,7 @@ class AddExpenseViewController: UIViewController{
     
     // MARK: - Methods
     private func updateViews(){
-        df.dateFormat = "MM-dd-yyyy"
+        df.dateFormat = "EEEE, MMM d, yyyy"
         selectedDateLabel.text = df.string(from: Date())
     }
     
@@ -54,23 +54,33 @@ class AddExpenseViewController: UIViewController{
         }
     }
     
-    
-    @IBAction func saveExpenseButtonTapped(_ sender: Any) {
+    @IBAction func saveBillButtonTapped(_ sender: Any) {
+        guard let name = billNameTextField.text, !name.isEmpty else { return }
+        guard let amount = dollarAmountTextField.text, !amount.isEmpty else { return }
+        guard let amountDouble = Double(amount) else { return }
+        guard let category = categoryTextField.text, !category.isEmpty else { return }
+        guard let date = selectedDateLabel.text else { return }
+        guard let saveableDate = df.date(from: date) else { return }
         
+        userController.createBill(name: name,
+                                  dollarAmount: amountDouble,
+                                  dueByDate: saveableDate,
+                                  category: Category(name: category))
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
 
 // MARK: - Extension
-extension AddExpenseViewController: FSCalendarDelegate, FSCalendarDataSource {
+extension AddBillViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy"
+        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
         selectedDateLabel.text = dateFormatter.string(from: date)
     }
 }
 
-extension AddExpenseViewController: UIPopoverPresentationControllerDelegate {
+extension AddBillViewController: UIPopoverPresentationControllerDelegate {
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
@@ -80,7 +90,7 @@ extension AddExpenseViewController: UIPopoverPresentationControllerDelegate {
     }
 }
 
-extension AddExpenseViewController: CategoryCellTapped {
+extension AddBillViewController: CategoryCellTapped {
     func categoryCellTapped(name: String) {
         categoryTextField.text = name
     }
