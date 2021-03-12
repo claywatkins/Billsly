@@ -34,17 +34,19 @@ class UserController {
     var paidBills: [Bill] {
         let bills = userBills
         let filteredPaidBills = bills.filter{ (bills) -> Bool in bills.hasBeenPaid == true }
-        return filteredPaidBills
+        let sortedBills = filteredPaidBills.sorted(by: {$0.dueByDate < $1.dueByDate})
+        return sortedBills
     }
     var unpaidBills: [Bill] {
         let bills = userBills
         let filteredUnpaidBills = bills.filter { (bills) -> Bool in bills.hasBeenPaid == false }
-        return filteredUnpaidBills
+        let sortedBills = filteredUnpaidBills.sorted(by: {$0.dueByDate < $1.dueByDate})
+        return sortedBills
     }
     
     // MARK: - CRUD
-    func createBill(name: String, dollarAmount: Double) {
-        let newBill = Bill(name: name, dollarAmount: dollarAmount)
+    func createBill(name: String, dollarAmount: Double, dueByDate: Date, category: Category) {
+        let newBill = Bill(name: name, dollarAmount: dollarAmount, dueByDate: dueByDate, category: category)
         userBills.append(newBill)
         print("Bill Added Successfully")
         saveBillsToPersistentStore()
