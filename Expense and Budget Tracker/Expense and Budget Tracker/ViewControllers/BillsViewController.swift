@@ -38,11 +38,15 @@ class BillsViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "UpdateBillSegue"{
+            if let detailVC = segue.destination as? EditBillViewController,
+               let indexPath = tableView.indexPathForSelectedRow {
+                let bill = billFor(indexPath: indexPath)
+                detailVC.bill = bill
+            }
+        }
+        
     }
-
-
 }
 
 extension BillsViewController: UITableViewDataSource, UITableViewDelegate {

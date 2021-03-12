@@ -25,14 +25,14 @@ class BillTableViewCell: UITableViewCell {
         }
     }
     var delegate: BillTableViewCellDelegate?
-    let df = DateFormatter()
+    let userController = UserController.shared
     
     // MARK: - Private Methods
     private func updateViews(){
         guard let bill = bill else { return }
         billName.text = bill.name
-        df.dateFormat = "MMM d, yyyy"
-        dateDueLabel.text = df.string(from: bill.dueByDate)
+        userController.df.dateFormat = "MMM d, yyyy"
+        dateDueLabel.text = userController.df.string(from: bill.dueByDate)
         if bill.hasBeenPaid {
             if let image = UIImage(named: "checked.png"){
                 paidUnpaidButton.setImage(image, for: .normal)

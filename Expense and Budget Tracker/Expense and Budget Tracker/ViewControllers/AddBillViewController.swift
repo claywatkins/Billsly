@@ -19,9 +19,6 @@ class AddBillViewController: UIViewController{
     @IBOutlet weak var fsCalendarView: FSCalendar!
     
     // MARK: - Properties
-    let df = DateFormatter()
-    let picker = UIPickerView()
-    let toolBar = UIToolbar()
     let userController = UserController.shared
     
     // MARK: - Lifecycle
@@ -32,8 +29,8 @@ class AddBillViewController: UIViewController{
     
     // MARK: - Methods
     private func updateViews(){
-        df.dateFormat = "EEEE, MMM d, yyyy"
-        selectedDateLabel.text = df.string(from: Date())
+        userController.df.dateFormat = "EEEE, MMM d, yyyy"
+        selectedDateLabel.text = userController.df.string(from: Date())
     }
     
     
@@ -60,7 +57,7 @@ class AddBillViewController: UIViewController{
         guard let amountDouble = Double(amount) else { return }
         guard let category = categoryTextField.text, !category.isEmpty else { return }
         guard let date = selectedDateLabel.text else { return }
-        guard let saveableDate = df.date(from: date) else { return }
+        guard let saveableDate = userController.df.date(from: date) else { return }
         
         userController.createBill(name: name,
                                   dollarAmount: amountDouble,
@@ -74,9 +71,8 @@ class AddBillViewController: UIViewController{
 // MARK: - Extension
 extension AddBillViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-        selectedDateLabel.text = dateFormatter.string(from: date)
+        userController.df.dateFormat = "EEEE, MMM d, yyyy"
+        selectedDateLabel.text = userController.df.string(from: date)
     }
 }
 

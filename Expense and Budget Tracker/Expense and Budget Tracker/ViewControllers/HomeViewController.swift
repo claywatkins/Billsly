@@ -21,7 +21,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var manageBillsButton: UIButton!
     
     // MARK: - Properties
-    let df = DateFormatter()
     let userController = UserController.shared
     
     // MARK: - Lifecycle
@@ -41,14 +40,14 @@ class HomeViewController: UIViewController {
     
     // MARK: - Methods
     private func displayDate() {
-        df.dateFormat = "EEEE, MMM d, yyyy"
-        dateLabel.text = df.string(from: Date())
+        userController.df.dateFormat = "EEEE, MMM d, yyyy"
+        dateLabel.text = userController.df.string(from: Date())
     }
     
     private func billsPaidThisMonth() {
         let billsPaid = userController.paidBills.count
         let totalBills = userController.userBills.count
-        amountOfBillsPaid.text = "You have paid \(billsPaid) of \(totalBills) bills this month."
+        amountOfBillsPaid.text = "You have \(totalBills - billsPaid) bills left to pay this month."
     }
     
     // MARK: - IBActions
