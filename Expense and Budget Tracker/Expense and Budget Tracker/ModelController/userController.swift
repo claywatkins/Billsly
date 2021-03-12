@@ -12,6 +12,7 @@ class UserController {
     // MARK: - Properties
     static let shared = UserController()
     let df = DateFormatter()
+    let nf = NumberFormatter()
     var userExpenses: [Expense] = []
     var userBills: [Bill] = []
     var userCategories: [Category] = []

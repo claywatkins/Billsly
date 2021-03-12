@@ -12,6 +12,7 @@
 		0B57467F25F690F500EC81DA /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 0B57467E25F690F500EC81DA /* FSCalendar */; };
 		0B7B904125FADD510059CC6E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B904025FADD510059CC6E /* HomeViewController.swift */; };
 		0B7B904325FAEC810059CC6E /* EditBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B904225FAEC810059CC6E /* EditBillViewController.swift */; };
+		0B7B904525FB240D0059CC6E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B904425FB240D0059CC6E /* UIViewControllerExtension.swift */; };
 		0B8B697925DB646000B9F55E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B697825DB646000B9F55E /* AppDelegate.swift */; };
 		0B8B697B25DB646000B9F55E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B697A25DB646000B9F55E /* SceneDelegate.swift */; };
 		0B8B698025DB646000B9F55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B697E25DB646000B9F55E /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		0B4E71E625F95BE000461B15 /* CategoryPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPopoverViewController.swift; sourceTree = "<group>"; };
 		0B7B904025FADD510059CC6E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0B7B904225FAEC810059CC6E /* EditBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBillViewController.swift; sourceTree = "<group>"; };
+		0B7B904425FB240D0059CC6E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		0B8B697525DB646000B9F55E /* Expense and Budget Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense and Budget Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8B697825DB646000B9F55E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B8B697A25DB646000B9F55E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				0B8B697A25DB646000B9F55E /* SceneDelegate.swift */,
 				0B8B698125DB646200B9F55E /* Assets.xcassets */,
 				0B8B698625DB646200B9F55E /* Info.plist */,
+				0B7B904425FB240D0059CC6E /* UIViewControllerExtension.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				0BF254E225F0C4DB0078BD9F /* Expense.swift in Sources */,
 				0BF254E925F0C5A90078BD9F /* Bill.swift in Sources */,
 				0B4E71E725F95BE000461B15 /* CategoryPopoverViewController.swift in Sources */,
+				0B7B904525FB240D0059CC6E /* UIViewControllerExtension.swift in Sources */,
 				0B7B904325FAEC810059CC6E /* EditBillViewController.swift in Sources */,
 				0B8B697925DB646000B9F55E /* AppDelegate.swift in Sources */,
 				0B7B904125FADD510059CC6E /* HomeViewController.swift in Sources */,
