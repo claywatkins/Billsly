@@ -36,6 +36,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         billsPaidThisMonth()
+        setPieChart(dataPoints: userController.userBills)
     }
     
     // MARK: - Methods
@@ -48,6 +49,47 @@ class HomeViewController: UIViewController {
         let billsPaid = userController.paidBills.count
         let totalBills = userController.userBills.count
         amountOfBillsPaid.text = "You have \(totalBills - billsPaid) bills left to pay this month."
+    }
+    
+    private func setPieChart(dataPoints: [Bill]) {
+        pieChartView.noDataText = "Add a bill to see the breakdown"
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<userController.userBills.count {
+            let bill = dataPoints[i]
+            let dataEntry = PieChartDataEntry(value: bill.dollarAmount, label: bill.category.name)
+            dataEntries.append(dataEntry)
+        }
+        
+        let pieChartDataSet = PieChartDataSet(entries: dataEntries)
+        pieChartDataSet.colors = ChartColorTemplates.vordiplom()
+        pieChartDataSet.sliceSpace = 2
+        
+        
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        let pFormatter = NumberFormatter()
+        pFormatter.numberStyle = .percent
+        pFormatter.maximumFractionDigits = 1
+        pFormatter.multiplier = 1
+        pFormatter.percentSymbol = " %"
+        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
+        
+        pieChartData.setValueFont(.systemFont(ofSize: 14, weight: .medium))
+        pieChartData.setValueTextColor(.black)
+        
+        pieChartView.drawHoleEnabled = false
+        pieChartView.usePercentValuesEnabled = true
+        pieChartView.legend.horizontalAlignment = .right
+        pieChartView.legend.verticalAlignment = .top
+        pieChartView.legend.orientation = .vertical
+        pieChartView.legend.xEntrySpace = 7
+        pieChartView.legend.yEntrySpace = 0
+        pieChartView.legend.yOffset = 0
+        pieChartView.highlightPerTapEnabled = false
+        pieChartView.animate(xAxisDuration: 1.3, yAxisDuration: 1.3)
+        
+        pieChartView.data = pieChartData
+        
     }
     
     // MARK: - IBActions
