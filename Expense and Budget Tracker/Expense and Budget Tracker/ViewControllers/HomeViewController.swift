@@ -62,6 +62,7 @@ class HomeViewController: UIViewController {
     @IBAction func paidBillsButtonTapped(_ sender: Any) {
         let popoverContentController = self.storyboard?.instantiateViewController(withIdentifier: "BillPaidPopoverViewController") as? BillPaidPopoverViewController
         popoverContentController?.modalPresentationStyle = .popover
+        popoverContentController?.delegate = self
         
         if let popoverPresentationController = popoverContentController?.popoverPresentationController {
             popoverPresentationController.permittedArrowDirections = .any
@@ -121,3 +122,8 @@ extension HomeViewController: UIPopoverPresentationControllerDelegate {
     }
 }
 
+extension HomeViewController: BillHasBeenPaid {
+    func updateCalendar() {
+        fsCalendarView.reloadData()
+    }
+}

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol BillHasBeenPaid {
+    func updateCalendar()
+}
+
 class BillPaidPopoverViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var pickerView: UIPickerView!
@@ -14,22 +18,19 @@ class BillPaidPopoverViewController: UIViewController {
     // MARK: - Properties
     let userController = UserController.shared
     var currentBillSelection: Bill?
+    var delegate: BillHasBeenPaid?
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         currentBillSelection = userController.unpaidBills[0]
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        pickerView.reloadInputViews()
-    }
-    
-    // MARK: - Methods
-    
+
     // MARK: - IBActions
     @IBAction func paidButtonTapped(_ sender: Any) {
-
+        userController.updateBillHasBeenPaid(bill: currentBillSelection!)
+        delegate?.updateCalendar()
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
