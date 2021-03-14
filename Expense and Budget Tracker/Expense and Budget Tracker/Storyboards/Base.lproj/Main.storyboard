@@ -381,6 +381,47 @@
             </objects>
             <point key="canvasLocation" x="3049.0654205607475" y="727.64578833693315"/>
         </scene>
+        <!--Bill Paid Popover View Controller-->
+        <scene sceneID="2o6-KV-rva">
+            <objects>
+                <viewController id="UJh-GQ-34i" customClass="BillPaidPopoverViewController" customModule="Expense_and_Budget_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hUw-Du-9hZ">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What bill did you pay?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKb-cL-XSP">
+                                <rect key="frame" x="20" y="124" width="388" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUO-bF-6D7">
+                                <rect key="frame" x="20" y="389" width="388" height="30"/>
+                                <state key="normal" title="Paid!"/>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQZ-QA-ar2">
+                                <rect key="frame" x="20" y="163" width="388" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="93V-T1-Al0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="93V-T1-Al0" firstAttribute="trailing" secondItem="IKb-cL-XSP" secondAttribute="trailing" constant="20" id="CP9-eE-Hcn"/>
+                            <constraint firstItem="rUO-bF-6D7" firstAttribute="top" secondItem="fQZ-QA-ar2" secondAttribute="bottom" constant="10" id="CSd-oZ-Ihc"/>
+                            <constraint firstItem="rUO-bF-6D7" firstAttribute="leading" secondItem="93V-T1-Al0" secondAttribute="leading" constant="20" id="FJ2-yV-1An"/>
+                            <constraint firstItem="93V-T1-Al0" firstAttribute="trailing" secondItem="rUO-bF-6D7" secondAttribute="trailing" constant="20" id="Fpy-gO-LQ6"/>
+                            <constraint firstItem="IKb-cL-XSP" firstAttribute="leading" secondItem="93V-T1-Al0" secondAttribute="leading" constant="20" id="MDR-Vw-Res"/>
+                            <constraint firstItem="IKb-cL-XSP" firstAttribute="top" secondItem="93V-T1-Al0" secondAttribute="top" constant="80" id="RoY-HV-Gpx"/>
+                            <constraint firstItem="93V-T1-Al0" firstAttribute="trailing" secondItem="fQZ-QA-ar2" secondAttribute="trailing" constant="20" id="c0E-wI-D81"/>
+                            <constraint firstItem="fQZ-QA-ar2" firstAttribute="leading" secondItem="93V-T1-Al0" secondAttribute="leading" constant="20" id="dfo-QQ-21S"/>
+                            <constraint firstItem="fQZ-QA-ar2" firstAttribute="top" secondItem="IKb-cL-XSP" secondAttribute="bottom" constant="10" id="qsX-yH-h23"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zUp-Bj-c8S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3047.663551401869" y="1380.7775377969763"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="9gv-et-nmJ">
             <objects>
