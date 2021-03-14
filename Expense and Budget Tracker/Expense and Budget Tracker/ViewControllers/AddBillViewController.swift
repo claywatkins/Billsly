@@ -35,20 +35,20 @@ class AddBillViewController: UIViewController{
         fsCalendarView.today = nil
     }
     
-    func updateAmount() -> String? {
+    private func updateAmount() -> String? {
         userController.nf.numberStyle = .currency
         userController.nf.locale = Locale.current
         let amount = Double(amt/100) + Double (amt%100)/100
         return userController.nf.string(from: NSNumber(value: amount))
     }
     
-    func convertCurrencyToDouble(input: String) -> Double? {
+    private func convertCurrencyToDouble(input: String) -> Double? {
         userController.nf.numberStyle = .currency
         userController.nf.locale = Locale.current
         return userController.nf.number(from: input)?.doubleValue
     }
     
-    func addDoneButtonOnKeyboard() {
+    private func addDoneButtonOnKeyboard() {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         doneToolbar.barStyle = UIBarStyle.default
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
@@ -66,6 +66,12 @@ class AddBillViewController: UIViewController{
     
     @objc func doneButtonAction() {
         self.dollarAmountTextField.resignFirstResponder()
+    }
+    
+    private func presentAlertController(missing: String) -> UIAlertController {
+        let ac = UIAlertController(title: "Missing \(missing)", message: "Please add a \(missing.lowercased()) to continue", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        return ac
     }
     
     // MARK: - IBActions
@@ -86,14 +92,27 @@ class AddBillViewController: UIViewController{
     }
     
     @IBAction func saveBillButtonTapped(_ sender: Any) {
-        guard let name = billNameTextField.text, !name.isEmpty else { return }
-        guard let amount = dollarAmountTextField.text, !amount.isEmpty else { return }
+        guard let name = billNameTextField.text, !name.isEmpty else {
+            let ac = presentAlertController(missing: "Name")
+            return present(ac, animated: true)
+        }
+        guard let amount = dollarAmountTextField.text, !amount.isEmpty else {
+            let ac = presentAlertController(missing: "Dollar Amount")
+            return present(ac, animated: true)
+        }
         guard let finalAmount = convertCurrencyToDouble(input: amount) else { return }
-        guard let category = categoryTextField.text, !category.isEmpty else { return }
+        guard let category = categoryTextField.text, !category.isEmpty else {
+            let ac = presentAlertController(missing: "Category")
+            return present(ac, animated: true)
+        }
         guard let date = selectedDateLabel.text else { return }
-        guard let saveableDate = userController.df.date(from: date) else { return }
+        guard let saveableDate = userController.df.date(from: date) else {
+            let ac = presentAlertController(missing: "Date")
+            return present(ac, animated: true)
+        }
         
-
+        
+        
         userController.createBill(name: name,
                                   dollarAmount: finalAmount,
                                   dueByDate: saveableDate,
