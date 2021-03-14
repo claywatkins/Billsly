@@ -3,6 +3,7 @@
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -420,7 +421,14 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="4n8-Hd-Pt8" secondAttribute="height" multiplier="1:1" id="zxr-cr-qWJ"/>
                                                     </constraints>
-                                                    <state key="normal" image="unchecked"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <state key="normal">
+                                                        <imageReference key="image" image="checkmark.seal" catalog="system" symbolScale="large"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26"/>
+                                                    </state>
+                                                    <state key="selected">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="billPaidButtonTapped:" destination="xyV-nN-nlr" eventType="touchUpInside" id="jbQ-6g-zcn"/>
                                                     </connections>
@@ -668,8 +676,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.seal" catalog="system" width="32" height="32"/>
         <image name="plus" catalog="system" width="32" height="32"/>
-        <image name="unchecked" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

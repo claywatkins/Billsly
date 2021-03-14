@@ -66,6 +66,7 @@ class HomeViewController: UIViewController {
 
 // MARK: - Extension
 extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+    
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
         let dateStr = userController.df.string(from: date)
