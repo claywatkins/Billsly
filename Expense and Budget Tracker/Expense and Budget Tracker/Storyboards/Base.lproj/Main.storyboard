@@ -267,6 +267,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKe-un-9cb" customClass="FSCalendar">
                                         <rect key="frame" x="8" y="8" width="372" height="276"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="nUp-IN-LDS" id="kLO-0v-Otj"/>
+                                            <outlet property="delegate" destination="nUp-IN-LDS" id="ZTx-5N-CIp"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
@@ -664,7 +668,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus" catalog="system" width="32" height="32"/>
         <image name="unchecked" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

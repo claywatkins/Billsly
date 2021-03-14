@@ -56,3 +56,26 @@ class HomeViewController: UIViewController {
     }
     
 }
+
+// MARK: - Extension
+extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource {
+    func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
+        userController.df.dateFormat = "EEEE, MMM d, yyyy"
+        var dateArray: [String] = []
+        let dateStr = userController.df.string(from: date)
+        for bill in userController.userBills {
+            let dateStr = userController.df.string(from: bill.dueByDate)
+            dateArray.append(dateStr)
+        }
+        
+        cell.eventIndicator.isHidden = false
+        cell.eventIndicator.color = UIColor.blue
+        
+        if dateArray.contains(dateStr) {
+            cell.eventIndicator.numberOfEvents = 1
+        }
+    }
+}
+
+
+
