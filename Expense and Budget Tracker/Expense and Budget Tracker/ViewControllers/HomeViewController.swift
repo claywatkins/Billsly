@@ -22,14 +22,13 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     let userController = UserController.shared
-    let calendar = FSCalendar()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         userController.loadBillData()
         userController.loadCategoryData()
         displayDate()
-        billsPaidThisMonth()
         setupCalendar()
         print("Bills Count: \(userController.userBills.count)")
     }
@@ -45,25 +44,6 @@ class HomeViewController: UIViewController {
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
         dateLabel.text = userController.df.string(from: Date())
     }
-    
-//    private func resetCalendarAtStartOfMonth() {
-//        userController.df.dateFormat = "MMM dd"
-//        let currentDate = Date()
-//        let currentDateString = userController.df.string(from: currentDate)
-//        print(currentDate)
-//        print(currentDateString)
-//        let startOfMonth = currentDate.endOfMonth
-//        let startOfMonthString = userController.df.string(from: currentDate)
-//        print(startOfMonth)
-//        print(startOfMonthString)
-//        if currentDateString == startOfMonthString {
-//            for var bill in userController.paidBills {
-//                bill.hasBeenPaid = false
-//                print(bill.hasBeenPaid)
-//            }
-//        }
-//
-//    }
     
     private func setupCalendar() {
 //        fsCalendarView.isUserInteractionEnabled = false
@@ -124,7 +104,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
         let cell = calendar.dequeueReusableCell(withIdentifier: "calendarCell", for: date, at: position)
-        userController.df.dateFormat = "EEEE, MMM d, yyyy"
+        userController.df.dateFormat = "dd"
         let dateStr = userController.df.string(from: date)
         if userController.dueByDateAndPaid.contains(dateStr) {
             cell.imageView.tintColor = .systemGreen
@@ -134,8 +114,120 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         cell.imageView.contentMode = .scaleAspectFit
         return cell
     }
-    
-    
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        
+        if calendar.currentPage.daysInMonth() == 30 {
+            for bill in userController.userBills {
+                userController.df.dateFormat = "dd"
+                let dateStr = userController.df.string(from: bill.dueByDate)
+                if dateStr == "31" {
+                    var dateComponent = DateComponents()
+                    dateComponent.month = 1
+                    let moveForwardOneMonth = Calendar.current.date(byAdding: dateComponent, to: bill.dueByDate)!
+                    userController.updateBillData(bill: bill,
+                                                  name: bill.name,
+                                                  dollarAmount: bill.dollarAmount,
+                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                    calendar.reloadData()
+                }
+            }
+        }
+        if calendar.currentPage.daysInMonth() == 31{
+            for bill in userController.userBills {
+                userController.df.dateFormat = "dd"
+                let dateStr = userController.df.string(from: bill.dueByDate)
+                if dateStr == "30" {
+                    var dateComponent = DateComponents()
+                    dateComponent.month = 1
+                    if calendar.currentPage.daysInMonth() != calendar.currentPage.daysInMonth(-1){
+                        dateComponent.day = 1
+                    }
+                    let moveForwardOneMonth = Calendar.current.date(byAdding: dateComponent, to: bill.dueByDate)!
+                    userController.updateBillData(bill: bill,
+                                                  name: bill.name,
+                                                  dollarAmount: bill.dollarAmount,
+                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                    calendar.reloadData()
+                }
+            }
+        }
+        if calendar.currentPage.month == "September" {
+            for bill in userController.userBills {
+                userController.df.dateFormat = "dd"
+                let dateStr = userController.df.string(from: bill.dueByDate)
+                if dateStr == "31" {
+                    var dateComponent = DateComponents()
+                    dateComponent.month = 1
+                    let moveForwardOneMonth = Calendar.current.date(byAdding: dateComponent, to: bill.dueByDate)!
+                    userController.updateBillData(bill: bill,
+                                                  name: bill.name,
+                                                  dollarAmount: bill.dollarAmount,
+                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                    calendar.reloadData()
+                }
+            }
+        }
+        if calendar.currentPage.month == "January" {
+            for bill in userController.userBills {
+                userController.df.dateFormat = "dd"
+                let dateStr = userController.df.string(from: bill.dueByDate)
+                if dateStr == "31" {
+                    var dateComponent = DateComponents()
+                    dateComponent.month = 1
+                    let moveForwardOneMonth = Calendar.current.date(byAdding: dateComponent, to: bill.dueByDate)!
+                    userController.updateBillData(bill: bill,
+                                                  name: bill.name,
+                                                  dollarAmount: bill.dollarAmount,
+                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                    calendar.reloadData()
+                }
+            }
+        }
+        if calendar.currentPage.month == "February" {
+            for bill in userController.userBills {
+                userController.df.dateFormat = "dd"
+                let dateStr = userController.df.string(from: bill.dueByDate)
+                if dateStr == "31" {
+                    var dateComponent = DateComponents()
+                    dateComponent.month = 1
+                    let moveForwardOneMonth = Calendar.current.date(byAdding: dateComponent, to: bill.dueByDate)!
+                    userController.updateBillData(bill: bill,
+                                                  name: bill.name,
+                                                  dollarAmount: bill.dollarAmount,
+                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                    calendar.reloadData()
+                }
+            }
+        }
+        if calendar.currentPage.month == "March" {
+            for bill in userController.userBills {
+                userController.df.dateFormat = "dd"
+                let dateStr = userController.df.string(from: bill.dueByDate)
+                if dateStr == "28" {
+                    var dateComponent = DateComponents()
+                    dateComponent.month = 1
+                    dateComponent.day = 3
+                    let moveForwardOneMonth = Calendar.current.date(byAdding: dateComponent, to: bill.dueByDate)!
+                    userController.updateBillData(bill: bill,
+                                                  name: bill.name,
+                                                  dollarAmount: bill.dollarAmount,
+                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                    calendar.reloadData()
+                } else if dateStr == "29" {
+                    var dateComponent = DateComponents()
+                    dateComponent.month = 1
+                    dateComponent.day = 2
+                    let moveForwardOneMonth = Calendar.current.date(byAdding: dateComponent, to: bill.dueByDate)!
+                    userController.updateBillData(bill: bill,
+                                                  name: bill.name,
+                                                  dollarAmount: bill.dollarAmount,
+                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                    calendar.reloadData()
+                }
+            }
+        }
+        
+    }
 }
 
 extension HomeViewController: UIPopoverPresentationControllerDelegate {
