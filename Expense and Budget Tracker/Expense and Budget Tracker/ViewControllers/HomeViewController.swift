@@ -60,7 +60,18 @@ class HomeViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func paidBillsButtonTapped(_ sender: Any) {
+        let popoverContentController = self.storyboard?.instantiateViewController(withIdentifier: "BillPaidPopoverViewController") as? BillPaidPopoverViewController
+        popoverContentController?.modalPresentationStyle = .popover
         
+        if let popoverPresentationController = popoverContentController?.popoverPresentationController {
+            popoverPresentationController.permittedArrowDirections = .any
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = CGRect(origin: self.view.center, size: .zero)
+            popoverPresentationController.delegate = self
+            if let popoverController = popoverContentController {
+                present(popoverController, animated: true, completion: nil)
+            }
+        }
     }
     
 }
@@ -104,5 +115,9 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     }
 }
 
-
+extension HomeViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+}
 

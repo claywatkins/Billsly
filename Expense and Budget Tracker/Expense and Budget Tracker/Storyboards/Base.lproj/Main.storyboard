@@ -384,7 +384,7 @@
         <!--Bill Paid Popover View Controller-->
         <scene sceneID="2o6-KV-rva">
             <objects>
-                <viewController id="UJh-GQ-34i" customClass="BillPaidPopoverViewController" customModule="Expense_and_Budget_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BillPaidPopoverViewController" id="UJh-GQ-34i" customClass="BillPaidPopoverViewController" customModule="Expense_and_Budget_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hUw-Du-9hZ">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -404,6 +404,10 @@
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQZ-QA-ar2">
                                 <rect key="frame" x="20" y="163" width="388" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="UJh-GQ-34i" id="EfF-6y-Cg0"/>
+                                    <outlet property="delegate" destination="UJh-GQ-34i" id="MEU-ih-4dN"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="93V-T1-Al0"/>
