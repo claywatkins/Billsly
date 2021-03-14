@@ -122,7 +122,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         for bill in userController.userBills {
             userController.df.dateFormat = "dd"
             let dateNum = Int(userController.df.string(from: bill.dueByDate))!
-            if dateNum < 30 {
+            if dateNum < 30 && calendar.currentPage.month != "March"{
                 var dateComponent = DateComponents()
                 dateComponent.month = 1
                 let moveForwardOneMonth = Calendar.current.date(byAdding: dateComponent, to: bill.dueByDate)!
@@ -170,7 +170,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
                 }
             }
         }
-        if calendar.currentPage.month == "September" {
+        if calendar.currentPage.month == "August" {
             for bill in userController.userBills {
                 userController.df.dateFormat = "dd"
                 let dateStr = userController.df.string(from: bill.dueByDate)
