@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     let userController = UserController.shared
-    
+    let calendar = FSCalendar()
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +46,29 @@ class HomeViewController: UIViewController {
         dateLabel.text = userController.df.string(from: Date())
     }
     
+//    private func resetCalendarAtStartOfMonth() {
+//        userController.df.dateFormat = "MMM dd"
+//        let currentDate = Date()
+//        let currentDateString = userController.df.string(from: currentDate)
+//        print(currentDate)
+//        print(currentDateString)
+//        let startOfMonth = currentDate.endOfMonth
+//        let startOfMonthString = userController.df.string(from: currentDate)
+//        print(startOfMonth)
+//        print(startOfMonthString)
+//        if currentDateString == startOfMonthString {
+//            for var bill in userController.paidBills {
+//                bill.hasBeenPaid = false
+//                print(bill.hasBeenPaid)
+//            }
+//        }
+//
+//    }
+    
     private func setupCalendar() {
-        fsCalendarView.isUserInteractionEnabled = false
+//        fsCalendarView.isUserInteractionEnabled = false
         fsCalendarView.appearance.todayColor = .systemTeal
+        fsCalendarView.placeholderType = .none
         fsCalendarView.register(FSCalendarCell.self, forCellReuseIdentifier: "calendarCell")
     }
     
@@ -90,7 +110,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     }
     
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
-        userController.df.dateFormat = "EEEE, MMM d, yyyy"
+        userController.df.dateFormat = "dd"
         let dateStr = userController.df.string(from: date)
         if userController.dueByDateAndPaid.contains(dateStr) && userController.dueByDateAndUnpaid.contains(dateStr) {
             return UIImage(systemName: "dollarsign.circle.fill")
@@ -114,6 +134,8 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         cell.imageView.contentMode = .scaleAspectFit
         return cell
     }
+    
+    
 }
 
 extension HomeViewController: UIPopoverPresentationControllerDelegate {

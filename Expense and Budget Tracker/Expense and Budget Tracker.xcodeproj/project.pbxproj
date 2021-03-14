@@ -19,6 +19,7 @@
 		0B8B698025DB646000B9F55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B697E25DB646000B9F55E /* Main.storyboard */; };
 		0B8B698225DB646200B9F55E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B698125DB646200B9F55E /* Assets.xcassets */; };
 		0B8B698525DB646200B9F55E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B698325DB646200B9F55E /* LaunchScreen.storyboard */; };
+		0B968E3725FE91A700B7AE84 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B968E3625FE91A700B7AE84 /* DateExtension.swift */; };
 		0BDFC20925F1BB4400760A6F /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 0BDFC20825F1BB4400760A6F /* Charts */; };
 		0BDFC21125F1C61800760A6F /* PopUpWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDFC21025F1C61800760A6F /* PopUpWindowView.swift */; };
 		0BF254E225F0C4DB0078BD9F /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E125F0C4DB0078BD9F /* Expense.swift */; };
@@ -58,6 +59,7 @@
 		0B8B698125DB646200B9F55E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B8B698425DB646200B9F55E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B8B698625DB646200B9F55E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B968E3625FE91A700B7AE84 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		0BDFC21025F1C61800760A6F /* PopUpWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindowView.swift; sourceTree = "<group>"; };
 		0BF254E125F0C4DB0078BD9F /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		0BF254E425F0C5430078BD9F /* userController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				0B8B698125DB646200B9F55E /* Assets.xcassets */,
 				0B8B698625DB646200B9F55E /* Info.plist */,
 				0B7B904425FB240D0059CC6E /* UIViewControllerExtension.swift */,
+				0B968E3625FE91A700B7AE84 /* DateExtension.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				0B53E94C25FE81C9001DD4FB /* BillPaidPopoverViewController.swift in Sources */,
 				0BDFC21125F1C61800760A6F /* PopUpWindowView.swift in Sources */,
 				0BF2A16525F9873800308C04 /* Category.swift in Sources */,
+				0B968E3725FE91A700B7AE84 /* DateExtension.swift in Sources */,
 				0B1FEBA225F6B2BE00F0FC87 /* AddBillViewController.swift in Sources */,
 				0BF2A16925F9CBFC00308C04 /* CategoryTableViewCell.swift in Sources */,
 				0BF254ED25F0CCE30078BD9F /* ExpensesViewController.swift in Sources */,
