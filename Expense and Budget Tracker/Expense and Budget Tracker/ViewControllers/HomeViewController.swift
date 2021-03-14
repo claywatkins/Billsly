@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupCalendar() {
-//        fsCalendarView.isUserInteractionEnabled = false
+        //        fsCalendarView.isUserInteractionEnabled = false
         fsCalendarView.appearance.todayColor = .systemTeal
         fsCalendarView.placeholderType = .none
         fsCalendarView.register(FSCalendarCell.self, forCellReuseIdentifier: "calendarCell")
@@ -115,8 +115,24 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         return cell
     }
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-        for bill in userController.paidBills {
+        for bill in userController.userBills {
             userController.updateBillToUnpaid(bill: bill)
+        }
+        
+        for bill in userController.userBills {
+            userController.df.dateFormat = "dd"
+            let dateNum = Int(userController.df.string(from: bill.dueByDate))!
+            if dateNum < 30 {
+                var dateComponent = DateComponents()
+                dateComponent.month = 1
+                let moveForwardOneMonth = Calendar.current.date(byAdding: dateComponent, to: bill.dueByDate)!
+                userController.updateBillData(bill: bill,
+                                              name: bill.name,
+                                              dollarAmount: bill.dollarAmount,
+                                              dueByDate: moveForwardOneMonth,
+                                              category: bill.category)
+                calendar.reloadData()
+            }
         }
         
         if calendar.currentPage.daysInMonth() == 30 {
@@ -227,6 +243,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
                                                   dueByDate: moveForwardOneMonth, category: bill.category)
                     calendar.reloadData()
                 }
+                
             }
         }
         
