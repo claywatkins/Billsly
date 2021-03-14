@@ -115,6 +115,9 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         return cell
     }
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        for bill in userController.paidBills {
+            userController.updateBillToUnpaid(bill: bill)
+        }
         
         if calendar.currentPage.daysInMonth() == 30 {
             for bill in userController.userBills {
