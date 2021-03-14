@@ -398,6 +398,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUO-bF-6D7">
                                 <rect key="frame" x="20" y="389" width="388" height="30"/>
                                 <state key="normal" title="Paid!"/>
+                                <connections>
+                                    <action selector="paidButtonTapped:" destination="UJh-GQ-34i" eventType="touchUpInside" id="UNQ-FM-4jP"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQZ-QA-ar2">
                                 <rect key="frame" x="20" y="163" width="388" height="216"/>
@@ -417,6 +420,9 @@
                             <constraint firstItem="fQZ-QA-ar2" firstAttribute="top" secondItem="IKb-cL-XSP" secondAttribute="bottom" constant="10" id="qsX-yH-h23"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pickerView" destination="fQZ-QA-ar2" id="hs2-78-dxV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUp-Bj-c8S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
