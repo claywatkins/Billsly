@@ -32,7 +32,6 @@ class UserController {
         let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first
         return documents?.appendingPathExtension("userCategories.plist")
     }
-    
     var paidBills: [Bill] {
         let bills = userBills
         let filteredPaidBills = bills.filter{ (bills) -> Bool in bills.hasBeenPaid == true }
@@ -44,6 +43,34 @@ class UserController {
         let filteredUnpaidBills = bills.filter { (bills) -> Bool in bills.hasBeenPaid == false }
         let sortedBills = filteredUnpaidBills.sorted(by: {$0.dueByDate < $1.dueByDate})
         return sortedBills
+    }
+    var dueByDateStrings: [String] {
+        var dateArray: [String] = []
+        for bill in userBills {
+            let dateStr = self.df.string(from: bill.dueByDate)
+            dateArray.append(dateStr)
+        }
+        return dateArray
+    }
+    var dueByDateAndPaid: [String] {
+        var dateArray: [String] = []
+        for bill in userBills {
+            if bill.hasBeenPaid {
+                let dateStr = self.df.string(from: bill.dueByDate)
+                dateArray.append(dateStr)
+            }
+        }
+        return dateArray
+    }
+    var dueByDateAndUnpaid: [String] {
+        var dateArray: [String] = []
+        for bill in userBills {
+            if bill.hasBeenPaid == false {
+                let dateStr = self.df.string(from: bill.dueByDate)
+                dateArray.append(dateStr)
+            }
+        }
+        return dateArray
     }
     
     // MARK: - CRUD
