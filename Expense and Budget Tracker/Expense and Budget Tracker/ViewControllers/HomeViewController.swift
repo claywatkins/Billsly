@@ -36,6 +36,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fsCalendarView.reloadData()
+        fsCalendarView.isUserInteractionEnabled = false
         billsPaidThisMonth()
     }
     
@@ -73,7 +74,13 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
-        for bill in userController.userBills
+        let dateStr = userController.df.string(from: date)
+        if userController.dueByDateAndPaid.contains(dateStr) {
+            return UIImage(systemName: "checkmark.seal.fill")
+        } else if userController.dueByDateAndUnpaid.contains(dateStr) {
+            return UIImage(systemName: "dollarsign.circle.fill")
+        }
+        return nil
     }
 }
 
