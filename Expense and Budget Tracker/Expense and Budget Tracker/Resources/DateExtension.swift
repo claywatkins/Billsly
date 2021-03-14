@@ -33,5 +33,9 @@ extension Date {
             let days = Calendar.current.dateComponents([.day], from: interval.start, to: interval.end).day
         { return days } else { return -1 }
     }
-
+    var month: String {
+          let dateFormatter = DateFormatter()
+          dateFormatter.dateFormat = "MMMM"
+          return dateFormatter.string(from: self)
+      }
 }
