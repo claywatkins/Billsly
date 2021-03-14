@@ -34,9 +34,13 @@ class BillTableViewCell: UITableViewCell {
         userController.df.dateFormat = "MMM d, yyyy"
         dateDueLabel.text = userController.df.string(from: bill.dueByDate)
         if bill.hasBeenPaid {
-            paidUnpaidButton.setImage(UIImage(systemName: "checkmark.seal.fill"), for: .normal)
+            let config = UIImage.SymbolConfiguration(pointSize: 32)
+            let image = UIImage(systemName: "checkmark.seal.fill", withConfiguration: config)
+            paidUnpaidButton.setImage(image, for: .normal)
         } else {
-            paidUnpaidButton.setImage(UIImage(systemName: "checkmark.seal"), for: .normal)
+            let config = UIImage.SymbolConfiguration(pointSize: 32)
+            let image = UIImage(systemName: "checkmark.seal", withConfiguration: config)
+            paidUnpaidButton.setImage(image, for: .normal)
         }
     }
     
