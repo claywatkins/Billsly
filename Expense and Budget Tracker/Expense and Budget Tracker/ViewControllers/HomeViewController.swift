@@ -30,13 +30,13 @@ class HomeViewController: UIViewController {
         userController.loadCategoryData()
         displayDate()
         billsPaidThisMonth()
+        setupCalendar()
         print("Bills Count: \(userController.userBills.count)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fsCalendarView.reloadData()
-        fsCalendarView.isUserInteractionEnabled = false
         billsPaidThisMonth()
     }
     
@@ -44,6 +44,11 @@ class HomeViewController: UIViewController {
     private func displayDate() {
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
         dateLabel.text = userController.df.string(from: Date())
+    }
+    
+    private func setupCalendar() {
+        fsCalendarView.isUserInteractionEnabled = false
+        fsCalendarView.appearance.todayColor = .systemPurple
     }
     
     private func billsPaidThisMonth() {
@@ -60,7 +65,7 @@ class HomeViewController: UIViewController {
 }
 
 // MARK: - Extension
-extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource {
+extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
         let dateStr = userController.df.string(from: date)
@@ -72,13 +77,24 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource {
         }
     }
     
-    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+//    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+//        userController.df.dateFormat = "EEEE, MMM d, yyyy"
+//        let dateStr = userController.df.string(from: date)
+//        if userController.dueByDateAndPaid.contains(dateStr) {
+//            return UIImage(systemName: "checkmark.seal.fill")
+//        } else if userController.dueByDateAndUnpaid.contains(dateStr) {
+//            return UIImage(systemName: "dollarsign.circle.fill")
+//        }
+//        return nil
+//    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
         let dateStr = userController.df.string(from: date)
         if userController.dueByDateAndPaid.contains(dateStr) {
-            return UIImage(systemName: "checkmark.seal.fill")
+            return .systemGreen
         } else if userController.dueByDateAndUnpaid.contains(dateStr) {
-            return UIImage(systemName: "dollarsign.circle.fill")
+            return .systemRed
         }
         return nil
     }
