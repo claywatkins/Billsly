@@ -3,6 +3,7 @@
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -267,6 +268,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKe-un-9cb" customClass="FSCalendar">
                                         <rect key="frame" x="8" y="8" width="372" height="276"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="nUp-IN-LDS" id="kLO-0v-Otj"/>
+                                            <outlet property="delegate" destination="nUp-IN-LDS" id="ZTx-5N-CIp"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
@@ -376,6 +381,57 @@
             </objects>
             <point key="canvasLocation" x="3049.0654205607475" y="727.64578833693315"/>
         </scene>
+        <!--Bill Paid Popover View Controller-->
+        <scene sceneID="2o6-KV-rva">
+            <objects>
+                <viewController storyboardIdentifier="BillPaidPopoverViewController" id="UJh-GQ-34i" customClass="BillPaidPopoverViewController" customModule="Expense_and_Budget_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hUw-Du-9hZ">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What bill did you pay?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKb-cL-XSP">
+                                <rect key="frame" x="20" y="124" width="388" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUO-bF-6D7">
+                                <rect key="frame" x="20" y="389" width="388" height="30"/>
+                                <state key="normal" title="Paid!"/>
+                                <connections>
+                                    <action selector="paidButtonTapped:" destination="UJh-GQ-34i" eventType="touchUpInside" id="UNQ-FM-4jP"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQZ-QA-ar2">
+                                <rect key="frame" x="20" y="163" width="388" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="UJh-GQ-34i" id="EfF-6y-Cg0"/>
+                                    <outlet property="delegate" destination="UJh-GQ-34i" id="MEU-ih-4dN"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="93V-T1-Al0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="93V-T1-Al0" firstAttribute="trailing" secondItem="IKb-cL-XSP" secondAttribute="trailing" constant="20" id="CP9-eE-Hcn"/>
+                            <constraint firstItem="rUO-bF-6D7" firstAttribute="top" secondItem="fQZ-QA-ar2" secondAttribute="bottom" constant="10" id="CSd-oZ-Ihc"/>
+                            <constraint firstItem="rUO-bF-6D7" firstAttribute="leading" secondItem="93V-T1-Al0" secondAttribute="leading" constant="20" id="FJ2-yV-1An"/>
+                            <constraint firstItem="93V-T1-Al0" firstAttribute="trailing" secondItem="rUO-bF-6D7" secondAttribute="trailing" constant="20" id="Fpy-gO-LQ6"/>
+                            <constraint firstItem="IKb-cL-XSP" firstAttribute="leading" secondItem="93V-T1-Al0" secondAttribute="leading" constant="20" id="MDR-Vw-Res"/>
+                            <constraint firstItem="IKb-cL-XSP" firstAttribute="top" secondItem="93V-T1-Al0" secondAttribute="top" constant="80" id="RoY-HV-Gpx"/>
+                            <constraint firstItem="93V-T1-Al0" firstAttribute="trailing" secondItem="fQZ-QA-ar2" secondAttribute="trailing" constant="20" id="c0E-wI-D81"/>
+                            <constraint firstItem="fQZ-QA-ar2" firstAttribute="leading" secondItem="93V-T1-Al0" secondAttribute="leading" constant="20" id="dfo-QQ-21S"/>
+                            <constraint firstItem="fQZ-QA-ar2" firstAttribute="top" secondItem="IKb-cL-XSP" secondAttribute="bottom" constant="10" id="qsX-yH-h23"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pickerView" destination="fQZ-QA-ar2" id="hs2-78-dxV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zUp-Bj-c8S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3047.663551401869" y="1380.7775377969763"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="9gv-et-nmJ">
             <objects>
@@ -416,7 +472,14 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="4n8-Hd-Pt8" secondAttribute="height" multiplier="1:1" id="zxr-cr-qWJ"/>
                                                     </constraints>
-                                                    <state key="normal" image="unchecked"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <state key="normal">
+                                                        <imageReference key="image" image="checkmark.seal" catalog="system" symbolScale="large"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26"/>
+                                                    </state>
+                                                    <state key="selected">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="billPaidButtonTapped:" destination="xyV-nN-nlr" eventType="touchUpInside" id="jbQ-6g-zcn"/>
                                                     </connections>
@@ -664,8 +727,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="unchecked" width="50" height="50"/>
+        <image name="checkmark.seal" catalog="system" width="32" height="32"/>
+        <image name="plus" catalog="system" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
