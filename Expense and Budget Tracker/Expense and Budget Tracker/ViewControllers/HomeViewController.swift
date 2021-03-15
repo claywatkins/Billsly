@@ -87,12 +87,13 @@ class HomeViewController: UIViewController {
         
         pieChartView.drawHoleEnabled = false
         pieChartView.usePercentValuesEnabled = true
-        pieChartView.legend.horizontalAlignment = .right
-        pieChartView.legend.verticalAlignment = .top
-        pieChartView.legend.orientation = .vertical
-        pieChartView.legend.xEntrySpace = 7
-        pieChartView.legend.yEntrySpace = 0
-        pieChartView.legend.yOffset = 0
+        pieChartView.legend.enabled = false
+//        pieChartView.legend.horizontalAlignment = .right
+//        pieChartView.legend.verticalAlignment = .top
+//        pieChartView.legend.orientation = .vertical
+//        pieChartView.legend.xEntrySpace = 7
+//        pieChartView.legend.yEntrySpace = 0
+//        pieChartView.legend.yOffset = 0
         pieChartView.highlightPerTapEnabled = false
         pieChartView.animate(xAxisDuration: 1.3, yAxisDuration: 1.3)
         
@@ -264,7 +265,17 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
             for bill in userController.userBills {
                 userController.df.dateFormat = "dd"
                 let dateStr = userController.df.string(from: bill.dueByDate)
-                if dateStr == "28" {
+                let dateNum = Int(dateStr)!
+                if dateNum < 28 {
+                    var dateComponent = DateComponents()
+                    dateComponent.month = 1
+                    let moveForwardOneMonth = Calendar.current.date(byAdding: dateComponent, to: bill.dueByDate)!
+                    userController.updateBillData(bill: bill,
+                                                  name: bill.name,
+                                                  dollarAmount: bill.dollarAmount,
+                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                    calendar.reloadData()
+                } else if dateNum == 28 {
                     var dateComponent = DateComponents()
                     dateComponent.month = 1
                     dateComponent.day = 3
