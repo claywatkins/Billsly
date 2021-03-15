@@ -23,7 +23,7 @@ class BillPaidPopoverViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentBillSelection = userController.unpaidBills[0]
+        currentBillSelection = userController.userBills[0]
     }
 
     // MARK: - IBActions

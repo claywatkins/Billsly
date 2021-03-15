@@ -103,14 +103,19 @@ class HomeViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func paidBillsButtonTapped(_ sender: Any) {
+        if userController.userBills.isEmpty {
+            let ac = UIAlertController(title: "No Bills Found", message: "You've got no bills to pay yet! Go on and add some first.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Sounds Good", style: .default, handler: nil))
+            self.present(ac, animated: true)
+        }
         let popoverContentController = self.storyboard?.instantiateViewController(withIdentifier: "BillPaidPopoverViewController") as? BillPaidPopoverViewController
         popoverContentController?.modalPresentationStyle = .popover
         popoverContentController?.delegate = self
         
         if let popoverPresentationController = popoverContentController?.popoverPresentationController {
-            popoverPresentationController.permittedArrowDirections = .any
+            popoverPresentationController.permittedArrowDirections = .up
             popoverPresentationController.sourceView = self.view
-            popoverPresentationController.sourceRect = CGRect(origin: self.view.center, size: .zero)
+            popoverPresentationController.sourceRect = CGRect(origin: self.calendarHostView.center, size: .zero)
             popoverPresentationController.delegate = self
             if let popoverController = popoverContentController {
                 present(popoverController, animated: true, completion: nil)
@@ -161,6 +166,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         for bill in userController.userBills {
             userController.updateBillToUnpaid(bill: bill)
         }
+        billsPaidThisMonth()
         
         for bill in userController.userBills {
             userController.df.dateFormat = "dd"
@@ -312,5 +318,6 @@ extension HomeViewController: UIPopoverPresentationControllerDelegate {
 extension HomeViewController: BillHasBeenPaid {
     func updateCalendar() {
         fsCalendarView.reloadData()
+        billsPaidThisMonth()
     }
 }
