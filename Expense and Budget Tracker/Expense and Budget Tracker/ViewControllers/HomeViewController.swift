@@ -30,8 +30,6 @@ class HomeViewController: UIViewController {
         userController.loadCategoryData()
         pieChartView.delegate = self
         displayDate()
-        print(fsCalendarView.today)
-        setupCalendar()
         print("Bills Count: \(userController.userBills.count)")
     }
     
