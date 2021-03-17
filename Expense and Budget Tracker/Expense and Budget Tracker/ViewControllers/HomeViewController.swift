@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
         userController.loadCategoryData()
         pieChartView.delegate = self
         displayDate()
+        print(fsCalendarView.today)
         setupCalendar()
         print("Bills Count: \(userController.userBills.count)")
     }
@@ -38,6 +39,7 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         fsCalendarView.reloadData()
         billsPaidThisMonth()
+        setupCalendar()
         setPieChart(dataPoints: userController.userBills)
     }
     
@@ -53,7 +55,13 @@ class HomeViewController: UIViewController {
         }
         fsCalendarView.placeholderType = .none
         fsCalendarView.isUserInteractionEnabled = false
-        fsCalendarView.appearance.todayColor = .systemTeal
+        userController.df.dateFormat = "d"
+        let todayStr = userController.df.string(from: fsCalendarView.today!)
+        if userController.dueByDateStrings.contains(todayStr) {
+            fsCalendarView.appearance.todayColor = .clear
+        } else {
+            fsCalendarView.appearance.todayColor = .systemTeal
+        }
         fsCalendarView.register(FSCalendarCell.self, forCellReuseIdentifier: "calendarCell")
     }
     
@@ -65,6 +73,11 @@ class HomeViewController: UIViewController {
     
     private func setPieChart(dataPoints: [Bill]) {
         pieChartView.noDataText = "Add a bill to see the breakdown"
+        pieChartView.usePercentValuesEnabled = true
+        pieChartView.drawHoleEnabled = false
+        pieChartView.legend.enabled = false
+        pieChartView.highlightPerTapEnabled = false
+        pieChartView.animate(xAxisDuration: 1.3, yAxisDuration: 1.3)
         var dataEntries: [ChartDataEntry] = []
         
         for i in 0..<userController.userBills.count {
@@ -73,42 +86,21 @@ class HomeViewController: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-        let pieChartDataSet = PieChartDataSet(entries: dataEntries)
+        
+        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "Test")
         pieChartDataSet.sliceSpace = 2
         pieChartDataSet.colors = ChartColorTemplates.vordiplom()
-            + ChartColorTemplates.joyful()
-            + ChartColorTemplates.colorful()
-            + ChartColorTemplates.liberty()
-            + ChartColorTemplates.pastel()
-            + [UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)]
         
         pieChartDataSet.valueLinePart1OffsetPercentage = 0.8
         pieChartDataSet.valueLinePart1Length = 0.2
         pieChartDataSet.valueLinePart2Length = 0.8
         pieChartDataSet.yValuePosition = .outsideSlice
-        
+              
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        let pFormatter = NumberFormatter()
-        pFormatter.numberStyle = .percent
-        pFormatter.maximumFractionDigits = 1
-        pFormatter.multiplier = 1
-        pFormatter.percentSymbol = " %"
-        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
+        
         pieChartData.setValueFont(.systemFont(ofSize: 14, weight: .medium))
         pieChartData.setValueTextColor(.black)
-        
-        pieChartView.drawHoleEnabled = false
-        pieChartView.usePercentValuesEnabled = true
-        pieChartView.legend.enabled = false
-//        pieChartView.legend.horizontalAlignment = .right
-//        pieChartView.legend.verticalAlignment = .top
-//        pieChartView.legend.orientation = .vertical
-//        pieChartView.legend.xEntrySpace = 7
-//        pieChartView.legend.yEntrySpace = 0
-//        pieChartView.legend.yOffset = 0
-        pieChartView.highlightPerTapEnabled = false
-        pieChartView.animate(xAxisDuration: 1.3, yAxisDuration: 1.3)
-        
+
         pieChartView.data = pieChartData
         
     }
