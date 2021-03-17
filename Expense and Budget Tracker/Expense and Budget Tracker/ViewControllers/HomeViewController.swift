@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         userController.loadBillData()
         userController.loadCategoryData()
+        pieChartView.delegate = self
         displayDate()
         setupCalendar()
         print("Bills Count: \(userController.userBills.count)")
@@ -47,9 +48,12 @@ class HomeViewController: UIViewController {
     }
     
     private func setupCalendar() {
-        //        fsCalendarView.isUserInteractionEnabled = false
-        fsCalendarView.appearance.todayColor = .systemTeal
+        if self.traitCollection.userInterfaceStyle == .dark {
+            fsCalendarView.appearance.titlePlaceholderColor = .white
+        }
         fsCalendarView.placeholderType = .none
+        fsCalendarView.isUserInteractionEnabled = false
+        fsCalendarView.appearance.todayColor = .systemTeal
         fsCalendarView.register(FSCalendarCell.self, forCellReuseIdentifier: "calendarCell")
     }
     
@@ -70,9 +74,18 @@ class HomeViewController: UIViewController {
         }
         
         let pieChartDataSet = PieChartDataSet(entries: dataEntries)
-        pieChartDataSet.colors = ChartColorTemplates.vordiplom()
         pieChartDataSet.sliceSpace = 2
+        pieChartDataSet.colors = ChartColorTemplates.vordiplom()
+            + ChartColorTemplates.joyful()
+            + ChartColorTemplates.colorful()
+            + ChartColorTemplates.liberty()
+            + ChartColorTemplates.pastel()
+            + [UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)]
         
+        pieChartDataSet.valueLinePart1OffsetPercentage = 0.8
+        pieChartDataSet.valueLinePart1Length = 0.2
+        pieChartDataSet.valueLinePart2Length = 0.8
+        pieChartDataSet.yValuePosition = .outsideSlice
         
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         let pFormatter = NumberFormatter()
@@ -81,7 +94,6 @@ class HomeViewController: UIViewController {
         pFormatter.multiplier = 1
         pFormatter.percentSymbol = " %"
         pieChartData.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
-        
         pieChartData.setValueFont(.systemFont(ofSize: 14, weight: .medium))
         pieChartData.setValueTextColor(.black)
         
@@ -320,4 +332,8 @@ extension HomeViewController: BillHasBeenPaid {
         fsCalendarView.reloadData()
         billsPaidThisMonth()
     }
+}
+
+extension HomeViewController: ChartViewDelegate {
+    
 }

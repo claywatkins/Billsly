@@ -19,18 +19,18 @@ class UserController {
     
     var persistentBillsFileURL: URL? {
         let fm = FileManager.default
-        let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first
-        return documents?.appendingPathExtension("userBills.plist")
+        guard let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        return documents.appendingPathExtension("userBills.plist")
     }
     var persistentExpensesFileURL: URL? {
         let fm = FileManager.default
-        let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first
-        return documents?.appendingPathExtension("userExpenses.plist")
+        guard let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        return documents.appendingPathExtension("userExpenses.plist")
     }
     var persistentCategoriesFileURL: URL? {
         let fm = FileManager.default
-        let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first
-        return documents?.appendingPathExtension("userCategories.plist")
+        guard let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        return documents.appendingPathExtension("userCategories.plist")
     }
     var paidBills: [Bill] {
         let bills = userBills
@@ -146,6 +146,7 @@ class UserController {
             print("Bill Saved Succesfully")
         } catch {
             print("Error encoding bill data")
+            print(error.localizedDescription)
         }
     }
     
@@ -157,6 +158,7 @@ class UserController {
             print("Expense Saved Successfully")
         } catch {
             print("Error encoding expense data")
+            print(error.localizedDescription)
         }
     }
     
@@ -168,6 +170,7 @@ class UserController {
             self.userBills = try PropertyListDecoder().decode([Bill].self, from: data)
         } catch {
             print("Error loading bill data")
+            print(error.localizedDescription)
         }
     }
     
@@ -179,6 +182,7 @@ class UserController {
             self.userExpenses = try PropertyListDecoder().decode([Expense].self, from: data)
         } catch {
             print("Error loading Expense data")
+            print(error.localizedDescription)
         }
     }
     
@@ -189,6 +193,7 @@ class UserController {
             try data.write(to: url)
         } catch {
             print("Error saving Category data")
+            print(error.localizedDescription)
         }
     }
     
@@ -201,6 +206,7 @@ class UserController {
             print("Category Loaded")
         } catch {
             print("Error loading Category data")
+            print(error.localizedDescription)
         }
     }
     

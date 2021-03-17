@@ -33,6 +33,10 @@ class AddBillViewController: UIViewController{
     // MARK: - Methods
     private func updateViews(){
         fsCalendarView.today = nil
+        if self.traitCollection.userInterfaceStyle == .dark {
+            fsCalendarView.appearance.titlePlaceholderColor = .white
+        }
+        fsCalendarView.placeholderType = .none
     }
     
     private func updateAmount() -> String? {

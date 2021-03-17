@@ -34,6 +34,10 @@ class EditBillViewController: UIViewController {
     
     // MARK: - Methods
     private func updateViews() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            fsCalendarView.appearance.titlePlaceholderColor = .white
+        }
+        fsCalendarView.placeholderType = .none
         guard let bill = bill else { return }
         fsCalendarView.select(bill.dueByDate)
         fsCalendarView.today = nil
