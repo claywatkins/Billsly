@@ -20,17 +20,17 @@ class UserController {
     var persistentBillsFileURL: URL? {
         let fm = FileManager.default
         guard let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        return documents.appendingPathExtension("userBills.plist")
+        return documents.appendingPathComponent("userBills.plist")
     }
     var persistentExpensesFileURL: URL? {
         let fm = FileManager.default
         guard let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        return documents.appendingPathExtension("userExpenses.plist")
+        return documents.appendingPathComponent("userExpenses.plist")
     }
     var persistentCategoriesFileURL: URL? {
         let fm = FileManager.default
         guard let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        return documents.appendingPathExtension("userCategories.plist")
+        return documents.appendingPathComponent("userCategories.plist")
     }
     var paidBills: [Bill] {
         let bills = userBills
