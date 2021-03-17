@@ -15,8 +15,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var amountOfBillsPaid: UILabel!
     @IBOutlet weak var calendarHostView: UIView!
     @IBOutlet weak var fsCalendarView: FSCalendar!
-    @IBOutlet weak var chartHostView: UIView!
-    @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var progressHostView: UIView!
+    @IBOutlet weak var progressBarView: UIView!
     @IBOutlet weak var paidBillButton: UIButton!
     @IBOutlet weak var manageBillsButton: UIButton!
     
@@ -28,8 +28,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         userController.loadBillData()
         userController.loadCategoryData()
-        pieChartView.delegate = self
         displayDate()
+        constructProgressCircle()
         print("Bills Count: \(userController.userBills.count)")
     }
     
@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
         fsCalendarView.reloadData()
         billsPaidThisMonth()
         setupCalendar()
-        setPieChart(dataPoints: userController.userBills)
+        
     }
     
     // MARK: - Methods
@@ -66,38 +66,16 @@ class HomeViewController: UIViewController {
         amountOfBillsPaid.text = "You have \(totalBills - billsPaid) bills left to pay this month."
     }
     
-    private func setPieChart(dataPoints: [Bill]) {
-        pieChartView.noDataText = "Add a bill to see the breakdown"
-        pieChartView.usePercentValuesEnabled = true
-        pieChartView.drawHoleEnabled = false
-        pieChartView.legend.enabled = false
-        pieChartView.highlightPerTapEnabled = false
-        pieChartView.animate(xAxisDuration: 1.3, yAxisDuration: 1.3)
-        var dataEntries: [ChartDataEntry] = []
-        
-        for i in 0..<userController.userBills.count {
-            let bill = dataPoints[i]
-            let dataEntry = PieChartDataEntry(value: bill.dollarAmount, label: bill.category.name)
-            dataEntries.append(dataEntry)
-        }
-        
-        
-        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "Test")
-        pieChartDataSet.sliceSpace = 2
-        pieChartDataSet.colors = ChartColorTemplates.vordiplom()
-        
-        pieChartDataSet.valueLinePart1OffsetPercentage = 0.8
-        pieChartDataSet.valueLinePart1Length = 0.2
-        pieChartDataSet.valueLinePart2Length = 0.8
-        pieChartDataSet.yValuePosition = .outsideSlice
-              
-        let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        
-        pieChartData.setValueFont(.systemFont(ofSize: 14, weight: .medium))
-        pieChartData.setValueTextColor(.black)
-
-        pieChartView.data = pieChartData
-        
+    private func constructProgressCircle() {
+        let shapeLayer = CAShapeLayer()
+        let center = progressBarView.center
+        let circularPath = UIBezierPath(arcCenter: center,
+                                        radius: 100,
+                                        startAngle: 0,
+                                        endAngle: 2*CGFloat.pi,
+                                        clockwise: true)
+        shapeLayer.path = circularPath.cgPath
+        progressBarView.layer.addSublayer(shapeLayer)
     }
     
     // MARK: - IBActions
@@ -332,8 +310,4 @@ extension HomeViewController: BillHasBeenPaid {
         fsCalendarView.reloadData()
         billsPaidThisMonth()
     }
-}
-
-extension HomeViewController: ChartViewDelegate {
-    
 }
