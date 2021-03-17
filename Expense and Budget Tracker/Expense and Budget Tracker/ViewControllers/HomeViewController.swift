@@ -119,6 +119,10 @@ class HomeViewController: UIViewController {
             let ac = UIAlertController(title: "No Bills Found", message: "You've got no bills to pay yet! Go on and add some first.", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Sounds Good", style: .default, handler: nil))
             self.present(ac, animated: true)
+        } else if userController.unpaidBills.isEmpty {
+            let ac = UIAlertController(title: "All Bills Paid", message: "You've paid all your bills for the month!", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Hooray!", style: .default, handler: nil))
+            self.present(ac, animated: true)
         }
         let popoverContentController = self.storyboard?.instantiateViewController(withIdentifier: "BillPaidPopoverViewController") as? BillPaidPopoverViewController
         popoverContentController?.modalPresentationStyle = .popover
