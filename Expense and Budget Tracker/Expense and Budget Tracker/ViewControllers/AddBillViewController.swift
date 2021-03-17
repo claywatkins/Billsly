@@ -127,10 +127,19 @@ class AddBillViewController: UIViewController{
 }
 
 // MARK: - Extension
-extension AddBillViewController: FSCalendarDelegate, FSCalendarDataSource {
+extension AddBillViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
         selectedDateLabel.text = userController.df.string(from: date)
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            var color = calendar.appearance.titleDefaultColor
+            color = .white
+            return color
+        }
+        return calendar.appearance.titleDefaultColor
     }
 }
 

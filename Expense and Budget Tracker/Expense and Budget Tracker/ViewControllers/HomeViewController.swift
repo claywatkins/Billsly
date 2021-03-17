@@ -48,9 +48,6 @@ class HomeViewController: UIViewController {
     }
     
     private func setupCalendar() {
-        if self.traitCollection.userInterfaceStyle == .dark {
-            fsCalendarView.appearance.titlePlaceholderColor = .white
-        }
         fsCalendarView.placeholderType = .none
         fsCalendarView.isUserInteractionEnabled = false
         userController.df.dateFormat = "d"
@@ -133,6 +130,15 @@ class HomeViewController: UIViewController {
 
 // MARK: - Extension
 extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            var color = calendar.appearance.titleDefaultColor
+            color = .white
+            return color
+        }
+        return calendar.appearance.titleDefaultColor
+    }
     
     func calendar(_ calendar: FSCalendar, titleFor date: Date) -> String? {
         userController.df.dateFormat = "d"
