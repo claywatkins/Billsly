@@ -5,7 +5,7 @@
 //  Created by Clayton Watkins on 3/3/21.
 //
 
-import Foundation
+import UIKit
 
 class UserController {
     
@@ -13,19 +13,12 @@ class UserController {
     static let shared = UserController()
     let df = DateFormatter()
     let nf = NumberFormatter()
-    var userExpenses: [Expense] = []
     var userBills: [Bill] = []
     var userCategories: [Category] = []
-    
     var persistentBillsFileURL: URL? {
         let fm = FileManager.default
         guard let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         return documents.appendingPathComponent("userBills.plist")
-    }
-    var persistentExpensesFileURL: URL? {
-        let fm = FileManager.default
-        guard let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        return documents.appendingPathComponent("userExpenses.plist")
     }
     var persistentCategoriesFileURL: URL? {
         let fm = FileManager.default
@@ -72,6 +65,22 @@ class UserController {
         }
         return dateArray
     }
+    var calculatedBillProgressString: String {
+        let paidBillsCount = Float(paidBills.count)
+        let totalBillsCount = Float(userBills.count)
+        let pFormatter = NumberFormatter()
+        pFormatter.numberStyle = .percent
+        pFormatter.multiplier = 1
+        pFormatter.maximumFractionDigits = 2
+        pFormatter.percentSymbol = "%"
+        let billsPaidPercentage = paidBillsCount/totalBillsCount * 100
+        return pFormatter.string(from: NSNumber(value: billsPaidPercentage))!
+    }
+    var calculatedBillProgressFloat: CGFloat {
+        let paidBillsCount = CGFloat(paidBills.count)
+        let totalBillsCount = CGFloat(userBills.count)
+        return paidBillsCount/totalBillsCount
+    }
     
     // MARK: - CRUD
     func createBill(name: String, dollarAmount: Double, dueByDate: Date, category: Category) {
@@ -81,34 +90,24 @@ class UserController {
         saveBillsToPersistentStore()
         
     }
-    
-    func createExpense(name:String, dollarAmount: Double) {
-        let newExpense = Expense(name: name, dollarAmount: dollarAmount)
-        userExpenses.append(newExpense)
-        print("Expense added Successfully")
-        saveExpensesToPersistentStore()
-    }
     func createCategory(name: String) {
         let newCategory = Category(name: name)
         userCategories.append(newCategory)
         print("Category saved")
         saveCategoriesToPersistentStore()
     }
-    
     func updateBillHasBeenPaid(bill: Bill) {
         if let billIndex = userBills.firstIndex(of: bill) {
             userBills[billIndex].hasBeenPaid.toggle()
         }
         saveBillsToPersistentStore()
     }
-    
     func updateBillToUnpaid(bill: Bill) {
         if let billIndex = userBills.firstIndex(of: bill) {
             userBills[billIndex].hasBeenPaid = false
         }
         saveBillsToPersistentStore()
     }
-    
     func updateBillData(bill: Bill, name: String, dollarAmount: Double, dueByDate: Date, category: Category) {
         if let bookIndex = userBills.firstIndex(of: bill) {
             userBills[bookIndex].name = name
@@ -118,19 +117,11 @@ class UserController {
         }
         saveBillsToPersistentStore()
     }
-    
     func deleteBillData(bill: Bill){
         guard let billIndex = userBills.firstIndex(of: bill) else { return }
         userBills.remove(at: billIndex)
         saveBillsToPersistentStore()
     }
-    
-    func deleteExpenseData(expense: Expense){
-        guard let expenseIndex = userExpenses.firstIndex(of: expense) else { return }
-        userExpenses.remove(at: expenseIndex)
-        saveExpensesToPersistentStore()
-    }
-    
     func deleteCategoryData(category: Category) {
         guard let categoryIndex = userCategories.firstIndex(of: category) else { return }
         userCategories.remove(at: categoryIndex)
@@ -149,19 +140,6 @@ class UserController {
             print(error.localizedDescription)
         }
     }
-    
-    func saveExpensesToPersistentStore() {
-        guard let url = persistentExpensesFileURL else { return }
-        do{
-            let data = try PropertyListEncoder().encode(self.userExpenses)
-            try data.write(to: url)
-            print("Expense Saved Successfully")
-        } catch {
-            print("Error encoding expense data")
-            print(error.localizedDescription)
-        }
-    }
-    
     func loadBillData() {
         let fm = FileManager.default
         guard let url = persistentBillsFileURL, fm.fileExists(atPath: url.path) else { return }
@@ -173,19 +151,6 @@ class UserController {
             print(error.localizedDescription)
         }
     }
-    
-    func loadExpenseData() {
-        let fm = FileManager.default
-        guard let url = persistentExpensesFileURL, fm.fileExists(atPath: url.path) else { return }
-        do{
-            let data = try Data(contentsOf: url)
-            self.userExpenses = try PropertyListDecoder().decode([Expense].self, from: data)
-        } catch {
-            print("Error loading Expense data")
-            print(error.localizedDescription)
-        }
-    }
-    
     func saveCategoriesToPersistentStore() {
         guard let url = persistentCategoriesFileURL else { return }
         do {
