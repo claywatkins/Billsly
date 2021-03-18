@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     let userController = UserController.shared
+    let shapeLayer = CAShapeLayer()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -66,17 +67,40 @@ class HomeViewController: UIViewController {
         amountOfBillsPaid.text = "You have \(totalBills - billsPaid) bills left to pay this month."
     }
     
-    private func constructProgressCircle() {
-        let shapeLayer = CAShapeLayer()
-        let center = progressBarView.center
-        let circularPath = UIBezierPath(arcCenter: center,
-                                        radius: 100,
-                                        startAngle: 0,
-                                        endAngle: 2*CGFloat.pi,
-                                        clockwise: true)
-        shapeLayer.path = circularPath.cgPath
-        progressBarView.layer.addSublayer(shapeLayer)
-    }
+        private func constructProgressCircle() {
+            let center = progressBarView.center
+            let circularPath = UIBezierPath(arcCenter: center,
+                                            radius: 100,
+                                            startAngle: -CGFloat.pi/2,
+                                            endAngle: 2*CGFloat.pi,
+                                            clockwise: true)
+            let trackLayer = CAShapeLayer()
+            trackLayer.path = circularPath.cgPath
+            trackLayer.strokeColor = UIColor.lightGray.cgColor
+            trackLayer.lineWidth = 10
+            trackLayer.fillColor = UIColor.clear.cgColor
+            trackLayer.lineCap = CAShapeLayerLineCap.round
+            progressBarView.layer.addSublayer(trackLayer)
+    
+            shapeLayer.path = circularPath.cgPath
+            shapeLayer.strokeColor = UIColor.red.cgColor
+            shapeLayer.lineWidth = 10
+            shapeLayer.fillColor = UIColor.clear.cgColor
+            shapeLayer.lineCap = CAShapeLayerLineCap.round
+            shapeLayer.strokeEnd = 0
+            progressBarView.layer.addSublayer(shapeLayer)
+    
+            animateStrokeProgressCircle()
+        }
+    
+        private func animateStrokeProgressCircle() {
+            let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+            basicAnimation.toValue = 1
+            basicAnimation.duration = 2
+            basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+            basicAnimation.isRemovedOnCompletion = false
+            shapeLayer.add(basicAnimation, forKey: "basic")
+        }
     
     // MARK: - IBActions
     @IBAction func paidBillsButtonTapped(_ sender: Any) {
