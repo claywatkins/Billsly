@@ -23,6 +23,12 @@ class HomeViewController: UIViewController {
     // MARK: - Properties
     let userController = UserController.shared
     let shapeLayer = CAShapeLayer()
+    let percentageLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 32)
+        return label
+    }()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -32,6 +38,8 @@ class HomeViewController: UIViewController {
         displayDate()
         constructProgressCircle()
         print("Bills Count: \(userController.userBills.count)")
+        print("Percentage Bills Paid: \(userController.calculatedBillProgressString)")
+        print("Calculated Float: \(userController.calculatedBillProgressFloat)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +47,9 @@ class HomeViewController: UIViewController {
         fsCalendarView.reloadData()
         billsPaidThisMonth()
         setupCalendar()
-        
+        animateStrokeProgressCircle(float: userController.calculatedBillProgressFloat)
+        print("Percentage Bills Paid: \(userController.calculatedBillProgressString)")
+        print("Calculated Float: \(userController.calculatedBillProgressFloat)")
     }
     
     // MARK: - Methods
@@ -67,40 +77,44 @@ class HomeViewController: UIViewController {
         amountOfBillsPaid.text = "You have \(totalBills - billsPaid) bills left to pay this month."
     }
     
-        private func constructProgressCircle() {
-            let center = progressBarView.center
-            let circularPath = UIBezierPath(arcCenter: center,
-                                            radius: 100,
-                                            startAngle: -CGFloat.pi/2,
-                                            endAngle: 2*CGFloat.pi,
-                                            clockwise: true)
-            let trackLayer = CAShapeLayer()
-            trackLayer.path = circularPath.cgPath
-            trackLayer.strokeColor = UIColor.lightGray.cgColor
-            trackLayer.lineWidth = 10
-            trackLayer.fillColor = UIColor.clear.cgColor
-            trackLayer.lineCap = CAShapeLayerLineCap.round
-            progressBarView.layer.addSublayer(trackLayer)
-    
-            shapeLayer.path = circularPath.cgPath
-            shapeLayer.strokeColor = UIColor.red.cgColor
-            shapeLayer.lineWidth = 10
-            shapeLayer.fillColor = UIColor.clear.cgColor
-            shapeLayer.lineCap = CAShapeLayerLineCap.round
-            shapeLayer.strokeEnd = 0
-            progressBarView.layer.addSublayer(shapeLayer)
-    
-            animateStrokeProgressCircle()
-        }
-    
-        private func animateStrokeProgressCircle() {
-            let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-            basicAnimation.toValue = 1
-            basicAnimation.duration = 2
-            basicAnimation.fillMode = CAMediaTimingFillMode.forwards
-            basicAnimation.isRemovedOnCompletion = false
-            shapeLayer.add(basicAnimation, forKey: "basic")
-        }
+    private func constructProgressCircle() {
+        progressBarView.addSubview(percentageLabel)
+        percentageLabel.frame = CGRect(x: 0,
+                                       y: 0,
+                                       width: 150,
+                                       height: 150)
+        percentageLabel.center = progressBarView.center
+        let center = progressBarView.center
+        let circularPath = UIBezierPath(arcCenter: center,
+                                        radius: 100,
+                                        startAngle: -CGFloat.pi/2,
+                                        endAngle: 3*CGFloat.pi/2,
+                                        clockwise: true)
+        let trackLayer = CAShapeLayer()
+        trackLayer.path = circularPath.cgPath
+        trackLayer.strokeColor = UIColor.lightGray.cgColor
+        trackLayer.lineWidth = 12
+        trackLayer.fillColor = UIColor.clear.cgColor
+        trackLayer.lineCap = CAShapeLayerLineCap.round
+        progressBarView.layer.addSublayer(trackLayer)
+        
+        shapeLayer.path = circularPath.cgPath
+        shapeLayer.strokeColor = UIColor.red.cgColor
+        shapeLayer.lineWidth = 10
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.lineCap = CAShapeLayerLineCap.round
+        shapeLayer.strokeEnd = 0
+        progressBarView.layer.addSublayer(shapeLayer)
+    }
+    private func animateStrokeProgressCircle(float: CGFloat) {
+        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        basicAnimation.toValue = float
+        basicAnimation.duration = 2.5
+        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+        basicAnimation.isRemovedOnCompletion = false
+        shapeLayer.add(basicAnimation, forKey: "basic")
+        percentageLabel.text = userController.calculatedBillProgressString
+    }
     
     // MARK: - IBActions
     @IBAction func paidBillsButtonTapped(_ sender: Any) {
@@ -333,5 +347,6 @@ extension HomeViewController: BillHasBeenPaid {
     func updateCalendar() {
         fsCalendarView.reloadData()
         billsPaidThisMonth()
+        animateStrokeProgressCircle(float: userController.calculatedBillProgressFloat)
     }
 }
