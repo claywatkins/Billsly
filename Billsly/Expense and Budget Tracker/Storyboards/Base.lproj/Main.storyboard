@@ -287,16 +287,16 @@
                                 <rect key="frame" x="20" y="511.33333333333326" width="388" height="292"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Xe-xY-LFS">
-                                        <rect key="frame" x="8" y="8.0000000000000568" width="372" height="276"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="388" height="292"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <constraints>
-                                    <constraint firstItem="2Xe-xY-LFS" firstAttribute="top" secondItem="rNy-gZ-DA1" secondAttribute="top" constant="8" id="f91-t0-Brz"/>
-                                    <constraint firstItem="2Xe-xY-LFS" firstAttribute="leading" secondItem="rNy-gZ-DA1" secondAttribute="leading" constant="8" id="kRR-Kq-rAE"/>
-                                    <constraint firstAttribute="trailing" secondItem="2Xe-xY-LFS" secondAttribute="trailing" constant="8" id="rRz-wA-JiI"/>
-                                    <constraint firstAttribute="bottom" secondItem="2Xe-xY-LFS" secondAttribute="bottom" constant="8" id="ts8-oh-HSz"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Xe-xY-LFS" secondAttribute="trailing" id="AxC-ez-bXx"/>
+                                    <constraint firstItem="2Xe-xY-LFS" firstAttribute="top" secondItem="rNy-gZ-DA1" secondAttribute="top" id="LVC-5U-3xj"/>
+                                    <constraint firstItem="2Xe-xY-LFS" firstAttribute="leading" secondItem="rNy-gZ-DA1" secondAttribute="leading" id="NuC-AC-EQm"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Xe-xY-LFS" secondAttribute="bottom" id="Zik-EC-d4y"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have paid x/x bills this month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7X-Tz-CiN">

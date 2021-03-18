@@ -26,7 +26,8 @@ class HomeViewController: UIViewController {
     let percentageLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 32)
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     
@@ -38,8 +39,6 @@ class HomeViewController: UIViewController {
         displayDate()
         constructProgressCircle()
         print("Bills Count: \(userController.userBills.count)")
-        print("Percentage Bills Paid: \(userController.calculatedBillProgressString)")
-        print("Calculated Float: \(userController.calculatedBillProgressFloat)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,9 +46,7 @@ class HomeViewController: UIViewController {
         fsCalendarView.reloadData()
         billsPaidThisMonth()
         setupCalendar()
-        animateStrokeProgressCircle(float: userController.calculatedBillProgressFloat)
-        print("Percentage Bills Paid: \(userController.calculatedBillProgressString)")
-        print("Calculated Float: \(userController.calculatedBillProgressFloat)")
+        animateStrokeProgressCircle(to: userController.calculatedBillProgressFloat)
     }
     
     // MARK: - Methods
@@ -106,14 +103,31 @@ class HomeViewController: UIViewController {
         shapeLayer.strokeEnd = 0
         progressBarView.layer.addSublayer(shapeLayer)
     }
-    private func animateStrokeProgressCircle(float: CGFloat) {
+    private func animateStrokeProgressCircle(to float: CGFloat) {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.toValue = float
-        basicAnimation.duration = 2.5
+        basicAnimation.duration = 2
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation, forKey: "basic")
-        percentageLabel.text = userController.calculatedBillProgressString
+        calculatePercentageText(float: float)
+    }
+    
+    private func calculatePercentageText(float: CGFloat) {
+        switch float {
+        case 0.01...0.25:
+            percentageLabel.text = userController.calculatedBillProgressString + "\nGetting Started"
+        case 0.26...0.50:
+            percentageLabel.text = userController.calculatedBillProgressString + "\nMaking Progress"
+        case 0.51...0.75:
+            percentageLabel.text = userController.calculatedBillProgressString + "\nWoaaah we're halfway there"
+        case 0.76...0.99:
+            percentageLabel.text = userController.calculatedBillProgressString + "\nAlmost There!"
+        case 1:
+            percentageLabel.text = userController.calculatedBillProgressString + "\nMission Complete \n😎"
+        default:
+            percentageLabel.text = userController.calculatedBillProgressString + "\nPay a bill to track your progress"
+        }
     }
     
     // MARK: - IBActions
@@ -347,6 +361,6 @@ extension HomeViewController: BillHasBeenPaid {
     func updateCalendar() {
         fsCalendarView.reloadData()
         billsPaidThisMonth()
-        animateStrokeProgressCircle(float: userController.calculatedBillProgressFloat)
+        animateStrokeProgressCircle(to: userController.calculatedBillProgressFloat)
     }
 }
