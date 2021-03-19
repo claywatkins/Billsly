@@ -290,7 +290,7 @@
                                 <rect key="frame" x="20" y="229" width="388" height="320"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKe-un-9cb" customClass="FSCalendar">
-                                        <rect key="frame" x="0.0" y="0.0" width="388" height="320"/>
+                                        <rect key="frame" x="8" y="8" width="372" height="304"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="dataSource" destination="nUp-IN-LDS" id="kLO-0v-Otj"/>
@@ -300,11 +300,11 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="rKe-un-9cb" secondAttribute="trailing" id="0C1-YS-jtA"/>
-                                    <constraint firstItem="rKe-un-9cb" firstAttribute="top" secondItem="ErR-ba-1nl" secondAttribute="top" id="TDM-q6-LMf"/>
+                                    <constraint firstAttribute="trailing" secondItem="rKe-un-9cb" secondAttribute="trailing" constant="8" id="7VR-LX-HIQ"/>
+                                    <constraint firstItem="rKe-un-9cb" firstAttribute="leading" secondItem="ErR-ba-1nl" secondAttribute="leading" constant="8" id="7Yp-33-oaI"/>
+                                    <constraint firstItem="rKe-un-9cb" firstAttribute="top" secondItem="ErR-ba-1nl" secondAttribute="top" constant="8" id="Ket-zR-Zmk"/>
+                                    <constraint firstAttribute="bottom" secondItem="rKe-un-9cb" secondAttribute="bottom" constant="8" id="LJf-UL-bWm"/>
                                     <constraint firstAttribute="height" constant="320" id="fs6-6R-9ia"/>
-                                    <constraint firstAttribute="bottom" secondItem="rKe-un-9cb" secondAttribute="bottom" id="nal-j3-TsU"/>
-                                    <constraint firstItem="rKe-un-9cb" firstAttribute="leading" secondItem="ErR-ba-1nl" secondAttribute="leading" id="r6l-nk-sgO"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNy-gZ-DA1">
@@ -323,7 +323,6 @@
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="F7X-Tz-CiN" secondAttribute="trailing" constant="8" id="5fp-22-S76"/>
-                                            <constraint firstItem="F7X-Tz-CiN" firstAttribute="centerX" secondItem="2Xe-xY-LFS" secondAttribute="centerX" id="FuZ-Jp-Jo2"/>
                                             <constraint firstItem="F7X-Tz-CiN" firstAttribute="top" secondItem="2Xe-xY-LFS" secondAttribute="top" constant="8" id="LUW-ao-gLW"/>
                                             <constraint firstItem="F7X-Tz-CiN" firstAttribute="leading" secondItem="2Xe-xY-LFS" secondAttribute="leading" constant="8" id="z1v-B2-FvD"/>
                                         </constraints>
@@ -360,10 +359,10 @@
                                             <segue destination="RbP-ug-M3W" kind="presentation" id="o5M-j5-mXd"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="120" translatesAutoresizingMaskIntoConstraints="NO" id="HUa-M5-uZJ">
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="HUa-M5-uZJ">
                                         <rect key="frame" x="8" y="133" width="372" height="36"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAR-eK-U57">
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAR-eK-U57">
                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="I paid a bill">
