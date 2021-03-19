@@ -20,11 +20,19 @@ class BillsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         userController.loadBillData()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        
+    }
+    
+    // MARK: - IBAction
+    @IBAction func homeButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Methods
