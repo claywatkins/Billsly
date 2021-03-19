@@ -11,7 +11,10 @@ import Charts
 
 class HomeViewController: UIViewController {
     // MARK: - IBOutlets
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var userView: UIView!
     @IBOutlet weak var amountOfBillsPaid: UILabel!
     @IBOutlet weak var calendarHostView: UIView!
     @IBOutlet weak var fsCalendarView: FSCalendar!

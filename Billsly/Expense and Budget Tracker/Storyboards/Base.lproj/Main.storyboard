@@ -436,6 +436,9 @@
                         <outlet property="paidBillButton" destination="GAR-eK-U57" id="cfP-lV-Gch"/>
                         <outlet property="progressBarView" destination="2Xe-xY-LFS" id="kZO-3g-ZKn"/>
                         <outlet property="progressHostView" destination="rNy-gZ-DA1" id="iHP-Em-6O3"/>
+                        <outlet property="settingsButton" destination="Xrk-aa-vlD" id="8JO-aC-woF"/>
+                        <outlet property="userNameLabel" destination="rtD-te-VCl" id="n0l-Jd-scc"/>
+                        <outlet property="userView" destination="XyV-MI-J7I" id="tad-u8-D1I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zmr-8h-enX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
