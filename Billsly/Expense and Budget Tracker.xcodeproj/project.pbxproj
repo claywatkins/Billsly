@@ -20,7 +20,6 @@
 		0B8B698225DB646200B9F55E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B698125DB646200B9F55E /* Assets.xcassets */; };
 		0B8B698525DB646200B9F55E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B698325DB646200B9F55E /* LaunchScreen.storyboard */; };
 		0B968E3725FE91A700B7AE84 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B968E3625FE91A700B7AE84 /* DateExtension.swift */; };
-		0BDFC20925F1BB4400760A6F /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 0BDFC20825F1BB4400760A6F /* Charts */; };
 		0BDFC21125F1C61800760A6F /* PopUpWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDFC21025F1C61800760A6F /* PopUpWindowView.swift */; };
 		0BF254E525F0C5430078BD9F /* userController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E425F0C5430078BD9F /* userController.swift */; };
 		0BF254E925F0C5A90078BD9F /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E825F0C5A90078BD9F /* Bill.swift */; };
@@ -72,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BDFC20925F1BB4400760A6F /* Charts in Frameworks */,
 				0B57467F25F690F500EC81DA /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,7 +187,6 @@
 			);
 			name = "Expense and Budget Tracker";
 			packageProductDependencies = (
-				0BDFC20825F1BB4400760A6F /* Charts */,
 				0B57467E25F690F500EC81DA /* FSCalendar */,
 			);
 			productName = "Expense and Budget Tracker";
@@ -424,7 +421,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -445,7 +442,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -496,11 +493,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0B57467D25F690F500EC81DA /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
-		};
-		0BDFC20825F1BB4400760A6F /* Charts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BDFC20725F1BB4400760A6F /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
