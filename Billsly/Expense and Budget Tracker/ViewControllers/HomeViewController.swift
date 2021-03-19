@@ -53,7 +53,7 @@ class HomeViewController: UIViewController {
     // MARK: - Methods
     private func displayDate() {
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
-        dateLabel.text = userController.df.string(from: Date())
+        dateLabel.text = "Today is " + userController.df.string(from: Date())
     }
     
     private func setupCalendar() {
@@ -84,7 +84,7 @@ class HomeViewController: UIViewController {
         percentageLabel.center = progressBarView.center
         let center = progressBarView.center
         let circularPath = UIBezierPath(arcCenter: center,
-                                        radius: 100,
+                                        radius: 90,
                                         startAngle: -CGFloat.pi/2,
                                         endAngle: 3*CGFloat.pi/2,
                                         clockwise: true)
@@ -115,19 +115,9 @@ class HomeViewController: UIViewController {
     }
     
     private func calculatePercentageText(float: CGFloat) {
-        switch float {
-        case 0.01...0.25:
-            percentageLabel.text = userController.calculatedBillProgressString + "\nGetting Started"
-        case 0.26...0.50:
-            percentageLabel.text = userController.calculatedBillProgressString + "\nMaking Progress"
-        case 0.51...0.75:
-            percentageLabel.text = userController.calculatedBillProgressString + "\nWoaaah we're halfway there"
-        case 0.76...0.99:
-            percentageLabel.text = userController.calculatedBillProgressString + "\nAlmost There!"
-        case 1:
-            percentageLabel.text = userController.calculatedBillProgressString + "\nMission Complete \n😎"
-        default:
-            percentageLabel.text = userController.calculatedBillProgressString + "\nPay a bill to track your progress"
+        percentageLabel.text = userController.calculatedBillProgressString + "\n of bills paid!"
+        if userController.calculatedBillProgressFloat == 1{
+            percentageLabel.text = userController.calculatedBillProgressString + "\n All bills paid 😎"
         }
     }
     
