@@ -17,6 +17,7 @@ class AddBillViewController: UIViewController{
     @IBOutlet weak var addCategoryButton: UIButton!
     @IBOutlet weak var selectedDateLabel: UILabel!
     @IBOutlet weak var fsCalendarView: FSCalendar!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: - Properties
     let userController = UserController.shared
@@ -175,4 +176,10 @@ extension AddBillViewController: UITextFieldDelegate {
         self.view.endEditing(true)
         return false
     }
+}
+
+extension AddBillViewController: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//            scrollView.contentOffset.x = 0
+//    }
 }

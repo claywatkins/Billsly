@@ -7,7 +7,6 @@
 
 import UIKit
 import FSCalendar
-import Charts
 
 class HomeViewController: UIViewController {
     // MARK: - IBOutlets
