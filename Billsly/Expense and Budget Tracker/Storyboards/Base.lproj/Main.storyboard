@@ -155,6 +155,7 @@
                             <constraint firstItem="R92-MQ-pJI" firstAttribute="top" secondItem="iN1-qF-iua" secondAttribute="bottom" constant="30" id="cYn-d5-SV8"/>
                             <constraint firstItem="R92-MQ-pJI" firstAttribute="leading" secondItem="2Yj-Ac-xIL" secondAttribute="leading" constant="20" id="flS-Qt-B9T"/>
                             <constraint firstItem="2Yj-Ac-xIL" firstAttribute="trailing" secondItem="iN1-qF-iua" secondAttribute="trailing" constant="20" id="jDJ-gk-Rc7"/>
+                            <constraint firstItem="pzG-ny-3pW" firstAttribute="top" relation="lessThanOrEqual" secondItem="R92-MQ-pJI" secondAttribute="bottom" constant="119" id="jpM-UY-ehs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add a Bill" id="m5X-LY-SpI"/>

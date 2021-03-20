@@ -41,6 +41,7 @@ class HomeViewController: UIViewController {
         userController.loadCategoryData()
         displayDate()
         constructProgressCircle()
+        print(userController.calculatedBillProgressFloat)
         print("Bills Count: \(userController.userBills.count)")
     }
     
@@ -75,6 +76,9 @@ class HomeViewController: UIViewController {
     private func billsPaidThisMonth() {
         let billsPaid = userController.paidBills.count
         let totalBills = userController.userBills.count
+        if totalBills == 0 {
+            amountOfBillsPaid.text = "No bills added yet. Add some bills to track your progress!"
+        }
         amountOfBillsPaid.text = "You have \(totalBills - billsPaid) bills left to pay this month."
     }
     
@@ -82,8 +86,8 @@ class HomeViewController: UIViewController {
         progressBarView.addSubview(percentageLabel)
         percentageLabel.frame = CGRect(x: 0,
                                        y: 0,
-                                       width: 150,
-                                       height: 150)
+                                       width: 100,
+                                       height: 100)
         percentageLabel.center = progressBarView.center
         let center = progressBarView.center
         let circularPath = UIBezierPath(arcCenter: center,
@@ -118,9 +122,11 @@ class HomeViewController: UIViewController {
     }
     
     private func calculatePercentageText(float: CGFloat) {
-        percentageLabel.text = userController.calculatedBillProgressString + "\n of bills paid!"
+        percentageLabel.text = "0%"
         if userController.calculatedBillProgressFloat == 1{
             percentageLabel.text = userController.calculatedBillProgressString + "\n All bills paid 😎"
+        } else if userController.calculatedBillProgressFloat > 0 {
+            percentageLabel.text = userController.calculatedBillProgressString + "\n of bills paid!"
         }
     }
     
