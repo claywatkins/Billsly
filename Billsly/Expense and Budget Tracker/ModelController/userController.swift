@@ -71,7 +71,6 @@ class UserController {
         let pFormatter = NumberFormatter()
         pFormatter.numberStyle = .percent
         pFormatter.multiplier = 1
-        pFormatter.maximumFractionDigits = 2
         pFormatter.percentSymbol = "%"
         let billsPaidPercentage = paidBillsCount/totalBillsCount * 100
         return pFormatter.string(from: NSNumber(value: billsPaidPercentage))!

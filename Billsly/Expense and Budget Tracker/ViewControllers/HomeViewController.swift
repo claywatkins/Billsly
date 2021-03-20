@@ -25,6 +25,9 @@ class HomeViewController: UIViewController {
     // MARK: - Properties
     let userController = UserController.shared
     let shapeLayer = CAShapeLayer()
+    var displayLink: CADisplayLink?
+    var animationStartTime = Date()
+    let duration: Double = 2
     let percentageLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -39,6 +42,7 @@ class HomeViewController: UIViewController {
         userController.loadBillData()
         userController.loadCategoryData()
         displayDate()
+        configureViews()
         constructProgressCircle()
         print(userController.calculatedBillProgressFloat)
         print("Bills Count: \(userController.userBills.count)")
@@ -51,9 +55,16 @@ class HomeViewController: UIViewController {
         billsPaidThisMonth()
         setupCalendar()
         animateStrokeProgressCircle(to: userController.calculatedBillProgressFloat)
+        animationStartTime = Date()
     }
     
     // MARK: - Methods
+    private func configureViews() {
+        userView.configureView(nil)
+        calendarHostView.configureView(nil)
+        progressBarView.configureView(nil)
+    }
+    
     private func displayDate() {
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
         dateLabel.text = "Today is " + userController.df.string(from: Date())
@@ -62,6 +73,7 @@ class HomeViewController: UIViewController {
     private func setupCalendar() {
         fsCalendarView.placeholderType = .none
         fsCalendarView.isUserInteractionEnabled = false
+        fsCalendarView.layer.cornerRadius = 12
         userController.df.dateFormat = "d"
         let todayStr = userController.df.string(from: fsCalendarView.today!)
         if userController.dueByDateStrings.contains(todayStr) {
@@ -113,19 +125,34 @@ class HomeViewController: UIViewController {
     private func animateStrokeProgressCircle(to float: CGFloat) {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.toValue = float
-        basicAnimation.duration = 2
+        basicAnimation.duration = duration
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation, forKey: "basic")
-        calculatePercentageText(float: float)
+        animateLabel()
     }
     
-    private func calculatePercentageText(float: CGFloat) {
-        percentageLabel.text = "0%"
-        if userController.calculatedBillProgressFloat == 1{
-            percentageLabel.text = userController.calculatedBillProgressString + "\n All bills paid 😎"
-        } else if userController.calculatedBillProgressFloat > 0 {
-            percentageLabel.text = userController.calculatedBillProgressString + "\n of bills paid!"
+    private func animateLabel() {
+        displayLink = CADisplayLink(target: self,
+                                    selector: #selector(handleUpdate))
+        displayLink?.add(to: .main, forMode: .default)
+    }
+    
+    @objc private func handleUpdate() {
+        let now = Date()
+        let elapsedTime = now.timeIntervalSince(animationStartTime)
+        if elapsedTime > duration {
+            self.percentageLabel.text = userController.calculatedBillProgressString + "\n of bills paid!"
+            if userController.calculatedBillProgressFloat == 1{
+                percentageLabel.text = userController.calculatedBillProgressString + "\n All bills paid 😎"
+            }
+        } else {
+            let pFormatter = NumberFormatter()
+            pFormatter.numberStyle = .percent
+            pFormatter.percentSymbol = "%"
+            let percentage = elapsedTime / duration
+            let value = 0.0 + CGFloat(percentage) * (userController.calculatedBillProgressFloat - 0.0) as NSNumber
+            self.percentageLabel.text = pFormatter.string(from: value)! + "\n of bills paid!"
         }
     }
     
@@ -358,6 +385,7 @@ extension HomeViewController: UIPopoverPresentationControllerDelegate {
 
 extension HomeViewController: BillHasBeenPaid {
     func updateCalendar() {
+        animationStartTime = Date()
         fsCalendarView.reloadData()
         billsPaidThisMonth()
         animateStrokeProgressCircle(to: userController.calculatedBillProgressFloat)

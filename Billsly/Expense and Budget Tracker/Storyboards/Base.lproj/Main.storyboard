@@ -332,7 +332,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xrk-aa-vlD">
-                                        <rect key="frame" x="321" y="8" width="67" height="34"/>
+                                        <rect key="frame" x="313" y="8" width="75" height="34"/>
                                         <state key="normal" title="Settings"/>
                                         <connections>
                                             <segue destination="RbP-ug-M3W" kind="presentation" id="o5M-j5-mXd"/>
@@ -367,7 +367,7 @@
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstItem="Xrk-aa-vlD" firstAttribute="top" secondItem="XyV-MI-J7I" secondAttribute="top" constant="8" id="9Gq-g0-s9g"/>
-                                    <constraint firstItem="Xrk-aa-vlD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XyV-MI-J7I" secondAttribute="leading" constant="313" id="FoF-UD-mLi"/>
+                                    <constraint firstItem="Xrk-aa-vlD" firstAttribute="leading" relation="lessThanOrEqual" secondItem="XyV-MI-J7I" secondAttribute="leading" constant="313" id="FoF-UD-mLi"/>
                                     <constraint firstItem="HUa-M5-uZJ" firstAttribute="leading" secondItem="XyV-MI-J7I" secondAttribute="leading" constant="5" id="MOc-yy-it4"/>
                                     <constraint firstItem="M6Z-Ac-nLp" firstAttribute="top" secondItem="rtD-te-VCl" secondAttribute="bottom" constant="8" symbolic="YES" id="RaT-r8-lP4"/>
                                     <constraint firstItem="HUa-M5-uZJ" firstAttribute="top" secondItem="M6Z-Ac-nLp" secondAttribute="bottom" constant="12" id="Rmc-e7-pVZ"/>
@@ -434,7 +434,7 @@
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="2Xe-xY-LFS" secondAttribute="bottom" id="0gG-A6-qXZ"/>
                                                             <constraint firstAttribute="trailing" secondItem="2Xe-xY-LFS" secondAttribute="trailing" id="3ww-DK-npW"/>
@@ -448,7 +448,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="428" id="JUF-Gd-xDb"/>
                                             <constraint firstItem="vSg-bp-mNz" firstAttribute="top" secondItem="BNn-q8-95i" secondAttribute="top" constant="8" id="K54-ek-HO1"/>
@@ -458,6 +458,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="BNn-q8-95i" firstAttribute="top" secondItem="4oK-19-ziG" secondAttribute="top" id="3Ye-M3-Y8X"/>
                                     <constraint firstItem="BNn-q8-95i" firstAttribute="leading" secondItem="4oK-19-ziG" secondAttribute="leading" id="V20-xd-Zl5"/>
@@ -884,9 +885,6 @@
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
