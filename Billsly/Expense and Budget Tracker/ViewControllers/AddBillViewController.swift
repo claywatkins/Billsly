@@ -177,9 +177,3 @@ extension AddBillViewController: UITextFieldDelegate {
         return false
     }
 }
-
-extension AddBillViewController: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//            scrollView.contentOffset.x = 0
-//    }
-}
