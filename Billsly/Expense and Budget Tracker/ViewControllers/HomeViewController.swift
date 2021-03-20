@@ -63,6 +63,9 @@ class HomeViewController: UIViewController {
         userView.configureView(nil)
         calendarHostView.configureView(nil)
         progressBarView.configureView(nil)
+        paidBillButton.configureButton(UIColor.systemGreen)
+        manageBillsButton.configureButton(UIColor.systemGreen)
+        settingsButton.configureButton(UIColor.clear)
     }
     
     private func displayDate() {

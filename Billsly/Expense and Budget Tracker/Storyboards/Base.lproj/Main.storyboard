@@ -319,66 +319,74 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XyV-MI-J7I">
                                 <rect key="frame" x="16" y="44" width="396" height="177"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="March 10th, 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6Z-Ac-nLp">
-                                        <rect key="frame" x="8" y="95.666666666666657" width="380" height="25.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back, Clayton" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rtD-te-VCl">
+                                        <rect key="frame" x="8" y="16" width="380" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back, Clayton" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rtD-te-VCl">
-                                        <rect key="frame" x="8" y="47" width="380" height="40.666666666666657"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAR-eK-U57">
+                                        <rect key="frame" x="8" y="133" width="150" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="GSl-wj-x6K"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="I paid a bill">
+                                            <color key="titleColor" systemColor="systemBlueColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="paidBillsButtonTapped:" destination="nUp-IN-LDS" eventType="touchUpInside" id="1lp-OV-O9Q"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1f-t5-KmR">
+                                        <rect key="frame" x="238" y="133" width="150" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="FlW-Yc-7TF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Manage bills">
+                                            <color key="titleColor" systemColor="systemBlueColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="kNO-rd-ATa" kind="presentation" modalPresentationStyle="fullScreen" id="Q9E-Qf-4Y2"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="March 10th, 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6Z-Ac-nLp">
+                                        <rect key="frame" x="8" y="72" width="319" height="25.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xrk-aa-vlD">
-                                        <rect key="frame" x="313" y="8" width="75" height="34"/>
-                                        <state key="normal" title="Settings"/>
+                                        <rect key="frame" x="332" y="72" width="56" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="EEu-bN-bSJ"/>
+                                            <constraint firstAttribute="width" constant="56" id="Zrl-Kq-iug"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" image="gearshape.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                        </state>
                                         <connections>
                                             <segue destination="RbP-ug-M3W" kind="presentation" id="o5M-j5-mXd"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="HUa-M5-uZJ">
-                                        <rect key="frame" x="5" y="133" width="386" height="36"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAR-eK-U57">
-                                                <rect key="frame" x="0.0" y="0.0" width="92" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="I paid a bill">
-                                                    <color key="titleColor" systemColor="systemBlueColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="paidBillsButtonTapped:" destination="nUp-IN-LDS" eventType="touchUpInside" id="1lp-OV-O9Q"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1f-t5-KmR">
-                                                <rect key="frame" x="276" y="0.0" width="110" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Manage bills">
-                                                    <color key="titleColor" systemColor="systemBlueColor"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="kNO-rd-ATa" kind="presentation" modalPresentationStyle="fullScreen" id="Q9E-Qf-4Y2"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
-                                    <constraint firstItem="Xrk-aa-vlD" firstAttribute="top" secondItem="XyV-MI-J7I" secondAttribute="top" constant="8" id="9Gq-g0-s9g"/>
-                                    <constraint firstItem="Xrk-aa-vlD" firstAttribute="leading" relation="lessThanOrEqual" secondItem="XyV-MI-J7I" secondAttribute="leading" constant="313" id="FoF-UD-mLi"/>
-                                    <constraint firstItem="HUa-M5-uZJ" firstAttribute="leading" secondItem="XyV-MI-J7I" secondAttribute="leading" constant="5" id="MOc-yy-it4"/>
-                                    <constraint firstItem="M6Z-Ac-nLp" firstAttribute="top" secondItem="rtD-te-VCl" secondAttribute="bottom" constant="8" symbolic="YES" id="RaT-r8-lP4"/>
-                                    <constraint firstItem="HUa-M5-uZJ" firstAttribute="top" secondItem="M6Z-Ac-nLp" secondAttribute="bottom" constant="12" id="Rmc-e7-pVZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="rtD-te-VCl" secondAttribute="trailing" constant="8" id="WTa-dM-q3G"/>
-                                    <constraint firstItem="rtD-te-VCl" firstAttribute="top" secondItem="Xrk-aa-vlD" secondAttribute="bottom" constant="5" id="aWX-bs-7N5"/>
-                                    <constraint firstItem="M6Z-Ac-nLp" firstAttribute="leading" secondItem="XyV-MI-J7I" secondAttribute="leading" constant="8" id="fC6-Tv-Ke0"/>
-                                    <constraint firstAttribute="trailing" secondItem="Xrk-aa-vlD" secondAttribute="trailing" constant="8" id="fXA-0w-STg"/>
+                                    <constraint firstAttribute="trailing" secondItem="w1f-t5-KmR" secondAttribute="trailing" constant="8" id="3FH-Jm-0Dp"/>
+                                    <constraint firstItem="rtD-te-VCl" firstAttribute="leading" secondItem="XyV-MI-J7I" secondAttribute="leading" constant="8" id="5kO-Yt-A4c"/>
+                                    <constraint firstItem="M6Z-Ac-nLp" firstAttribute="top" secondItem="rtD-te-VCl" secondAttribute="bottom" constant="20" id="EC2-RZ-7Hr"/>
+                                    <constraint firstAttribute="bottom" secondItem="w1f-t5-KmR" secondAttribute="bottom" constant="8" id="EUZ-iU-wpK"/>
+                                    <constraint firstItem="M6Z-Ac-nLp" firstAttribute="leading" secondItem="XyV-MI-J7I" secondAttribute="leading" constant="8" id="FSf-Dq-wv2"/>
+                                    <constraint firstItem="GAR-eK-U57" firstAttribute="leading" secondItem="XyV-MI-J7I" secondAttribute="leading" constant="8" id="H6q-Kt-8z2"/>
+                                    <constraint firstItem="rtD-te-VCl" firstAttribute="top" secondItem="XyV-MI-J7I" secondAttribute="top" constant="16" id="Jwa-El-0ig"/>
+                                    <constraint firstAttribute="bottom" secondItem="GAR-eK-U57" secondAttribute="bottom" constant="8" id="Nqb-S8-w8p"/>
+                                    <constraint firstAttribute="trailing" secondItem="rtD-te-VCl" secondAttribute="trailing" constant="8" id="V9m-mG-rAt"/>
                                     <constraint firstAttribute="height" constant="177" id="g6h-Hi-nKn"/>
-                                    <constraint firstItem="rtD-te-VCl" firstAttribute="leading" secondItem="XyV-MI-J7I" secondAttribute="leading" constant="8" id="gdK-h7-Lk4"/>
-                                    <constraint firstAttribute="trailing" secondItem="HUa-M5-uZJ" secondAttribute="trailing" constant="5" id="uQT-Wg-oId"/>
-                                    <constraint firstAttribute="trailing" secondItem="M6Z-Ac-nLp" secondAttribute="trailing" constant="8" id="zkP-1V-VNZ"/>
+                                    <constraint firstItem="Xrk-aa-vlD" firstAttribute="top" secondItem="rtD-te-VCl" secondAttribute="bottom" constant="20" id="jMl-HD-Gcs"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xrk-aa-vlD" secondAttribute="trailing" constant="8" id="oav-Na-vIL"/>
+                                    <constraint firstItem="Xrk-aa-vlD" firstAttribute="leading" secondItem="M6Z-Ac-nLp" secondAttribute="trailing" constant="5" id="pXM-rd-cEB"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="4oK-19-ziG">
@@ -875,6 +883,7 @@
     </scenes>
     <resources>
         <image name="checkmark.seal" catalog="system" width="128" height="128"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">

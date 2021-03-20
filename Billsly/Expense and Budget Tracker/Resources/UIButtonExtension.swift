@@ -8,12 +8,12 @@
 import UIKit
 
 extension UIButton {
-    func configureView(color: UIColor?) {
+    func configureButton(_ color: UIColor?) {
         layer.cornerRadius = 15
-        layer.shadowOpacity = 0.7
+        layer.shadowOpacity = 0.4
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowRadius = 4
-        layer.shadowOffset = CGSize(width: 0, height: 8)
+        layer.shadowRadius = 2
+        layer.shadowOffset = CGSize(width: 0, height: 4)
         layer.masksToBounds = false
         backgroundColor = color
     }
