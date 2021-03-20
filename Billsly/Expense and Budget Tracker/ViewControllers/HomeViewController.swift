@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
     let percentageLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
@@ -97,7 +97,7 @@ class HomeViewController: UIViewController {
         progressBarView.addSubview(percentageLabel)
         percentageLabel.frame = CGRect(x: 0,
                                        y: 0,
-                                       width: 100,
+                                       width: 200,
                                        height: 100)
         percentageLabel.center = progressBarView.center
         let center = progressBarView.center
