@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var progressBarView: UIView!
     @IBOutlet weak var paidBillButton: UIButton!
     @IBOutlet weak var manageBillsButton: UIButton!
+    @IBOutlet weak var paidThisMonthLabel: UILabel!
     
     // MARK: - Properties
     let userController = UserController.shared
@@ -33,6 +34,7 @@ class HomeViewController: UIViewController {
         label.textAlignment = .center
         label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 20)
+        label.textColor = ColorsHelper.bone
         return label
     }()
     
@@ -60,12 +62,18 @@ class HomeViewController: UIViewController {
     
     // MARK: - Methods
     private func configureViews() {
-        userView.configureView(nil)
-        calendarHostView.configureView(nil)
-        progressBarView.configureView(nil)
-        paidBillButton.configureButton(UIColor.systemGreen)
-        manageBillsButton.configureButton(UIColor.systemGreen)
-        settingsButton.configureButton(UIColor.clear)
+        view.backgroundColor = ColorsHelper.blackCoral
+        userNameLabel.textColor = ColorsHelper.bone
+        dateLabel.textColor = ColorsHelper.cultured
+        amountOfBillsPaid.textColor = ColorsHelper.bone
+        userView.configureView(ColorsHelper.slateGray)
+        calendarHostView.configureView(ColorsHelper.slateGray)
+        progressBarView.configureView(ColorsHelper.slateGray)
+        paidBillButton.configureButton(ColorsHelper.grullo)
+        manageBillsButton.configureButton(ColorsHelper.grullo)
+        settingsButton.backgroundColor = UIColor.clear
+        settingsButton.tintColor = ColorsHelper.bone
+        paidThisMonthLabel.textColor = ColorsHelper.bone
     }
     
     private func displayDate() {
@@ -77,6 +85,10 @@ class HomeViewController: UIViewController {
         fsCalendarView.placeholderType = .none
         fsCalendarView.isUserInteractionEnabled = false
         fsCalendarView.layer.cornerRadius = 12
+        fsCalendarView.backgroundColor = ColorsHelper.independence
+        fsCalendarView.appearance.weekdayTextColor = ColorsHelper.powderBlue
+        fsCalendarView.appearance.headerTitleColor = ColorsHelper.powderBlue
+        fsCalendarView.calendarHeaderView.tintColor = ColorsHelper.powderBlue
         userController.df.dateFormat = "d"
         let todayStr = userController.df.string(from: fsCalendarView.today!)
         if userController.dueByDateStrings.contains(todayStr) {
@@ -94,6 +106,7 @@ class HomeViewController: UIViewController {
             amountOfBillsPaid.text = "No bills added yet. Add some bills to track your progress!"
         }
         amountOfBillsPaid.text = "You have \(totalBills - billsPaid) bills left to pay this month."
+        paidThisMonthLabel.text = "You have spent \(userController.amountSpentOnBills) on bills this month!"
     }
     
     private func constructProgressCircle() {
@@ -118,7 +131,9 @@ class HomeViewController: UIViewController {
         progressBarView.layer.addSublayer(trackLayer)
         
         shapeLayer.path = circularPath.cgPath
-        shapeLayer.strokeColor = UIColor.red.cgColor
+        shapeLayer.strokeColor = ColorsHelper.orangeRedCrayola.cgColor
+        shapeLayer.borderWidth = 2
+        shapeLayer.borderColor = ColorsHelper.apricot.cgColor
         shapeLayer.lineWidth = 10
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineCap = CAShapeLayerLineCap.round
@@ -189,16 +204,14 @@ class HomeViewController: UIViewController {
 
 // MARK: - Extension
 extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
-    
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
-        if self.traitCollection.userInterfaceStyle == .dark {
-            var color = calendar.appearance.titleDefaultColor
-            color = .white
-            return color
-        }
-        return calendar.appearance.titleDefaultColor
+        return ColorsHelper.cultured
     }
     
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
+        return ColorsHelper.cultured
+    }
+
     func calendar(_ calendar: FSCalendar, titleFor date: Date) -> String? {
         userController.df.dateFormat = "d"
         let dateStr = userController.df.string(from: date)
@@ -226,11 +239,11 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         userController.df.dateFormat = "dd"
         let dateStr = userController.df.string(from: date)
         if userController.dueByDateAndPaid.contains(dateStr) {
-            cell.imageView.tintColor = .systemGreen
+            cell.imageView.tintColor = ColorsHelper.laurelGreen
         } else if userController.dueByDateAndUnpaid.contains(dateStr) {
-            cell.imageView.tintColor = .systemRed
+            cell.imageView.tintColor = ColorsHelper.orangeRedCrayola
         }
-        cell.imageView.contentMode = .scaleAspectFit
+        cell.imageView.contentMode = .scaleAspectFill
         return cell
     }
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
