@@ -396,7 +396,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="695"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vSg-bp-mNz">
-                                                <rect key="frame" x="16" y="8" width="396" height="590"/>
+                                                <rect key="frame" x="16" y="8" width="396" height="646"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ErR-ba-1nl">
                                                         <rect key="frame" x="0.0" y="0.0" width="396" height="300"/>
@@ -420,8 +420,29 @@
                                                             <constraint firstAttribute="width" constant="396" id="whI-2h-H7u"/>
                                                         </constraints>
                                                     </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xgc-K6-m2x">
+                                                        <rect key="frame" x="0.0" y="320" width="396" height="36"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxM-VU-VOv">
+                                                                <rect key="frame" x="0.0" y="0.0" width="188" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <state key="normal" title="Previous Month"/>
+                                                                <connections>
+                                                                    <action selector="previousMonthButtonTapped:" destination="nUp-IN-LDS" eventType="touchUpInside" id="OcX-IS-zbB"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGP-0C-D7L">
+                                                                <rect key="frame" x="208" y="0.0" width="188" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <state key="normal" title="Next Month"/>
+                                                                <connections>
+                                                                    <action selector="nextMonthButtonTapped:" destination="nUp-IN-LDS" eventType="touchUpInside" id="RiD-MB-B7c"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNy-gZ-DA1">
-                                                        <rect key="frame" x="0.0" y="320" width="396" height="270"/>
+                                                        <rect key="frame" x="0.0" y="376" width="396" height="270"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Xe-xY-LFS">
                                                                 <rect key="frame" x="0.0" y="0.0" width="396" height="270"/>
@@ -511,8 +532,10 @@
                         <outlet property="dateLabel" destination="M6Z-Ac-nLp" id="qKx-a8-aIA"/>
                         <outlet property="fsCalendarView" destination="rKe-un-9cb" id="LNM-Re-XZI"/>
                         <outlet property="manageBillsButton" destination="w1f-t5-KmR" id="r1f-64-bm1"/>
+                        <outlet property="nextMonthButton" destination="pGP-0C-D7L" id="p7D-Nf-6WK"/>
                         <outlet property="paidBillButton" destination="GAR-eK-U57" id="cfP-lV-Gch"/>
                         <outlet property="paidThisMonthLabel" destination="MZh-2m-em7" id="yZR-Ug-0VH"/>
+                        <outlet property="previousMonthButton" destination="gxM-VU-VOv" id="g6e-Tf-npu"/>
                         <outlet property="progressBarView" destination="2Xe-xY-LFS" id="kZO-3g-ZKn"/>
                         <outlet property="progressHostView" destination="rNy-gZ-DA1" id="iHP-Em-6O3"/>
                         <outlet property="settingsButton" destination="Xrk-aa-vlD" id="8JO-aC-woF"/>

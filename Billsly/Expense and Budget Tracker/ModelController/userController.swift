@@ -83,7 +83,7 @@ class UserController {
     
     var amountSpentOnBills: String {
         var count = 0.0
-        for bill in userBills {
+        for bill in paidBills {
             count += bill.dollarAmount
         }
         nf.numberStyle = .currency
