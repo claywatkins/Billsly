@@ -16,5 +16,8 @@ extension UIButton {
         layer.shadowOffset = CGSize(width: 0, height: 4)
         layer.masksToBounds = false
         backgroundColor = color
+        layer.borderColor = ColorsHelper.apricot.cgColor
+        layer.borderWidth = 2
+        setTitleColor(ColorsHelper.cultured, for: .normal)
     }
 }
