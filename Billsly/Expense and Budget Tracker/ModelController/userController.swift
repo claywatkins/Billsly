@@ -81,6 +81,18 @@ class UserController {
         return paidBillsCount/totalBillsCount
     }
     
+    var amountSpentOnBills: String {
+        var count = 0.0
+        for bill in userBills {
+            count += bill.dollarAmount
+        }
+        nf.numberStyle = .currency
+        guard let numberStr = nf.string(from: NSNumber(value: count)) else {
+            return "$0.00"
+        }
+        return numberStr
+    }
+    
     // MARK: - CRUD
     func createBill(name: String, dollarAmount: Double, dueByDate: Date, category: Category) {
         let newBill = Bill(name: name, dollarAmount: dollarAmount, dueByDate: dueByDate, category: category)
