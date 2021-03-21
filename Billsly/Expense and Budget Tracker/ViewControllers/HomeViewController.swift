@@ -118,7 +118,6 @@ class HomeViewController: UIViewController {
     private func setupCalendar() {
         fsCalendarView.placeholderType = .none
         fsCalendarView.isUserInteractionEnabled = false
-        fsCalendarView.adjustMonthPosition()
         fsCalendarView.layer.cornerRadius = 12
         fsCalendarView.backgroundColor = ColorsHelper.independence
         fsCalendarView.appearance.weekdayTextColor = ColorsHelper.powderBlue
@@ -129,7 +128,7 @@ class HomeViewController: UIViewController {
         if userController.dueByDateStrings.contains(todayStr) {
             fsCalendarView.appearance.todayColor = .clear
         } else {
-            fsCalendarView.appearance.todayColor = .systemTeal
+            fsCalendarView.appearance.todayColor = ColorsHelper.celadonGreen
         }
         fsCalendarView.register(FSCalendarCell.self, forCellReuseIdentifier: "calendarCell")
     }

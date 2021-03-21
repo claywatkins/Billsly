@@ -32,6 +32,7 @@ class BillsViewController: UIViewController {
     // MARK: - Methods
     private func configureView() {
         tableView.backgroundColor = ColorsHelper.blackCoral
+        view.backgroundColor = ColorsHelper.blackCoral
         navigationController?.navigationBar.backgroundColor = ColorsHelper.blackCoral
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
