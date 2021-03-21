@@ -14,7 +14,9 @@ protocol CategoryCellTapped {
 class CategoryPopoverViewController: UIViewController {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var categoriesLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addCategoryButton: UIButton!
     
     // MARK: - Properties
     let userController = UserController.shared
@@ -23,6 +25,8 @@ class CategoryPopoverViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = ColorsHelper.blackCoral
+        addCategoryButton.tintColor = ColorsHelper.cultured
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -31,7 +35,6 @@ class CategoryPopoverViewController: UIViewController {
         super.viewWillAppear(animated)
         loadDefaultCategories()
         userController.loadCategoryData()
-        print(userController.userCategories.count)
     }
     
     // MARK: - Methods

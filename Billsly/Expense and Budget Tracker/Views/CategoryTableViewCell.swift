@@ -18,6 +18,12 @@ class CategoryTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    
+    // MARK: - Lifecycle
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        categoryNameLabel.textColor = ColorsHelper.cultured
+    }
 
     // MARK: - Methods
     private func updateViews() {

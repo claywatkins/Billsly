@@ -13,7 +13,9 @@ protocol BillHasBeenPaid {
 
 class BillPaidPopoverViewController: UIViewController {
     // MARK: - IBOutlets
+    @IBOutlet weak var whatBillLabel: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var paidButton: UIButton!
     
     // MARK: - Properties
     let userController = UserController.shared

@@ -283,6 +283,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addCategoryButton" destination="Pp9-0g-ggI" id="oHy-LG-U87"/>
+                        <outlet property="categoriesLabel" destination="M7o-w9-3op" id="2hm-7f-Gmm"/>
                         <outlet property="tableView" destination="bV3-cI-PpO" id="K6Y-Lp-eHL"/>
                     </connections>
                 </viewController>
@@ -644,7 +646,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="paidButton" destination="rUO-bF-6D7" id="aMZ-kL-2j4"/>
                         <outlet property="pickerView" destination="fQZ-QA-ar2" id="hs2-78-dxV"/>
+                        <outlet property="whatBillLabel" destination="IKb-cL-XSP" id="FNd-oz-XFz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUp-Bj-c8S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
