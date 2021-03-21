@@ -25,7 +25,10 @@ class CategoryPopoverViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = ColorsHelper.blackCoral
         tableView.backgroundColor = ColorsHelper.blackCoral
+        tableView.layer.cornerRadius = 12
+        categoriesLabel.textColor = ColorsHelper.cultured
         addCategoryButton.tintColor = ColorsHelper.cultured
         tableView.delegate = self
         tableView.dataSource = self
@@ -80,6 +83,7 @@ extension CategoryPopoverViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as? CategoryTableViewCell else { return UITableViewCell()}
         cell.category = userController.userCategories[indexPath.row]
+        cell.contentView.backgroundColor = ColorsHelper.slateGray
         return cell
     }
     

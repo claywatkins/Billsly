@@ -25,7 +25,6 @@
 		0B9EE7E52605BE78005DCE6C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EE7E42605BE78005DCE6C /* UIButtonExtension.swift */; };
 		0BA826F22606D42800E55920 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA826F12606D42800E55920 /* user.swift */; };
 		0BA826F42606D5CA00E55920 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA826F32606D5CA00E55920 /* OnboardingViewController.swift */; };
-		0BDFC21125F1C61800760A6F /* PopUpWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDFC21025F1C61800760A6F /* PopUpWindowView.swift */; };
 		0BF254E525F0C5430078BD9F /* userController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E425F0C5430078BD9F /* userController.swift */; };
 		0BF254E925F0C5A90078BD9F /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E825F0C5A90078BD9F /* Bill.swift */; };
 		0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */; };
@@ -67,7 +66,6 @@
 		0B9EE7E42605BE78005DCE6C /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		0BA826F12606D42800E55920 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		0BA826F32606D5CA00E55920 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		0BDFC21025F1C61800760A6F /* PopUpWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindowView.swift; sourceTree = "<group>"; };
 		0BF254E425F0C5430078BD9F /* userController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userController.swift; sourceTree = "<group>"; };
 		0BF254E825F0C5A90078BD9F /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsViewController.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				0BF254F225F0CF510078BD9F /* BillTableViewCell.swift */,
-				0BDFC21025F1C61800760A6F /* PopUpWindowView.swift */,
 				0BF2A16825F9CBFC00308C04 /* CategoryTableViewCell.swift */,
 			);
 			path = Views;
@@ -275,7 +272,6 @@
 				0BF254E525F0C5430078BD9F /* userController.swift in Sources */,
 				0B8B697B25DB646000B9F55E /* SceneDelegate.swift in Sources */,
 				0B53E94C25FE81C9001DD4FB /* BillPaidPopoverViewController.swift in Sources */,
-				0BDFC21125F1C61800760A6F /* PopUpWindowView.swift in Sources */,
 				0B6AB4C82605D5F6005F2CF6 /* ColorsHelper.swift in Sources */,
 				0BF2A16525F9873800308C04 /* Category.swift in Sources */,
 				0B968E3725FE91A700B7AE84 /* DateExtension.swift in Sources */,

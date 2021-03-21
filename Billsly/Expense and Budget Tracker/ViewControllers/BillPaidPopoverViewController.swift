@@ -25,9 +25,18 @@ class BillPaidPopoverViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureViews()
         currentBillSelection = userController.unpaidBills[0]
     }
 
+    // MARK: - Methods
+    private func configureViews() {
+        view.backgroundColor = ColorsHelper.blackCoral
+        pickerView.backgroundColor = ColorsHelper.slateGray
+        whatBillLabel.textColor = ColorsHelper.cultured
+        paidButton.configureButton(ColorsHelper.slateGray)
+    }
+    
     // MARK: - IBActions
     @IBAction func paidButtonTapped(_ sender: Any) {
         userController.updateBillHasBeenPaid(bill: currentBillSelection!)
@@ -37,6 +46,7 @@ class BillPaidPopoverViewController: UIViewController {
 }
 
 extension BillPaidPopoverViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -44,9 +54,9 @@ extension BillPaidPopoverViewController: UIPickerViewDelegate, UIPickerViewDataS
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return userController.unpaidBills.count
     }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return userController.unpaidBills[row].name
+        
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: userController.unpaidBills[row].name, attributes: [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
