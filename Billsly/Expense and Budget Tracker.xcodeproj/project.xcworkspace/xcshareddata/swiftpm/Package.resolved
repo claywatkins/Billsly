@@ -2,39 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "Charts",
-        "repositoryURL": "https://github.com/danielgindi/Charts.git",
-        "state": {
-          "branch": null,
-          "revision": "8d134a78bb2cb9e7a0f05ecbd5880bb05cd02863",
-          "version": "4.0.1"
-        }
-      },
-      {
         "package": "FSCalendar",
         "repositoryURL": "https://github.com/WenchaoD/FSCalendar.git",
         "state": {
           "branch": null,
           "revision": "4e79a201fad268408a4fd9e2ef429497def9594f",
           "version": "2.8.2"
-        }
-      },
-      {
-        "package": "swift-algorithms",
-        "repositoryURL": "https://github.com/apple/swift-algorithms",
-        "state": {
-          "branch": null,
-          "revision": "1e761dd787b0f148f0b7aec42a7ff401767c26fa",
-          "version": "0.0.3"
-        }
-      },
-      {
-        "package": "swift-numerics",
-        "repositoryURL": "https://github.com/apple/swift-numerics",
-        "state": {
-          "branch": null,
-          "revision": "6583ac70c326c3ee080c1d42d9ca3361dca816cd",
-          "version": "0.1.0"
         }
       }
     ]

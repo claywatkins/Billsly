@@ -110,9 +110,11 @@ class HomeViewController: UIViewController {
         let totalBills = userController.userBills.count
         if totalBills == 0 {
             amountOfBillsPaid.text = "No bills added yet. Add some bills to track your progress!"
+            paidThisMonthLabel.text = ""
+        } else {
+            amountOfBillsPaid.text = "You have \(totalBills - billsPaid) bills left to pay this month."
+            paidThisMonthLabel.text = "You have spent \(userController.amountSpentOnBills) on bills this month!"
         }
-        amountOfBillsPaid.text = "You have \(totalBills - billsPaid) bills left to pay this month."
-        paidThisMonthLabel.text = "You have spent \(userController.amountSpentOnBills) on bills this month!"
     }
     
     private func constructProgressCircle() {
@@ -166,7 +168,6 @@ class HomeViewController: UIViewController {
         let now = Date()
         let elapsedTime = now.timeIntervalSince(animationStartTime)
         if elapsedTime > duration {
-            self.percentageLabel.text = userController.calculatedBillProgressString + "\n of bills paid!"
             if userController.calculatedBillProgressFloat == 1{
                 percentageLabel.text = userController.calculatedBillProgressString + "\n All bills paid 😎"
             }
@@ -176,7 +177,11 @@ class HomeViewController: UIViewController {
             pFormatter.percentSymbol = "%"
             let percentage = elapsedTime / duration
             let value = 0.0 + CGFloat(percentage) * (userController.calculatedBillProgressFloat - 0.0) as NSNumber
-            self.percentageLabel.text = pFormatter.string(from: value)! + "\n of bills paid!"
+            if Float(truncating: value).isNaN{
+                self.percentageLabel.text = "0% \n of bills paid!"
+            } else {
+                self.percentageLabel.text = pFormatter.string(from: value)! + "\n of bills paid!"
+            }
         }
     }
     

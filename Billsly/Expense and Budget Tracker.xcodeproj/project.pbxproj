@@ -232,7 +232,6 @@
 			);
 			mainGroup = 0B8B696C25DB646000B9F55E;
 			packageReferences = (
-				0BDFC20725F1BB4400760A6F /* XCRemoteSwiftPackageReference "Charts" */,
 				0B57467D25F690F500EC81DA /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = 0B8B697625DB646000B9F55E /* Products */;
@@ -496,14 +495,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.8.2;
-			};
-		};
-		0BDFC20725F1BB4400760A6F /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
