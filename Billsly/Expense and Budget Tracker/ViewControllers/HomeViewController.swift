@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
         label.textAlignment = .center
         label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 20)
-        label.textColor = ColorsHelper.bone
+        label.textColor = ColorsHelper.cultured
         return label
     }()
     
@@ -66,14 +66,14 @@ class HomeViewController: UIViewController {
         view.backgroundColor = ColorsHelper.blackCoral
         userNameLabel.textColor = ColorsHelper.cultured
         dateLabel.textColor = ColorsHelper.cultured
-        amountOfBillsPaid.textColor = ColorsHelper.bone
+        amountOfBillsPaid.textColor = ColorsHelper.cultured
         userView.configureView(ColorsHelper.slateGray)
         calendarHostView.configureView(ColorsHelper.slateGray)
         progressBarView.configureView(ColorsHelper.slateGray)
         paidBillButton.configureButton(ColorsHelper.slateGray)
         manageBillsButton.configureButton(ColorsHelper.slateGray)
         settingsButton.tintColor = ColorsHelper.cultured
-        paidThisMonthLabel.textColor = ColorsHelper.bone
+        paidThisMonthLabel.textColor = ColorsHelper.cultured
     }
     
     private func animateViews() {

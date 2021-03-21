@@ -11,12 +11,18 @@ import FSCalendar
 class EditBillViewController: UIViewController {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var billNameLabel: UILabel!
     @IBOutlet weak var billNameTextField: UITextField!
+    @IBOutlet weak var dollarAmountLabel: UILabel!
     @IBOutlet weak var dollarAmountTextField: UITextField!
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var addCategoryButton: UIButton!
     @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var dateDueLabel: UILabel!
     @IBOutlet weak var selectedDateLabel: UILabel!
     @IBOutlet weak var fsCalendarView: FSCalendar!
+    @IBOutlet weak var updateBillButton: UIButton!
+    @IBOutlet weak var contentView: UIView!
     
     // MARK: - Properties
     let userController = UserController.shared
@@ -28,16 +34,14 @@ class EditBillViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        configureViews()
+        configureCalendar()
         addDoneButtonOnKeyboard()
         self.hideKeyboardWhenTappedAround()
     }
     
     // MARK: - Methods
     private func updateViews() {
-        if self.traitCollection.userInterfaceStyle == .dark {
-            fsCalendarView.appearance.titlePlaceholderColor = .white
-        }
-        fsCalendarView.placeholderType = .none
         guard let bill = bill else { return }
         fsCalendarView.select(bill.dueByDate)
         fsCalendarView.today = nil
@@ -48,6 +52,50 @@ class EditBillViewController: UIViewController {
         categoryTextField.text = bill.category.name
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
         selectedDateLabel.text = userController.df.string(from: bill.dueByDate)
+    }
+    
+    private func configureViews() {
+        contentView.backgroundColor = ColorsHelper.blackCoral
+        view.backgroundColor = ColorsHelper.blackCoral
+        billNameLabel.textColor = ColorsHelper.cultured
+        billNameTextField.textColor = ColorsHelper.cultured
+        billNameTextField.backgroundColor = ColorsHelper.slateGray
+        billNameTextField.layer.borderWidth = 2
+        billNameTextField.layer.borderColor = ColorsHelper.apricot.cgColor
+        billNameTextField.layer.cornerRadius = 12
+        billNameTextField.attributedPlaceholder = NSAttributedString(string: "Bill Name",
+                                                                     attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
+        dollarAmountLabel.textColor = ColorsHelper.cultured
+        dollarAmountTextField.textColor = ColorsHelper.cultured
+        dollarAmountTextField.backgroundColor = ColorsHelper.slateGray
+        dollarAmountTextField.layer.borderWidth = 2
+        dollarAmountTextField.layer.borderColor = ColorsHelper.apricot.cgColor
+        dollarAmountTextField.layer.cornerRadius = 12
+        dollarAmountTextField.attributedPlaceholder = NSAttributedString(string: "Dollar Amount",
+                                                                     attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
+        categoryLabel.textColor = ColorsHelper.cultured
+        categoryTextField.textColor = ColorsHelper.cultured
+        categoryTextField.backgroundColor = ColorsHelper.slateGray
+        categoryTextField.layer.borderWidth = 2
+        categoryTextField.layer.borderColor = ColorsHelper.apricot.cgColor
+        categoryTextField.layer.cornerRadius = 12
+        categoryTextField.attributedPlaceholder = NSAttributedString(string: "Tap + to add a category or create your own",
+                                                                     attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
+        addCategoryButton.tintColor = ColorsHelper.cultured
+        dateDueLabel.textColor = ColorsHelper.cultured
+        selectedDateLabel.textColor = ColorsHelper.cultured
+        updateBillButton.configureButton(ColorsHelper.slateGray)
+    }
+    
+    private func configureCalendar() {
+        fsCalendarView.today = nil
+        fsCalendarView.placeholderType = .none
+        fsCalendarView.appearance.weekdayTextColor = ColorsHelper.powderBlue
+        fsCalendarView.appearance.headerTitleColor = ColorsHelper.powderBlue
+        fsCalendarView.calendarHeaderView.tintColor = ColorsHelper.powderBlue
+        fsCalendarView.backgroundColor = ColorsHelper.slateGray
+        fsCalendarView.appearance.selectionColor = ColorsHelper.celadonGreen
+        fsCalendarView.layer.cornerRadius = 12
     }
     
     func updateAmount() -> String? {
@@ -137,18 +185,14 @@ class EditBillViewController: UIViewController {
 }
 
 extension EditBillViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
         selectedDateLabel.text = userController.df.string(from: date)
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
-        if self.traitCollection.userInterfaceStyle == .dark {
-            var color = calendar.appearance.titleDefaultColor
-            color = .white
-            return color
-        }
-        return calendar.appearance.titleDefaultColor
+        return ColorsHelper.cultured
     }
 }
 
