@@ -42,9 +42,9 @@ class BillsViewController: UIViewController {
     
     private func billFor(indexPath: IndexPath) -> Bill {
         if indexPath.section == 0{
-            return userController.paidBills[indexPath.row]
-        } else {
             return userController.unpaidBills[indexPath.row]
+        } else {
+            return userController.paidBills[indexPath.row]
         }
     }
     
@@ -75,9 +75,9 @@ extension BillsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rows = 0
         if section == 0{
-            rows = userController.paidBills.count
-        } else {
             rows = userController.unpaidBills.count
+        } else {
+            rows = userController.paidBills.count
         }
         return rows
     }
@@ -93,11 +93,11 @@ extension BillsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0{
-            guard userController.paidBills.count > 0 else { return nil }
-            return "Paid Bills"
-        } else {
             guard userController.unpaidBills.count > 0 else { return nil }
             return "Unpaid Bills"
+        } else {
+            guard userController.paidBills.count > 0 else { return nil }
+            return "Paid Bills"
         }
     }
     
