@@ -378,7 +378,8 @@ class HomeViewController: UIViewController {
         if let popoverPresentationController = popoverContentController?.popoverPresentationController {
             popoverPresentationController.permittedArrowDirections = .up
             popoverPresentationController.sourceView = self.view
-            popoverPresentationController.sourceRect = CGRect(origin: self.calendarHostView.center, size: .zero)
+            popoverPresentationController.sourceRect = CGRect(origin: CGPoint(x: view.bounds.width/2, y: 200), size:.zero)
+            
             popoverPresentationController.delegate = self
             if let popoverController = popoverContentController {
                 present(popoverController, animated: true, completion: nil)
