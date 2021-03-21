@@ -15,6 +15,9 @@ class UserController {
     let nf = NumberFormatter()
     var userBills: [Bill] = []
     var userCategories: [Category] = []
+    let defaults = UserDefaults.standard
+    var isLoggedIn: Bool?
+    var username: String?
     var persistentBillsFileURL: URL? {
         let fm = FileManager.default
         guard let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
