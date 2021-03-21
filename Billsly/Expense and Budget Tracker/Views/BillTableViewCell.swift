@@ -27,6 +27,13 @@ class BillTableViewCell: UITableViewCell {
     var delegate: BillTableViewCellDelegate?
     let userController = UserController.shared
     
+    // MARK: - Lifecycle
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        billName.textColor = ColorsHelper.cultured
+        dateDueLabel.textColor = ColorsHelper.cultured
+    }
+    
     // MARK: - Private Methods
     private func updateViews(){
         guard let bill = bill else { return }
@@ -37,10 +44,12 @@ class BillTableViewCell: UITableViewCell {
             let config = UIImage.SymbolConfiguration(pointSize: 32)
             let image = UIImage(systemName: "checkmark.seal.fill", withConfiguration: config)
             paidUnpaidButton.setImage(image, for: .normal)
+            paidUnpaidButton.imageView?.tintColor = ColorsHelper.laurelGreen
         } else {
             let config = UIImage.SymbolConfiguration(pointSize: 32)
             let image = UIImage(systemName: "checkmark.seal", withConfiguration: config)
             paidUnpaidButton.setImage(image, for: .normal)
+            paidUnpaidButton.imageView?.tintColor = ColorsHelper.orangeRedCrayola
         }
     }
     

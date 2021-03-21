@@ -17,11 +17,10 @@ class BillsViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
         tableView.dataSource = self
         tableView.delegate = self
         userController.loadBillData()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,18 +29,28 @@ class BillsViewController: UIViewController {
         
     }
     
-    // MARK: - IBAction
-    @IBAction func homeButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    // MARK: - Methods
+    private func configureView() {
+        tableView.backgroundColor = ColorsHelper.blackCoral
+        navigationController?.navigationBar.backgroundColor = ColorsHelper.blackCoral
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
+        navigationController?.navigationBar.barTintColor = ColorsHelper.blackCoral
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    // MARK: - Methods
-    func billFor(indexPath: IndexPath) -> Bill {
+    private func billFor(indexPath: IndexPath) -> Bill {
         if indexPath.section == 0{
             return userController.paidBills[indexPath.row]
         } else {
             return userController.unpaidBills[indexPath.row]
         }
+    }
+    
+    
+    // MARK: - IBAction
+    @IBAction func homeButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Navigation
@@ -77,6 +86,7 @@ extension BillsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.delegate = self
         let bill = billFor(indexPath: indexPath)
         cell.bill = bill
+        cell.contentView.backgroundColor = ColorsHelper.slateGray
         return cell
     }
     
