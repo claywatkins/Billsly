@@ -44,16 +44,11 @@ class HomeViewController: UIViewController {
         userController.loadBillData()
         userController.loadCategoryData()
         displayDate()
+        displayUsername()
         configureViews()
         constructProgressCircle()
-        if UserDefaults.standard.string(forKey: "currentMonth") == nil {
-            UserDefaults.standard.setValue(fsCalendarView.currentPage.month, forKey: "currentMonth")
-        }
-        if UserDefaults.standard.string(forKey: "currentMonth") != nil && UserDefaults.standard.string(forKey: "currentMonth") != fsCalendarView.currentPage.month {
-            UserDefaults.standard.setValue(fsCalendarView.currentPage.month, forKey: "currentMonth")
-            moveBillsToNextMonth()
-        }
-        print("Bills Count: \(userController.userBills.count)")
+        setCurrentMonth()
+        checkCurrentMonth()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +56,7 @@ class HomeViewController: UIViewController {
         fsCalendarView.reloadData()
         billsPaidThisMonth()
         setupCalendar()
+        animateViews()
         animateStrokeProgressCircle(to: userController.calculatedBillProgressFloat)
         animationStartTime = Date()
     }
@@ -68,22 +64,55 @@ class HomeViewController: UIViewController {
     // MARK: - Methods
     private func configureViews() {
         view.backgroundColor = ColorsHelper.blackCoral
-        userNameLabel.textColor = ColorsHelper.bone
+        userNameLabel.textColor = ColorsHelper.cultured
         dateLabel.textColor = ColorsHelper.cultured
         amountOfBillsPaid.textColor = ColorsHelper.bone
         userView.configureView(ColorsHelper.slateGray)
         calendarHostView.configureView(ColorsHelper.slateGray)
         progressBarView.configureView(ColorsHelper.slateGray)
-        paidBillButton.configureButton(ColorsHelper.grullo)
-        manageBillsButton.configureButton(ColorsHelper.grullo)
-        settingsButton.backgroundColor = UIColor.clear
-        settingsButton.tintColor = ColorsHelper.bone
+        paidBillButton.configureButton(ColorsHelper.slateGray)
+        manageBillsButton.configureButton(ColorsHelper.slateGray)
+        settingsButton.tintColor = ColorsHelper.cultured
         paidThisMonthLabel.textColor = ColorsHelper.bone
+    }
+    
+    private func animateViews() {
+        let views = [userView, calendarHostView, progressBarView]
+        let viewControllerHeight = self.view.bounds.size.height
+        for view in views{
+            view!.transform = CGAffineTransform(translationX: 0, y: viewControllerHeight)
+        }
+        var delayCounter = 0
+        for view in views {
+            UIView.animate(withDuration: 1.75, delay: Double(delayCounter) * 0.05, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                view!.transform = CGAffineTransform.identity
+                }, completion: nil)
+            delayCounter += 1
+        }
     }
     
     private func displayDate() {
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
         dateLabel.text = "Today is " + userController.df.string(from: Date())
+    }
+    
+    private func displayUsername() {
+        guard let username = UserDefaults.standard.value(forKey: "username") as? String else { return }
+        
+        userNameLabel.text = "Welcome back, " + username
+    }
+    
+    private func setCurrentMonth() {
+        if UserDefaults.standard.string(forKey: "currentMonth") == nil {
+            UserDefaults.standard.setValue(fsCalendarView.currentPage.month, forKey: "currentMonth")
+        }
+    }
+    
+    private func checkCurrentMonth() {
+        if UserDefaults.standard.string(forKey: "currentMonth") != nil && UserDefaults.standard.string(forKey: "currentMonth") != fsCalendarView.currentPage.month {
+            UserDefaults.standard.setValue(fsCalendarView.currentPage.month, forKey: "currentMonth")
+            moveBillsToNextMonth()
+        }
     }
     
     private func setupCalendar() {
@@ -148,6 +177,7 @@ class HomeViewController: UIViewController {
         shapeLayer.strokeEnd = 0
         progressBarView.layer.addSublayer(shapeLayer)
     }
+    
     private func animateStrokeProgressCircle(to float: CGFloat) {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.toValue = float
@@ -363,10 +393,6 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         return ColorsHelper.cultured
     }
     
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
-        return ColorsHelper.cultured
-    }
-    
     func calendar(_ calendar: FSCalendar, titleFor date: Date) -> String? {
         userController.df.dateFormat = "d"
         let dateStr = userController.df.string(from: date)
@@ -402,7 +428,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         } else if userController.dueByDateAndUnpaid.contains(dateStr) {
             cell.imageView.tintColor = ColorsHelper.orangeRedCrayola
         }
-        cell.imageView.contentMode = .scaleAspectFill
+        cell.imageView.contentMode = .scaleAspectFit
         return cell
     }
 }
