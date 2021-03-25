@@ -60,25 +60,25 @@ class EditBillViewController: UIViewController {
         billNameLabel.textColor = ColorsHelper.cultured
         billNameTextField.textColor = ColorsHelper.cultured
         billNameTextField.backgroundColor = ColorsHelper.slateGray
-        billNameTextField.layer.borderWidth = 2
+        billNameTextField.layer.borderWidth = 1
         billNameTextField.layer.borderColor = ColorsHelper.apricot.cgColor
-        billNameTextField.layer.cornerRadius = 12
+        billNameTextField.layer.cornerRadius = 8
         billNameTextField.attributedPlaceholder = NSAttributedString(string: "Bill Name",
                                                                      attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
         dollarAmountLabel.textColor = ColorsHelper.cultured
         dollarAmountTextField.textColor = ColorsHelper.cultured
         dollarAmountTextField.backgroundColor = ColorsHelper.slateGray
-        dollarAmountTextField.layer.borderWidth = 2
+        dollarAmountTextField.layer.borderWidth = 1
         dollarAmountTextField.layer.borderColor = ColorsHelper.apricot.cgColor
-        dollarAmountTextField.layer.cornerRadius = 12
+        dollarAmountTextField.layer.cornerRadius = 8
         dollarAmountTextField.attributedPlaceholder = NSAttributedString(string: "Dollar Amount",
                                                                      attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
         categoryLabel.textColor = ColorsHelper.cultured
         categoryTextField.textColor = ColorsHelper.cultured
         categoryTextField.backgroundColor = ColorsHelper.slateGray
-        categoryTextField.layer.borderWidth = 2
+        categoryTextField.layer.borderWidth = 1
         categoryTextField.layer.borderColor = ColorsHelper.apricot.cgColor
-        categoryTextField.layer.cornerRadius = 12
+        categoryTextField.layer.cornerRadius = 8
         categoryTextField.attributedPlaceholder = NSAttributedString(string: "Tap + to add a category or create your own",
                                                                      attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
         addCategoryButton.tintColor = ColorsHelper.cultured
