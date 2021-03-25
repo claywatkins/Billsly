@@ -24,7 +24,7 @@ class SettingsTableViewController: UITableViewController {
     let userController = UserController.shared
     let appURLForRating = ""
     let appURLForSharing = ""
-    let supportEmail = "watkinsclayton921@gmail.com"
+    let supportEmail = "billsly.app@gmail.com"
     var delegate: reloadHomeView?
     
     // MARK: - Lifecycle
@@ -59,19 +59,18 @@ class SettingsTableViewController: UITableViewController {
         if let url = URL(string: appURLForRating) {
             UIApplication.shared.open(url)
         } else {
-            print("error with app store URL")
+            let ac = UIAlertController(title: "Error", message: "App not available yet", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(ac, animated: true)
         }
     }
     
     private func shareApp() {
         if let appURL = NSURL(string: appURLForSharing) {
-            
             let objectsToShare: [Any] = [appURL]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-            
             activityVC.excludedActivityTypes = [UIActivity.ActivityType.addToReadingList]
             activityVC.popoverPresentationController?.sourceView = tableView
-            
             self.present(activityVC, animated: true, completion: nil)
         }
     }
@@ -161,7 +160,7 @@ extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
     func composeShareEmail() {
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
-            self.present(mailComposeViewController, animated: true, completion: nil)
+            self.present(mailComposeViewController, animated: true)
         } else {
             showSendMailErrorAlert()
         }
@@ -176,7 +175,6 @@ extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
         let divider = "------------------------------"
         
         if let appVersion = UIApplication.appVersion {
-            
             messageBody =  "\n\n\n\n\(topDivider)\nApp version: \(appVersion)\nDevice model: \(deviceModelName)\niOS version: \(iOSVersion)\n\(divider)"
         } else {
             messageBody = "\n\n\n\n\(topDivider)\nDevice model: \(deviceModelName)\niOS version: \(iOSVersion)\n\(divider)"
@@ -185,12 +183,12 @@ extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
         mailComposerVC.setToRecipients([supportEmail])
-        mailComposerVC.setSubject("Your App Feedback")
+        mailComposerVC.setSubject("Billsly App Feedback")
         mailComposerVC.setMessageBody(messageBody, isHTML: false)
+
         return mailComposerVC
     }
     
-    /// This alert gets shown if the device is a simulator, doesn't have Apple mail set up, or if mail in not available due to connectivity issues.
     func showSendMailErrorAlert() {
         let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email", message: "Your device could not send email. Please check email configuration and internet connection and try again.", preferredStyle: .alert)
         sendMailErrorAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
@@ -198,6 +196,10 @@ extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
+        controller.dismiss(animated: true) {
+            let ac = UIAlertController(title: "Feedback Submitted", message: "Thank you for taking the time to submit feedback. If you are experiencing an issue, I will get back to you as soon as possible or consider sending a DM to @billsly_app on Twitter.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(ac, animated: true)
+        }
     }
 }
