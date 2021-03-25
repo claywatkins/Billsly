@@ -62,6 +62,12 @@ class SettingsTableViewController: UITableViewController {
         } else {
             animationsSwitch.setOn(true, animated: false)
         }
+        
+        if UserDefaults.standard.bool(forKey: "notificationsEnabled") {
+            notificationsSwitch.setOn(true, animated: false)
+        } else {
+            notificationsSwitch.setOn(false, animated: false)
+        }
     }
     
     private func getAppVersion(){
@@ -77,6 +83,13 @@ class SettingsTableViewController: UITableViewController {
             let ac = UIAlertController(title: "Error", message: "App not available yet", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             self.present(ac, animated: true)
+        }
+    }
+    
+    private func requestAuthForNotifications() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (success, error) in
+            
         }
     }
     
@@ -112,16 +125,30 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func allowNotificationsToggled(_ sender: UISwitch) {
-        
+        if sender.isOn {
+            UserDefaults.standard.setValue(true, forKey: "notificationsEnabled")
+            let ac = UIAlertController(title: "Notification Warning", message: "If you denied Billsly permission to send notifications when first installing the application, this switch will not toggle them on. You will need to go to tap Go to Settings and enable notifications for Billsly.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Go to Settings", style: .default, handler: { _ in
+                let settingsURL = NSURL(string: UIApplication.openSettingsURLString)
+                if let url = settingsURL {
+                    UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+                }
+            }))
+            ac.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { _ in
+                UserDefaults.standard.setValue(false, forKey: "notificationsEnabled")
+                self.notificationsSwitch.setOn(false, animated: true)
+            }))
+            self.present(ac, animated: true)
+        } else {
+            UserDefaults.standard.setValue(false, forKey: "notificationsEnabled")
+        }
     }
     
     @IBAction func disableAnimationsToggled(_ sender: UISwitch) {
         if sender.isOn {
             UserDefaults.standard.setValue(false, forKey: "animationsEnabled")
-            print(UserDefaults.standard.bool(forKey: "animationsEnabled"))
         } else {
             UserDefaults.standard.setValue(true, forKey: "animationsEnabled")
-            print(UserDefaults.standard.bool(forKey: "animationsEnabled"))
         }
     }
     

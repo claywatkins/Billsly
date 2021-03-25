@@ -7,6 +7,7 @@
 
 import UIKit
 import FSCalendar
+import UserNotifications
 
 class HomeViewController: UIViewController {
     // MARK: - IBOutlets
@@ -118,7 +119,8 @@ class HomeViewController: UIViewController {
             let ac = UIAlertController(title: "Welcome to Billsly", message: "Thanks for downloading Billsly, my very first iOS App! Head on over to settings to add your name for a personal touch, or jump straight in and start adding your bills. \n\n Thank you for using Billsly!", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Thanks!", style: .default, handler: nil))
             DispatchQueue.main.async {
-                self.present(ac, animated: true, completion: nil)
+                self.present(ac, animated: true)
+                self.askForUserAuthNotifications()
             }
         }
     }
@@ -225,6 +227,17 @@ class HomeViewController: UIViewController {
                 self.percentageLabel.text = "0% \n of bills paid!"
             } else {
                 self.percentageLabel.text = pFormatter.string(from: value)! + "\n of bills paid!"
+            }
+        }
+    }
+    
+    private func askForUserAuthNotifications() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (success, error) in
+            if success {
+                UserDefaults.standard.setValue(true, forKey: "notificationsEnabled")
+            } else {
+                UserDefaults.standard.setValue(false, forKey: "notificationsEnabled")
             }
         }
     }
