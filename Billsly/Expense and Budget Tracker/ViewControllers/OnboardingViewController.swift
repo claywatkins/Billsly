@@ -32,7 +32,7 @@ class OnboardingViewController: UIViewController {
     }
     @IBAction func takeMeInButtonTapped(_ sender: Any) {
         guard let username = nameTextField.text else { return }
-        UserDefaults.standard.setValue(nil, forKey: "currentMonth")
+//        UserDefaults.standard.setValue(nil, forKey: "currentMonth")
         UserDefaults.standard.setValue(userController.isLoggedIn, forKey: "loggedIn")
         UserDefaults.standard.setValue(username, forKey: "username")
         segueIfUsernameExists()
