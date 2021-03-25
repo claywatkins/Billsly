@@ -22,10 +22,19 @@
                                     <constraint firstAttribute="width" secondItem="qWR-Om-xp1" secondAttribute="height" multiplier="1:1" id="gV3-T3-EBb"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Billsly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="arm-ZP-LhU">
+                                <rect key="frame" x="2" y="274" width="410" height="54"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="45"/>
+                                <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.28627450980392155" green="0.34509803921568627" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="arm-ZP-LhU" secondAttribute="trailing" constant="2" id="5WU-08-xxf"/>
+                            <constraint firstItem="qWR-Om-xp1" firstAttribute="top" secondItem="arm-ZP-LhU" secondAttribute="bottom" id="6gZ-i5-Iqy"/>
+                            <constraint firstItem="arm-ZP-LhU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="2" id="Byr-pR-w3c"/>
                             <constraint firstItem="qWR-Om-xp1" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iNP-pl-ZEB"/>
                             <constraint firstItem="qWR-Om-xp1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ibH-vo-Nhy"/>
                         </constraints>
