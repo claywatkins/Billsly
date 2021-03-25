@@ -893,7 +893,7 @@
         <!--Menu-->
         <scene sceneID="cvl-D1-pBg">
             <objects>
-                <tableViewController id="F0d-sB-On0" customClass="MenuTableViewController" customModule="UltimateMenu" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="F0d-sB-On0" customClass="SettingsTableViewController" customModule="Expense_and_Budget_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Sgm-Uq-dmj">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -913,17 +913,23 @@
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your name!" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5GP-yw-8AL">
                                                             <rect key="frame" x="0.0" y="0.0" width="336" height="34.333333333333336"/>
-                                                            <color key="backgroundColor" red="0.28627450980000002" green="0.43529411759999997" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.43921568630000002" green="0.47450980390000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkX-Tb-vE6">
                                                             <rect key="frame" x="338" y="0.0" width="34" height="34.333333333333336"/>
-                                                            <state key="normal" title="Save"/>
+                                                            <state key="normal" title="Save">
+                                                                <color key="titleColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="saveNameButtonTapped:" destination="F0d-sB-On0" eventType="touchUpInside" id="X74-EP-ctc"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.4392156862745098" green="0.47450980392156861" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="JyW-8s-dxK" secondAttribute="trailing" constant="8" id="5pn-gv-GgH"/>
                                                 <constraint firstItem="JyW-8s-dxK" firstAttribute="leading" secondItem="OXu-O8-gdw" secondAttribute="leading" constant="8" id="CEn-p7-JYH"/>
@@ -945,15 +951,17 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eHJ-yx-1Gt">
                                                     <rect key="frame" x="321" y="6" width="51" height="31"/>
-                                                    <color key="onTintColor" systemColor="systemGrayColor"/>
+                                                    <color key="onTintColor" red="0.69019607839999997" green="0.7725490196" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="thumbTintColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hs4-Vg-WVg">
                                                     <rect key="frame" x="16" y="10.666666666666664" width="155" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.43921568630000002" green="0.47450980390000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="hs4-Vg-WVg" secondAttribute="bottom" constant="11.17" id="5dU-5a-eAs"/>
                                                 <constraint firstItem="eHJ-yx-1Gt" firstAttribute="leading" relation="lessThanOrEqual" secondItem="hs4-Vg-WVg" secondAttribute="trailing" constant="150" id="Qga-ai-4Ma"/>
@@ -972,14 +980,17 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7z-jC-X2z">
                                                     <rect key="frame" x="321" y="6" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.69019607843137254" green="0.77254901960784317" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="thumbTintColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Animations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8c-hf-ZxT">
                                                     <rect key="frame" x="16" y="10.666666666666664" width="155" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.43921568630000002" green="0.47450980390000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="P7z-jC-X2z" firstAttribute="centerY" secondItem="Opv-2o-pCy" secondAttribute="centerY" id="1UZ-tu-mNh"/>
                                                 <constraint firstItem="P7z-jC-X2z" firstAttribute="leading" relation="lessThanOrEqual" secondItem="q8c-hf-ZxT" secondAttribute="trailing" constant="150" id="J1u-rc-roW"/>
@@ -991,10 +1002,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="WzK-1n-xfj">
+                            <tableViewSection headerTitle="Support the Developer" id="WzK-1n-xfj">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="dTW-mN-GLa" detailTextLabel="OZG-nz-Osv" imageView="fyP-Qx-nMO" rowHeight="59" style="IBUITableViewCellStyleSubtitle" id="dmc-ak-Iy1">
-                                        <rect key="frame" x="20" y="288.16666412353516" width="388" height="59"/>
+                                        <rect key="frame" x="20" y="308.16666412353516" width="388" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dmc-ak-Iy1" id="Vxi-lh-HTD">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="59"/>
@@ -1004,28 +1015,29 @@
                                                     <rect key="frame" x="65.166666666666657" y="9.9999999999999982" width="106.33333333333333" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="hand.thumbsup" catalog="system" id="fyP-Qx-nMO">
                                                     <rect key="frame" x="13.833333333333336" y="10.333333333333332" width="36.333333333333329" height="37.333333333333336"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                    <color key="tintColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                                 </imageView>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Support the my free side project!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OZG-nz-Osv">
                                                     <rect key="frame" x="65.166666666666643" y="33.333333333333329" width="187.33333333333334" height="14.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.43921568630000002" green="0.47450980390000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="4z4-PR-aX1" detailTextLabel="qck-YJ-BzS" imageView="3tk-qY-Pr4" rowHeight="59" style="IBUITableViewCellStyleSubtitle" id="E1i-23-GSk">
-                                        <rect key="frame" x="20" y="347.16666412353516" width="388" height="59"/>
+                                        <rect key="frame" x="20" y="367.16666412353516" width="388" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E1i-23-GSk" id="EEr-fN-LTv">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="59"/>
@@ -1035,27 +1047,28 @@
                                                     <rect key="frame" x="65.5" y="9.9999999999999982" width="106.33333333333333" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="paperplane" catalog="system" id="3tk-qY-Pr4">
                                                     <rect key="frame" x="13.5" y="12.666666666666664" width="37" height="35"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                    <color key="tintColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                                 </imageView>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Know someone with bills? Send this app their way." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qck-YJ-BzS">
                                                     <rect key="frame" x="65.5" y="33.333333333333329" width="283.66666666666669" height="14.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.43921568630000002" green="0.47450980390000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedbackCell" textLabel="sSU-W4-p7e" detailTextLabel="sL3-85-NIb" imageView="Xbt-H1-Eh1" rowHeight="59" style="IBUITableViewCellStyleSubtitle" id="uTc-KI-P8j">
-                                        <rect key="frame" x="20" y="406.16666412353516" width="388" height="59"/>
+                                        <rect key="frame" x="20" y="426.16666412353516" width="388" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uTc-KI-P8j" id="X9x-3f-Q2S">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="59"/>
@@ -1065,27 +1078,28 @@
                                                     <rect key="frame" x="67" y="9.9999999999999982" width="114.33333333333333" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="envelope" catalog="system" id="Xbt-H1-Eh1">
                                                     <rect key="frame" x="12" y="14.666666666666666" width="40" height="29.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                    <color key="tintColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                                 </imageView>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Email thoughts, bugs, or questions." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sL3-85-NIb">
                                                     <rect key="frame" x="66.999999999999986" y="33.333333333333329" width="199.66666666666666" height="14.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.43921568630000002" green="0.47450980390000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedbackCell" textLabel="Q7w-G8-Ura" detailTextLabel="M2g-Xh-NZh" imageView="gFg-vk-zdW" rowHeight="59" style="IBUITableViewCellStyleSubtitle" id="2FP-QO-eCg" userLabel="Tip Jar Cell">
-                                        <rect key="frame" x="20" y="465.16666412353516" width="388" height="59"/>
+                                        <rect key="frame" x="20" y="485.16666412353516" width="388" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2FP-QO-eCg" id="CG3-w0-4Iu">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="59"/>
@@ -1095,23 +1109,24 @@
                                                     <rect key="frame" x="68.333333333333343" y="2" width="76.333333333333329" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="dollarsign.square" catalog="system" id="gFg-vk-zdW">
                                                     <rect key="frame" x="10.666666666666668" y="10" width="42.666666666666664" height="38.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                    <color key="tintColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="37"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="All tips are reinvensted in my apps and developement." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M2g-Xh-NZh">
-                                                    <rect key="frame" x="68.333333333333329" y="25.333333333333329" width="221.33333333333334" height="28.666666666666668"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="All tips are reinvested in my app development and personal growth." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M2g-Xh-NZh">
+                                                    <rect key="frame" x="68.333333333333343" y="25.333333333333329" width="284.66666666666669" height="28.666666666666668"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.43921568630000002" green="0.47450980390000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -1119,7 +1134,7 @@
                             <tableViewSection id="mZk-Cc-7fa">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedbackCell" rowHeight="120" id="5EH-SW-7VN">
-                                        <rect key="frame" x="20" y="560.16666412353516" width="388" height="120"/>
+                                        <rect key="frame" x="20" y="580.16666412353516" width="388" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5EH-SW-7VN" id="Zey-97-pmU">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="120"/>
@@ -1131,32 +1146,36 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crafted with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXK-rW-D0v">
                                                             <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                            <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Pdx-0x-MBo">
                                                             <rect key="frame" x="95.666666666666671" y="2" width="20.666666666666671" height="29"/>
-                                                            <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                                            <color key="tintColor" red="0.99607843137254903" green="0.37254901960784315" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29E-0m-3lA">
                                                             <rect key="frame" x="118.33333333333333" y="0.0" width="18.666666666666671" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                            <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7c5-WH-8mM">
                                                             <rect key="frame" x="139" y="0.0" width="102" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            <color key="tintColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <state key="normal" title="@claywatkins">
-                                                                <color key="titleColor" systemColor="labelColor"/>
+                                                                <color key="titleColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="twitterHandleTapped:" destination="F0d-sB-On0" eventType="touchUpInside" id="oeE-3M-ejY"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Billsly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSf-MP-7ek">
                                                     <rect key="frame" x="172.33333333333334" y="54.000000000000007" width="43.666666666666657" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BillslyAppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="wym-bQ-0AG">
@@ -1192,6 +1211,11 @@
                     <navigationItem key="navigationItem" title="Menu" id="1O7-5O-PEM">
                         <barButtonItem key="backBarButtonItem" title=" " id="741-j4-Fiz"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addNameTextField" destination="5GP-yw-8AL" id="BH4-F1-SfS"/>
+                        <outlet property="saveNameButton" destination="AkX-Tb-vE6" id="obo-fX-5Pg"/>
+                        <outlet property="versionLabel" destination="OSf-MP-7ek" id="v47-ct-GLx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czx-O7-Afp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1209,12 +1233,6 @@
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="paperplane" catalog="system" width="128" height="118"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -1223,9 +1241,6 @@
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
