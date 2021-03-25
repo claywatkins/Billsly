@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
         displayDate()
         configureViews()
         constructProgressCircle()
-        setCurrentMonth()
+        checkDefaults()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
         displayUsername()
         billsPaidThisMonth()
         setupCalendar()
-        animateViews()
+        animateViewsIfEnabled()
         checkCurrentMonth()
         animateStrokeProgressCircle(to: userController.calculatedBillProgressFloat)
         animationStartTime = Date()
@@ -76,18 +76,20 @@ class HomeViewController: UIViewController {
         paidThisMonthLabel.textColor = ColorsHelper.cultured
     }
     
-    private func animateViews() {
-        let views = [userView, calendarHostView, progressBarView]
-        let viewControllerHeight = self.view.bounds.size.height
-        for view in views{
-            view!.transform = CGAffineTransform(translationX: 0, y: viewControllerHeight)
-        }
-        var delayCounter = 0
-        for view in views {
-            UIView.animate(withDuration: 1.75, delay: Double(delayCounter) * 0.05, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
-                view!.transform = CGAffineTransform.identity
+    private func animateViewsIfEnabled() {
+        if UserDefaults.standard.bool(forKey: "animationsEnabled") {
+            let views = [userView, calendarHostView, progressBarView]
+            let viewControllerHeight = self.view.bounds.size.height
+            for view in views{
+                view!.transform = CGAffineTransform(translationX: 0, y: viewControllerHeight)
+            }
+            var delayCounter = 0
+            for view in views {
+                UIView.animate(withDuration: 1.75, delay: Double(delayCounter) * 0.05, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                    view!.transform = CGAffineTransform.identity
                 }, completion: nil)
-            delayCounter += 1
+                delayCounter += 1
+            }
         }
     }
     
@@ -102,9 +104,12 @@ class HomeViewController: UIViewController {
         userNameLabel.text = "Welcome back, " + username
     }
     
-    private func setCurrentMonth() {
+    private func checkDefaults() {
         if UserDefaults.standard.string(forKey: "currentMonth") == nil {
             UserDefaults.standard.setValue(fsCalendarView.currentPage.month, forKey: "currentMonth")
+        }
+        if UserDefaults.standard.value(forKey: "animationsEnabled") == nil{
+            UserDefaults.standard.setValue(false, forKey: "animationsEnabled")
         }
     }
     

@@ -19,6 +19,8 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var addNameTextField: UITextField!
     @IBOutlet weak var saveNameButton: UIButton!
     @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var notificationsSwitch: UISwitch!
+    @IBOutlet weak var animationsSwitch: UISwitch!
     
     // MARK: - Properties
     let userController = UserController.shared
@@ -35,6 +37,11 @@ class SettingsTableViewController: UITableViewController {
         hideKeyboardWhenTappedAround()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateViews()
+    }
+    
     // MARK: - Methods
     private func configureViews() {
         view.backgroundColor = ColorsHelper.blackCoral
@@ -47,6 +54,14 @@ class SettingsTableViewController: UITableViewController {
         addNameTextField.attributedPlaceholder = NSAttributedString(string: "Add your name",
                                                                     attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
+    }
+    
+    private func updateViews() {
+        if UserDefaults.standard.bool(forKey: "animationsEnabled"){
+            animationsSwitch.setOn(false, animated: false)
+        } else {
+            animationsSwitch.setOn(true, animated: false)
+        }
     }
     
     private func getAppVersion(){
@@ -94,6 +109,20 @@ class SettingsTableViewController: UITableViewController {
         let ac = UIAlertController(title: "Name updated", message: "Name changed successfully", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(ac, animated: true)
+    }
+    
+    @IBAction func allowNotificationsToggled(_ sender: UISwitch) {
+        
+    }
+    
+    @IBAction func disableAnimationsToggled(_ sender: UISwitch) {
+        if sender.isOn {
+            UserDefaults.standard.setValue(false, forKey: "animationsEnabled")
+            print(UserDefaults.standard.bool(forKey: "animationsEnabled"))
+        } else {
+            UserDefaults.standard.setValue(true, forKey: "animationsEnabled")
+            print(UserDefaults.standard.bool(forKey: "animationsEnabled"))
+        }
     }
     
     @IBAction func twitterHandleTapped(_ sender: Any) {

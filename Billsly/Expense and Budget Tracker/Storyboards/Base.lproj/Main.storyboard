@@ -953,6 +953,9 @@
                                                     <rect key="frame" x="321" y="6" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.69019607839999997" green="0.7725490196" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="thumbTintColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="allowNotificationsToggled:" destination="F0d-sB-On0" eventType="valueChanged" id="gQc-EG-v8I"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hs4-Vg-WVg">
                                                     <rect key="frame" x="16" y="10.666666666666664" width="155" height="21"/>
@@ -982,6 +985,9 @@
                                                     <rect key="frame" x="321" y="6" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.69019607843137254" green="0.77254901960784317" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="thumbTintColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="disableAnimationsToggled:" destination="F0d-sB-On0" eventType="valueChanged" id="ebw-NW-VQt"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disable Animations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8c-hf-ZxT">
                                                     <rect key="frame" x="16" y="10.666666666666664" width="155" height="21"/>
@@ -1219,6 +1225,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addNameTextField" destination="5GP-yw-8AL" id="BH4-F1-SfS"/>
+                        <outlet property="animationsSwitch" destination="P7z-jC-X2z" id="nhv-nd-Cjz"/>
+                        <outlet property="notificationsSwitch" destination="eHJ-yx-1Gt" id="5az-I4-gkj"/>
                         <outlet property="saveNameButton" destination="AkX-Tb-vE6" id="obo-fX-5Pg"/>
                         <outlet property="versionLabel" destination="OSf-MP-7ek" id="v47-ct-GLx"/>
                     </connections>
