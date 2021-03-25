@@ -44,7 +44,6 @@ class HomeViewController: UIViewController {
         userController.loadBillData()
         userController.loadCategoryData()
         displayDate()
-        displayUsername()
         configureViews()
         constructProgressCircle()
         setCurrentMonth()
@@ -53,6 +52,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fsCalendarView.reloadData()
+        displayUsername()
         billsPaidThisMonth()
         setupCalendar()
         animateViews()

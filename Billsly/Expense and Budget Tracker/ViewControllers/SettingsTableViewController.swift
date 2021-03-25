@@ -9,6 +9,9 @@ import UIKit
 import MessageUI
 import StoreKit
 
+protocol reloadHomeView {
+    func usernameChanged()
+}
 
 class SettingsTableViewController: UITableViewController {
     
@@ -18,9 +21,11 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var versionLabel: UILabel!
     
     // MARK: - Properties
+    let userController = UserController.shared
     let appURLForRating = ""
     let appURLForSharing = ""
     let supportEmail = "watkinsclayton921@gmail.com"
+    var delegate: reloadHomeView?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -33,6 +38,7 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Methods
     private func configureViews() {
         view.backgroundColor = ColorsHelper.blackCoral
+        navigationController?.navigationBar.barTintColor = ColorsHelper.blackCoral
         addNameTextField.textColor = ColorsHelper.cultured
         addNameTextField.backgroundColor = ColorsHelper.slateGray
         addNameTextField.layer.borderWidth = 1
@@ -74,8 +80,20 @@ class SettingsTableViewController: UITableViewController {
     }
     
     // MARK: - IBActions
+    @IBAction func homeButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func saveNameButtonTapped(_ sender: Any) {
-        
+        guard let name = addNameTextField.text, !name.isEmpty else {
+            let ac = UIAlertController(title: "Name missing", message: "Please add a name before saving", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            return present(ac, animated: true)
+        }
+        UserDefaults.standard.setValue(name, forKey: "username")
+        let ac = UIAlertController(title: "Name updated", message: "Name changed successfully", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(ac, animated: true)
     }
     
     @IBAction func twitterHandleTapped(_ sender: Any) {
@@ -111,9 +129,9 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
-        case 0: return 65
+        case 0: return 35
         case 1: return 35
-        case 2: return 15
+        case 2: return 35
         case 3: return 6
         default: return 0
         }

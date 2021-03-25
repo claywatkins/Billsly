@@ -205,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wku-7T-gst" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5506.5420560747662" y="301.94384449244063"/>
+            <point key="canvasLocation" x="6406.5420560747662" y="301.94384449244063"/>
         </scene>
         <!--Category Popover View Controller-->
         <scene sceneID="9U8-eE-n5B">
@@ -352,7 +352,7 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                         </state>
                                         <connections>
-                                            <segue destination="F0d-sB-On0" kind="show" id="w5c-BR-DR8"/>
+                                            <segue destination="aAR-mW-udA" kind="presentation" modalPresentationStyle="fullScreen" id="cjU-Zj-MFE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -890,12 +890,12 @@
             </objects>
             <point key="canvasLocation" x="4039" y="728"/>
         </scene>
-        <!--Menu-->
+        <!--Settings-->
         <scene sceneID="cvl-D1-pBg">
             <objects>
                 <tableViewController id="F0d-sB-On0" customClass="SettingsTableViewController" customModule="Expense_and_Budget_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Sgm-Uq-dmj">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <sections>
@@ -908,11 +908,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="JyW-8s-dxK">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="JyW-8s-dxK">
                                                     <rect key="frame" x="8" y="5" width="372" height="34.333333333333336"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your name!" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5GP-yw-8AL">
-                                                            <rect key="frame" x="0.0" y="0.0" width="336" height="34.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="323" height="34.333333333333336"/>
                                                             <color key="backgroundColor" red="0.43921568630000002" green="0.47450980390000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
@@ -1208,8 +1208,13 @@
                             <outlet property="delegate" destination="F0d-sB-On0" id="66m-tv-47K"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Menu" id="1O7-5O-PEM">
-                        <barButtonItem key="backBarButtonItem" title=" " id="741-j4-Fiz"/>
+                    <navigationItem key="navigationItem" title="Settings" id="1O7-5O-PEM">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="Uf4-vn-B6T">
+                            <color key="tintColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="homeButtonTapped:" destination="F0d-sB-On0" id="rU5-fd-EQF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addNameTextField" destination="5GP-yw-8AL" id="BH4-F1-SfS"/>
@@ -1219,12 +1224,32 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czx-O7-Afp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3295.7943925233644" y="61.555075593952488"/>
+            <point key="canvasLocation" x="4039" y="69"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="J1F-9U-lLQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aAR-mW-udA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="f4V-mZ-EbD"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eyi-r0-BHp">
+                        <rect key="frame" x="0.0" y="44" width="428" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="F0d-sB-On0" kind="relationship" relationship="rootViewController" id="ddC-pN-d7K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zV9-vm-DOd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3296" y="56"/>
         </scene>
     </scenes>
     <resources>
         <image name="BillslyAppLogo" width="1024" height="1024"/>
         <image name="checkmark.seal" catalog="system" width="128" height="128"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="dollarsign.square" catalog="system" width="128" height="114"/>
         <image name="envelope" catalog="system" width="128" height="93"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
