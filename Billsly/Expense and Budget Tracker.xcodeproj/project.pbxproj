@@ -24,7 +24,6 @@
 		0B9EE7E32605AACE005DCE6C /* UIVewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EE7E22605AACE005DCE6C /* UIVewExtension.swift */; };
 		0B9EE7E52605BE78005DCE6C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EE7E42605BE78005DCE6C /* UIButtonExtension.swift */; };
 		0BA826F22606D42800E55920 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA826F12606D42800E55920 /* user.swift */; };
-		0BA826F42606D5CA00E55920 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA826F32606D5CA00E55920 /* OnboardingViewController.swift */; };
 		0BF254E525F0C5430078BD9F /* userController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E425F0C5430078BD9F /* userController.swift */; };
 		0BF254E925F0C5A90078BD9F /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E825F0C5A90078BD9F /* Bill.swift */; };
 		0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */; };
@@ -65,7 +64,6 @@
 		0B9EE7E22605AACE005DCE6C /* UIVewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVewExtension.swift; sourceTree = "<group>"; };
 		0B9EE7E42605BE78005DCE6C /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		0BA826F12606D42800E55920 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
-		0BA826F32606D5CA00E55920 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		0BF254E425F0C5430078BD9F /* userController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userController.swift; sourceTree = "<group>"; };
 		0BF254E825F0C5A90078BD9F /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsViewController.swift; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 				0B7B904225FAEC810059CC6E /* EditBillViewController.swift */,
 				0B4E71E625F95BE000461B15 /* CategoryPopoverViewController.swift */,
 				0B53E94B25FE81C9001DD4FB /* BillPaidPopoverViewController.swift */,
-				0BA826F32606D5CA00E55920 /* OnboardingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -262,7 +259,6 @@
 				0BF254F325F0CF510078BD9F /* BillTableViewCell.swift in Sources */,
 				0B9EE7E32605AACE005DCE6C /* UIVewExtension.swift in Sources */,
 				0BF254E925F0C5A90078BD9F /* Bill.swift in Sources */,
-				0BA826F42606D5CA00E55920 /* OnboardingViewController.swift in Sources */,
 				0B4E71E725F95BE000461B15 /* CategoryPopoverViewController.swift in Sources */,
 				0B7B904525FB240D0059CC6E /* UIViewControllerExtension.swift in Sources */,
 				0B9EE7E52605BE78005DCE6C /* UIButtonExtension.swift in Sources */,

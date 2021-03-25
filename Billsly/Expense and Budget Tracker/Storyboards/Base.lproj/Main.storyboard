@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SJG-AW-gzF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nUp-IN-LDS">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -315,75 +315,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGz-Mr-tYC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3296" y="60"/>
-        </scene>
-        <!--Onboarding View Controller-->
-        <scene sceneID="5r3-Oq-bF2">
-            <objects>
-                <viewController storyboardIdentifier="OnboardingView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SJG-AW-gzF" customClass="OnboardingViewController" customModule="Expense_and_Budget_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rbO-wG-jvP">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lz-70-1Mm">
-                                <rect key="frame" x="20" y="716.66666666666663" width="388" height="30"/>
-                                <state key="normal" title="Take me to the app!"/>
-                                <connections>
-                                    <action selector="takeMeInButtonTapped:" destination="SJG-AW-gzF" eventType="touchUpInside" id="aBD-bD-hQE"/>
-                                    <segue destination="nUp-IN-LDS" kind="presentation" identifier="test" modalPresentationStyle="fullScreen" id="jPF-3P-h8u"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIc-VJ-tm8">
-                                <rect key="frame" x="20" y="538.66666666666663" width="388" height="30"/>
-                                <state key="normal" title="Allow Notifications"/>
-                                <connections>
-                                    <action selector="allowNotificationsTapped:" destination="SJG-AW-gzF" eventType="touchUpInside" id="1e2-YP-Qzm"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter your name to get started" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q9j-ND-n3W">
-                                <rect key="frame" x="76" y="388" width="267" height="31.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To BIllsly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0F-CR-2vC">
-                                <rect key="frame" x="87" y="137" width="255" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Notifcations to get reminded of upcoming bills!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOb-4G-vyr">
-                                <rect key="frame" x="13" y="477.66666666666669" width="402" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="0Ka-Eo-qdD"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="0Ka-Eo-qdD" firstAttribute="trailing" secondItem="f0F-CR-2vC" secondAttribute="trailing" constant="86" id="1jh-h3-Myo"/>
-                            <constraint firstItem="0Ka-Eo-qdD" firstAttribute="trailing" secondItem="MIc-VJ-tm8" secondAttribute="trailing" constant="20" id="1tv-de-B94"/>
-                            <constraint firstItem="MIc-VJ-tm8" firstAttribute="leading" secondItem="0Ka-Eo-qdD" secondAttribute="leading" constant="20" id="4GF-XF-Hin"/>
-                            <constraint firstItem="9lz-70-1Mm" firstAttribute="leading" secondItem="0Ka-Eo-qdD" secondAttribute="leading" constant="20" id="A2x-Av-xNh"/>
-                            <constraint firstItem="f0F-CR-2vC" firstAttribute="top" secondItem="0Ka-Eo-qdD" secondAttribute="top" constant="93" id="AJ0-Fu-648"/>
-                            <constraint firstItem="SOb-4G-vyr" firstAttribute="leading" secondItem="0Ka-Eo-qdD" secondAttribute="leading" constant="13" id="Ea0-QV-fd7"/>
-                            <constraint firstItem="q9j-ND-n3W" firstAttribute="leading" secondItem="0Ka-Eo-qdD" secondAttribute="leading" constant="76" id="GcA-Bj-078"/>
-                            <constraint firstItem="0Ka-Eo-qdD" firstAttribute="trailing" secondItem="q9j-ND-n3W" secondAttribute="trailing" constant="85" id="LK6-gO-rjr"/>
-                            <constraint firstItem="0Ka-Eo-qdD" firstAttribute="trailing" secondItem="9lz-70-1Mm" secondAttribute="trailing" constant="20" id="Lrp-OJ-N5R"/>
-                            <constraint firstItem="f0F-CR-2vC" firstAttribute="leading" secondItem="0Ka-Eo-qdD" secondAttribute="leading" constant="87" id="Qff-4Y-3ZI"/>
-                            <constraint firstItem="q9j-ND-n3W" firstAttribute="top" secondItem="f0F-CR-2vC" secondAttribute="bottom" constant="212" id="R7q-lB-xpa"/>
-                            <constraint firstItem="SOb-4G-vyr" firstAttribute="top" secondItem="q9j-ND-n3W" secondAttribute="bottom" constant="58.329999999999998" id="VQs-fH-bDQ"/>
-                            <constraint firstItem="MIc-VJ-tm8" firstAttribute="top" secondItem="SOb-4G-vyr" secondAttribute="bottom" constant="40" id="bZe-u8-vA6"/>
-                            <constraint firstItem="9lz-70-1Mm" firstAttribute="top" secondItem="MIc-VJ-tm8" secondAttribute="bottom" constant="148" id="jBj-8T-sbY"/>
-                            <constraint firstItem="0Ka-Eo-qdD" firstAttribute="trailing" secondItem="SOb-4G-vyr" secondAttribute="trailing" constant="13" id="t6l-nx-FuS"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="nameTextField" destination="q9j-ND-n3W" id="d1Y-W0-4RT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ovw-T5-1jz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2592" y="728"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="8Xh-oJ-cTe">

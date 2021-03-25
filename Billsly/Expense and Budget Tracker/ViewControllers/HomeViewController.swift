@@ -48,7 +48,6 @@ class HomeViewController: UIViewController {
         configureViews()
         constructProgressCircle()
         setCurrentMonth()
-        checkCurrentMonth()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +56,7 @@ class HomeViewController: UIViewController {
         billsPaidThisMonth()
         setupCalendar()
         animateViews()
+        checkCurrentMonth()
         animateStrokeProgressCircle(to: userController.calculatedBillProgressFloat)
         animationStartTime = Date()
     }
