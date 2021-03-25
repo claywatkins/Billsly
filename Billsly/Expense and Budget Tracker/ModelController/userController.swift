@@ -31,13 +31,13 @@ class UserController {
     var paidBills: [Bill] {
         let bills = userBills
         let filteredPaidBills = bills.filter{ (bills) -> Bool in bills.hasBeenPaid == true }
-        let sortedBills = filteredPaidBills.sorted(by: {$0.dueByDate < $1.dueByDate})
+        let sortedBills = filteredPaidBills.sorted { $0.dueByDate < $1.dueByDate }
         return sortedBills
     }
     var unpaidBills: [Bill] {
         let bills = userBills
         let filteredUnpaidBills = bills.filter { (bills) -> Bool in bills.hasBeenPaid == false }
-        let sortedBills = filteredUnpaidBills.sorted(by: {$0.dueByDate < $1.dueByDate})
+        let sortedBills = filteredUnpaidBills.sorted { $0.dueByDate < $1.dueByDate }
         return sortedBills
     }
     var dueByDateStrings: [String] {
@@ -82,6 +82,11 @@ class UserController {
         let paidBillsCount = CGFloat(paidBills.count)
         let totalBillsCount = CGFloat(userBills.count)
         return paidBillsCount/totalBillsCount
+    }
+    var alphabetizedCategories: [Category] {
+        let categories = userCategories
+        let alphabetizeCategories = categories.sorted { $0.name.lowercased() < $1.name.lowercased() }
+        return alphabetizeCategories
     }
     
     var amountSpentOnBills: String {

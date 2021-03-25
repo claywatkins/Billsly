@@ -77,25 +77,25 @@ class CategoryPopoverViewController: UIViewController {
 // MARK: - Extension
 extension CategoryPopoverViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userController.userCategories.count
+        return userController.alphabetizedCategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as? CategoryTableViewCell else { return UITableViewCell()}
-        cell.category = userController.userCategories[indexPath.row]
+        cell.category = userController.alphabetizedCategories[indexPath.row]
         cell.contentView.backgroundColor = ColorsHelper.slateGray
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let name = userController.userCategories[indexPath.row].name
+        let name = userController.alphabetizedCategories[indexPath.row].name
         delegate?.categoryCellTapped(name: name)
         self.dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let category = userController.userCategories[indexPath.row]
+            let category = userController.alphabetizedCategories[indexPath.row]
             userController.deleteCategoryData(category: category)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
