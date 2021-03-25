@@ -99,9 +99,11 @@ class HomeViewController: UIViewController {
     }
     
     private func displayUsername() {
-        guard let username = UserDefaults.standard.value(forKey: "username") as? String else { return }
-        
-        userNameLabel.text = "Welcome back, " + username
+        if let username = UserDefaults.standard.string(forKey: "username") {
+            userNameLabel.text = "Welcome back, " + username
+        } else {
+            userNameLabel.text = "Welcome to Billsly!"
+        }
     }
     
     private func checkDefaults() {
@@ -109,7 +111,15 @@ class HomeViewController: UIViewController {
             UserDefaults.standard.setValue(fsCalendarView.currentPage.month, forKey: "currentMonth")
         }
         if UserDefaults.standard.value(forKey: "animationsEnabled") == nil{
-            UserDefaults.standard.setValue(false, forKey: "animationsEnabled")
+            UserDefaults.standard.setValue(true, forKey: "animationsEnabled")
+        }
+        if UserDefaults.standard.value(forKey: "firstTimeUser") == nil {
+            UserDefaults.standard.setValue(false, forKey: "firstTimeUser")
+            let ac = UIAlertController(title: "Welcome to Billsly", message: "Thanks for downloading Billsly, my very first iOS App! Head on over to settings to add your name for a personal touch, or jump straight in and start adding your bills. \n\n Thank you for using Billsly!", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Thanks!", style: .default, handler: nil))
+            DispatchQueue.main.async {
+                self.present(ac, animated: true, completion: nil)
+            }
         }
     }
     
