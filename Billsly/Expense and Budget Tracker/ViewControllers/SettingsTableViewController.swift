@@ -46,6 +46,7 @@ class SettingsTableViewController: UITableViewController {
         addNameTextField.layer.cornerRadius = 8
         addNameTextField.attributedPlaceholder = NSAttributedString(string: "Add your name",
                                                                     attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
     }
     
     private func getAppVersion(){
