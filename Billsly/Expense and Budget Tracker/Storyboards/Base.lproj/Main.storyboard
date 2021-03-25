@@ -1141,7 +1141,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bBP-3f-ZD3">
-                                                    <rect key="frame" x="73.666666666666686" y="75.333333333333329" width="241" height="32"/>
+                                                    <rect key="frame" x="55.666666666666657" y="75.333333333333329" width="277" height="32"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crafted with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXK-rW-D0v">
                                                             <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="32"/>
@@ -1150,20 +1150,20 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Pdx-0x-MBo">
-                                                            <rect key="frame" x="95.666666666666671" y="2" width="20.666666666666671" height="29"/>
+                                                            <rect key="frame" x="95.666666666666686" y="2" width="20.666666666666671" height="29"/>
                                                             <color key="tintColor" red="0.99607843137254903" green="0.37254901960784315" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29E-0m-3lA">
-                                                            <rect key="frame" x="118.33333333333333" y="0.0" width="18.666666666666671" height="32"/>
+                                                            <rect key="frame" x="118.33333333333334" y="0.0" width="18.666666666666657" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7c5-WH-8mM">
-                                                            <rect key="frame" x="139" y="0.0" width="102" height="32"/>
+                                                            <rect key="frame" x="139" y="0.0" width="138" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             <color key="tintColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <state key="normal" title="@claywatkins">
+                                                            <state key="normal" title="@CaptainnClayton">
                                                                 <color key="titleColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <connections>
