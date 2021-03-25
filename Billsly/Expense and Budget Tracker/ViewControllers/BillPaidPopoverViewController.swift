@@ -33,6 +33,7 @@ class BillPaidPopoverViewController: UIViewController {
     private func configureViews() {
         view.backgroundColor = ColorsHelper.blackCoral
         pickerView.backgroundColor = ColorsHelper.slateGray
+        pickerView.layer.cornerRadius = 15
         whatBillLabel.textColor = ColorsHelper.cultured
         paidButton.configureButton(ColorsHelper.slateGray)
     }
