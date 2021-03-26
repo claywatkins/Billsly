@@ -23,7 +23,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var animationsSwitch: UISwitch!
     
     // MARK: - Properties
-    let userController = UserController.shared
+    var userController = UserController.shared
     let appURLForRating = ""
     let appURLForSharing = ""
     let supportEmail = "billsly.app@gmail.com"
