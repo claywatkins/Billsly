@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var paidThisMonthLabel: UILabel!
     
     // MARK: - Properties
-    let userController = UserController.shared
+    var userController = UserController.shared
     let shapeLayer = CAShapeLayer()
     var displayLink: CADisplayLink?
     var animationStartTime = Date()
@@ -114,13 +114,16 @@ class HomeViewController: UIViewController {
         if UserDefaults.standard.value(forKey: "animationsEnabled") == nil{
             UserDefaults.standard.setValue(true, forKey: "animationsEnabled")
         }
+        if UserDefaults.standard.value(forKey: "ShowAlert") == nil {
+            UserDefaults.standard.setValue(true, forKey: "ShowAlert")
+        }
         if UserDefaults.standard.value(forKey: "firstTimeUser") == nil {
             UserDefaults.standard.setValue(false, forKey: "firstTimeUser")
             let ac = UIAlertController(title: "Welcome to Billsly", message: "Thanks for downloading Billsly, my very first iOS App! Head on over to settings to add your name for a personal touch, or jump straight in and start adding your bills. \n\n Thank you for using Billsly!", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Thanks!", style: .default, handler: nil))
             DispatchQueue.main.async {
                 self.present(ac, animated: true)
-                self.askForUserAuthNotifications()
+//                self.askForUserAuthNotifications()
             }
         }
     }
@@ -236,6 +239,7 @@ class HomeViewController: UIViewController {
         center.requestAuthorization(options: [.alert, .sound]) { (success, error) in
             if success {
                 UserDefaults.standard.setValue(true, forKey: "notificationsEnabled")
+                print(UserDefaults.standard.bool(forKey: "notificationsEnabled"))
             } else {
                 UserDefaults.standard.setValue(false, forKey: "notificationsEnabled")
             }
@@ -259,7 +263,8 @@ class HomeViewController: UIViewController {
                                               name: bill.name,
                                               dollarAmount: bill.dollarAmount,
                                               dueByDate: moveForwardOneMonth,
-                                              category: bill.category)
+                                              category: bill.category,
+                                              hasReminder: bill.hasReminder)
                 fsCalendarView.reloadData()
             }
         }
@@ -275,7 +280,9 @@ class HomeViewController: UIViewController {
                     userController.updateBillData(bill: bill,
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
-                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                                                  dueByDate: moveForwardOneMonth,
+                                                  category: bill.category,
+                                                  hasReminder: bill.hasReminder)
                     fsCalendarView.reloadData()
                 }
             }
@@ -294,7 +301,9 @@ class HomeViewController: UIViewController {
                     userController.updateBillData(bill: bill,
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
-                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                                                  dueByDate: moveForwardOneMonth,
+                                                  category: bill.category,
+                                                  hasReminder: bill.hasReminder)
                     fsCalendarView.reloadData()
                 }
             }
@@ -310,7 +319,9 @@ class HomeViewController: UIViewController {
                     userController.updateBillData(bill: bill,
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
-                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                                                  dueByDate: moveForwardOneMonth,
+                                                  category: bill.category,
+                                                  hasReminder: bill.hasReminder)
                     fsCalendarView.reloadData()
                 }
             }
@@ -326,7 +337,9 @@ class HomeViewController: UIViewController {
                     userController.updateBillData(bill: bill,
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
-                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                                                  dueByDate: moveForwardOneMonth,
+                                                  category: bill.category,
+                                                  hasReminder: bill.hasReminder)
                     fsCalendarView.reloadData()
                 }
             }
@@ -342,7 +355,9 @@ class HomeViewController: UIViewController {
                     userController.updateBillData(bill: bill,
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
-                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                                                  dueByDate: moveForwardOneMonth,
+                                                  category: bill.category,
+                                                  hasReminder: bill.hasReminder)
                     fsCalendarView.reloadData()
                 }
             }
@@ -359,7 +374,9 @@ class HomeViewController: UIViewController {
                     userController.updateBillData(bill: bill,
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
-                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                                                  dueByDate: moveForwardOneMonth,
+                                                  category: bill.category,
+                                                  hasReminder: bill.hasReminder)
                     fsCalendarView.reloadData()
                 } else if dateNum == 28 {
                     var dateComponent = DateComponents()
@@ -369,7 +386,9 @@ class HomeViewController: UIViewController {
                     userController.updateBillData(bill: bill,
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
-                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                                                  dueByDate: moveForwardOneMonth,
+                                                  category: bill.category,
+                                                  hasReminder: bill.hasReminder)
                     fsCalendarView.reloadData()
                 } else if dateStr == "29" {
                     var dateComponent = DateComponents()
@@ -379,7 +398,9 @@ class HomeViewController: UIViewController {
                     userController.updateBillData(bill: bill,
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
-                                                  dueByDate: moveForwardOneMonth, category: bill.category)
+                                                  dueByDate: moveForwardOneMonth,
+                                                  category: bill.category,
+                                                  hasReminder: bill.hasReminder)
                     fsCalendarView.reloadData()
                 }
                 

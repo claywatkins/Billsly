@@ -7,6 +7,7 @@
 
 import UIKit
 import FSCalendar
+import UserNotifications
 
 class EditBillViewController: UIViewController {
     
@@ -25,7 +26,7 @@ class EditBillViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
     // MARK: - Properties
-    let userController = UserController.shared
+    var userController = UserController.shared
     var bill: Bill?
     var amt = 0
     var delegate: CategoryCellTapped?
@@ -158,12 +159,78 @@ class EditBillViewController: UIViewController {
             let ac = presentAlertController(missing: "Date")
             return present(ac, animated: true)
         }
+//        var billDate: Int {
+//            userController.df.dateFormat = "d"
+//            return Int(userController.df.string(from: saveableDate))!
+//        }
+//        
+//        if bill.dueByDate != saveableDate {
+//            let center = UNUserNotificationCenter.current()
+//            center.removePendingNotificationRequests(withIdentifiers: [bill.identifier])
+//            if saveableDate <= Date(){
+//                if UserDefaults.standard.bool(forKey: "ShowAlert") == true {
+//                    let ac = UIAlertController(title: "Date Warning", message: "Due Date is scheduled for today or before today, you will not recieve a notification about this bill this month.", preferredStyle: .alert)
+//                    ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: { _ in
+//                        self.navigationController?.popViewController(animated: true)
+//                    }))
+//                    ac.addAction(UIAlertAction(title: "Don't Show This Alert Again", style: .default, handler: { _ in
+//                        UserDefaults.standard.setValue(false, forKey: "ShowAlert")
+//                        self.navigationController?.popViewController(animated: true)
+//                    }))
+//                    self.present(ac, animated: true)
+//                }
+//            } else {
+//                let content = UNMutableNotificationContent()
+//                content.title = "Upcoming Bill Due"
+//                content.body = "\(name) will be due soon, make sure to mark it as paid after paying it!"
+//                
+//                var dateComponents = DateComponents()
+//                dateComponents.calendar = Calendar.current
+////                dateComponents.timeZone = TimeZone.current
+//                if billDate <= 5 {
+//                    dateComponents.hour = 11
+//                    switch billDate {
+//                    case 1:
+//                        dateComponents.day = 1
+//                    case 2:
+//                        dateComponents.day = -1
+//                    case 3:
+//                        dateComponents.day = -2
+//                    case 4:
+//                        dateComponents.day = -3
+//                    case 5:
+//                        dateComponents.day = -4
+//                    default:
+//                        dateComponents.day = billDate
+//                    }
+//                } else if saveableDate.days(from: dateComponents.date!) <= 5{
+//                    print(dateComponents.date!)
+//                    print(saveableDate.days(from: dateComponents.date!))
+//                    dateComponents.day = billDate - 5
+//                    dateComponents.hour = 11
+//                }
+//                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+//                let request = UNNotificationRequest(identifier: bill.identifier,
+//                                                    content: content,
+//                                                    trigger: trigger)
+//                let center = UNUserNotificationCenter.current()
+//                center.add(request) { (error) in
+//                    if let error = error {
+//                        print("Error: \(error.localizedDescription)")
+//                    }
+//                }
+//            }
+//        }
         
         userController.updateBillData(bill: bill,
                                       name: name,
                                       dollarAmount: finalAmount,
                                       dueByDate: saveableDate,
-                                      category: Category(name: category))
+                                      category: Category(name: category),
+                                      hasReminder: false)
+        
+        
+        
         self.navigationController?.popViewController(animated: true)
     }
     

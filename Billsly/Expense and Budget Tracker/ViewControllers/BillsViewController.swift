@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import UserNotifications
 
 class BillsViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
-    let userController = UserController.shared
+    var userController = UserController.shared
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -26,7 +27,9 @@ class BillsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        
+//        for bill in userController.unpaidBills {
+//            scheduleNotifications(bill: bill)
+//        }
     }
     
     // MARK: - Methods
@@ -48,7 +51,50 @@ class BillsViewController: UIViewController {
         }
     }
     
-    
+//    private func scheduleNotifications(bill: Bill) {
+//        if UserDefaults.standard.bool(forKey: "notificationsEnabled") {
+//            let content = UNMutableNotificationContent()
+//            content.title = "Upcoming Bill Due"
+//            content.body = "\(bill.name) will be due soon. Make sure to mark bill as paid after paying!"
+//
+//            var billDate: Int {
+//                userController.df.dateFormat = "d"
+//                return Int(userController.df.string(from: bill.dueByDate))!
+//            }
+////            var billMonth: Int {
+////                userController.df.dateFormat = "MM"
+////                return Int(userController.df.string(from: bill.dueByDate))!
+////            }
+////            var billYear: Int {
+////                userController.df.dateFormat = "yyyy"
+////                return Int(userController.df.string(from: bill.dueByDate))!
+////            }
+//            var dateComponents = DateComponents()
+//            dateComponents.calendar = Calendar.current
+//            dateComponents.day = billDate
+//            dateComponents.hour = 12
+//
+//            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+//            var notificationArray: [UNNotificationRequest] = []
+//            let request = UNNotificationRequest(identifier: bill.identifier, content: content, trigger: trigger)
+//
+//            if notificationArray.contains(request) {
+//                print("Notification Exists")
+//            } else {
+//                notificationArray.append(request)
+//            }
+//
+//            let center = UNUserNotificationCenter.current()
+//            for request in notificationArray {
+//                center.add(request) { (error) in
+//                    print("Success")
+//                    if let error = error {
+//                        print("Error: \(error.localizedDescription)")
+//                    }
+//                }
+//            }
+//        }
+//    }
     // MARK: - IBAction
     @IBAction func homeButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
