@@ -62,5 +62,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCalendarsUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like access to the calendar to save events.</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like access to reminders to save reminders.</string>
 </dict>
 </plist>
