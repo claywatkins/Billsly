@@ -8,21 +8,26 @@
 import Foundation
 
 struct Bill: Codable, Equatable{
+    var identifier: String
     var name: String
     var dollarAmount: Double
     var dueByDate: Date
     var hasBeenPaid: Bool
     var category: Category
+    var hasReminder: Bool
     
-    init(name: String,
+    init(identifier: String,
+         name: String,
          dollarAmount: Double,
          dueByDate: Date,
-         category: Category) {
-        
+         category: Category,
+         hasReminder: Bool) {
+        self.identifier = identifier
         self.name = name
         self.dollarAmount = dollarAmount
         self.dueByDate = dueByDate
         self.hasBeenPaid = false
         self.category = category
+        self.hasReminder = hasReminder
     }
 }

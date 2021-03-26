@@ -103,8 +103,13 @@ class UserController {
     }
     
     // MARK: - CRUD
-    func createBill(name: String, dollarAmount: Double, dueByDate: Date, category: Category) {
-        let newBill = Bill(name: name, dollarAmount: dollarAmount, dueByDate: dueByDate, category: category)
+    func createBill(identifier: String, name: String, dollarAmount: Double, dueByDate: Date, category: Category, hasReminder: Bool) {
+        let newBill = Bill(identifier: identifier,
+                           name: name,
+                           dollarAmount: dollarAmount,
+                           dueByDate: dueByDate,
+                           category: category,
+                           hasReminder: hasReminder)
         userBills.append(newBill)
         print("Bill Added Successfully")
         saveBillsToPersistentStore()
@@ -128,12 +133,13 @@ class UserController {
         }
         saveBillsToPersistentStore()
     }
-    func updateBillData(bill: Bill, name: String, dollarAmount: Double, dueByDate: Date, category: Category) {
-        if let bookIndex = userBills.firstIndex(of: bill) {
-            userBills[bookIndex].name = name
-            userBills[bookIndex].dollarAmount = dollarAmount
-            userBills[bookIndex].dueByDate = dueByDate
-            userBills[bookIndex].category = category
+    func updateBillData(bill: Bill, name: String, dollarAmount: Double, dueByDate: Date, category: Category, hasReminder: Bool) {
+        if let billIndex = userBills.firstIndex(of: bill) {
+            userBills[billIndex].name = name
+            userBills[billIndex].dollarAmount = dollarAmount
+            userBills[billIndex].dueByDate = dueByDate
+            userBills[billIndex].category = category
+            userBills[billIndex].hasReminder = hasReminder
         }
         saveBillsToPersistentStore()
     }
