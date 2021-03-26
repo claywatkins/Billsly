@@ -18,7 +18,7 @@ class BillPaidPopoverViewController: UIViewController {
     @IBOutlet weak var paidButton: UIButton!
     
     // MARK: - Properties
-    let userController = UserController.shared
+    var userController = UserController.shared
     var currentBillSelection: Bill?
     var delegate: BillHasBeenPaid?
     

@@ -19,7 +19,7 @@ class CategoryPopoverViewController: UIViewController {
     @IBOutlet weak var addCategoryButton: UIButton!
     
     // MARK: - Properties
-    let userController = UserController.shared
+    var userController = UserController.shared
     var delegate: CategoryCellTapped?
     
     // MARK: - Lifecycle
