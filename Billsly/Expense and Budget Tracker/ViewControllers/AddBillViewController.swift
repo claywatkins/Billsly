@@ -163,14 +163,12 @@ class AddBillViewController: UIViewController{
             let ac = presentAlertController(missing: "Date")
             return present(ac, animated: true)
         }
-        let hasReminder = true
         
         userController.createBill(identifier: id,
                                   name: name,
                                   dollarAmount: finalAmount,
                                   dueByDate: saveableDate,
-                                  category: Category(name: category),
-                                  hasReminder: hasReminder)
+                                  category: Category(name: category))
         
         self.navigationController?.popViewController(animated: true)
     }

@@ -58,6 +58,7 @@ class HomeViewController: UIViewController {
         setupCalendar()
         animateViewsIfEnabled()
         checkCurrentMonth()
+        scheduleNotifications()
         animateStrokeProgressCircle(to: userController.calculatedBillProgressFloat)
         animationStartTime = Date()
     }
@@ -203,6 +204,17 @@ class HomeViewController: UIViewController {
         basicAnimation.duration = duration
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
+        switch float {
+        case 0...0.49:
+            shapeLayer.strokeColor = ColorsHelper.orangeRedCrayola.cgColor
+        case 0.5...0.99:
+            shapeLayer.strokeColor = UIColor.systemYellow.cgColor
+        case 1:
+            shapeLayer.strokeColor = ColorsHelper.laurelGreen.cgColor
+        default:
+            shapeLayer.strokeColor = ColorsHelper.orangeRedCrayola.cgColor
+            
+        }
         shapeLayer.add(basicAnimation, forKey: "basic")
         animateLabel()
     }
@@ -246,6 +258,51 @@ class HomeViewController: UIViewController {
         }
     }
     
+    private func scheduleNotifications() {
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        for bill in userController.unpaidBills {
+            let content = UNMutableNotificationContent()
+            content.title = "Upcoming bill due tomorrow"
+            content.body = "\(bill.name) is due tomorrow. Make sure to mark it as paid, after it's paid."
+            content.sound = UNNotificationSound.default
+            
+            var billDate: Int {
+                userController.df.dateFormat = "d"
+                return Int(userController.df.string(from: bill.dueByDate))!
+            }
+            
+            var dateComponents = DateComponents()
+            if billDate == 1 {
+                dateComponents.calendar = Calendar.current
+                dateComponents.timeZone = TimeZone.current
+                dateComponents.day = billDate
+                dateComponents.hour = 11
+            } else {
+                dateComponents.calendar = Calendar.current
+                dateComponents.timeZone = TimeZone.current
+                dateComponents.day = billDate - 1
+                dateComponents.hour = 11
+            }
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+            let request = UNNotificationRequest(identifier: bill.identifier,
+                                                content: content,
+                                                trigger: trigger)
+            center.add(request) { error in
+                if let error = error {
+                    print("Error creating notification")
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+            center.getPendingNotificationRequests { requests in
+                for request in requests {
+                    print(request.trigger!)
+                }
+            }
+        }
+    }
+    
     private func moveBillsToNextMonth() {
         for bill in userController.userBills {
             userController.updateBillToUnpaid(bill: bill)
@@ -263,8 +320,7 @@ class HomeViewController: UIViewController {
                                               name: bill.name,
                                               dollarAmount: bill.dollarAmount,
                                               dueByDate: moveForwardOneMonth,
-                                              category: bill.category,
-                                              hasReminder: bill.hasReminder)
+                                              category: bill.category)
                 fsCalendarView.reloadData()
             }
         }
@@ -281,8 +337,7 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category,
-                                                  hasReminder: bill.hasReminder)
+                                                  category: bill.category)
                     fsCalendarView.reloadData()
                 } else if dateStr == "30" {
                     var dateComponent = DateComponents()
@@ -292,8 +347,7 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category,
-                                                  hasReminder: bill.hasReminder)
+                                                  category: bill.category)
                 }
             }
         }
@@ -312,8 +366,7 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category,
-                                                  hasReminder: bill.hasReminder)
+                                                  category: bill.category)
                     fsCalendarView.reloadData()
                 }
             }
@@ -330,8 +383,7 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category,
-                                                  hasReminder: bill.hasReminder)
+                                                  category: bill.category)
                     fsCalendarView.reloadData()
                 }
             }
@@ -348,8 +400,7 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category,
-                                                  hasReminder: bill.hasReminder)
+                                                  category: bill.category)
                     fsCalendarView.reloadData()
                 }
             }
@@ -366,8 +417,7 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category,
-                                                  hasReminder: bill.hasReminder)
+                                                  category: bill.category)
                     fsCalendarView.reloadData()
                 }
             }
@@ -385,8 +435,7 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category,
-                                                  hasReminder: bill.hasReminder)
+                                                  category: bill.category)
                     fsCalendarView.reloadData()
                 } else if dateNum == 28 {
                     var dateComponent = DateComponents()
@@ -397,8 +446,7 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category,
-                                                  hasReminder: bill.hasReminder)
+                                                  category: bill.category)
                     fsCalendarView.reloadData()
                 } else if dateStr == "29" {
                     var dateComponent = DateComponents()
@@ -409,11 +457,9 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category,
-                                                  hasReminder: bill.hasReminder)
+                                                  category: bill.category)
                     fsCalendarView.reloadData()
                 }
-                
             }
         }
     }

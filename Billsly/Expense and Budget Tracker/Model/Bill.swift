@@ -14,20 +14,17 @@ struct Bill: Codable, Equatable{
     var dueByDate: Date
     var hasBeenPaid: Bool
     var category: Category
-    var hasReminder: Bool
     
     init(identifier: String,
          name: String,
          dollarAmount: Double,
          dueByDate: Date,
-         category: Category,
-         hasReminder: Bool) {
+         category: Category) {
         self.identifier = identifier
         self.name = name
         self.dollarAmount = dollarAmount
         self.dueByDate = dueByDate
         self.hasBeenPaid = false
         self.category = category
-        self.hasReminder = hasReminder
     }
 }

@@ -163,10 +163,7 @@ class EditBillViewController: UIViewController {
                                       name: name,
                                       dollarAmount: finalAmount,
                                       dueByDate: saveableDate,
-                                      category: Category(name: category),
-                                      hasReminder: false)
-        
-        
+                                      category: Category(name: category))
         
         self.navigationController?.popViewController(animated: true)
     }
