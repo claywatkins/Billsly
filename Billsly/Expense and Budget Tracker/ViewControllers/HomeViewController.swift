@@ -123,7 +123,7 @@ class HomeViewController: UIViewController {
             ac.addAction(UIAlertAction(title: "Thanks!", style: .default, handler: nil))
             DispatchQueue.main.async {
                 self.present(ac, animated: true)
-//                self.askForUserAuthNotifications()
+                self.askForUserAuthNotifications()
             }
         }
     }
