@@ -62,12 +62,6 @@ class SettingsTableViewController: UITableViewController {
         } else {
             animationsSwitch.setOn(true, animated: false)
         }
-        
-        if UserDefaults.standard.bool(forKey: "notificationsEnabled") {
-            notificationsSwitch.setOn(true, animated: false)
-        } else {
-            notificationsSwitch.setOn(false, animated: false)
-        }
     }
     
     private func getAppVersion(){
@@ -124,26 +118,6 @@ class SettingsTableViewController: UITableViewController {
         self.present(ac, animated: true)
     }
     
-    @IBAction func allowNotificationsToggled(_ sender: UISwitch) {
-        if sender.isOn {
-            UserDefaults.standard.setValue(true, forKey: "notificationsEnabled")
-            let ac = UIAlertController(title: "Notification Warning", message: "If you denied Billsly permission to send notifications when first installing the application, this switch will not toggle them on. You will need to go to tap Go to Settings and enable notifications for Billsly.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "Go to Settings", style: .default, handler: { _ in
-                let settingsURL = NSURL(string: UIApplication.openSettingsURLString)
-                if let url = settingsURL {
-                    UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
-                }
-            }))
-            ac.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { _ in
-                UserDefaults.standard.setValue(false, forKey: "notificationsEnabled")
-                self.notificationsSwitch.setOn(false, animated: true)
-            }))
-            self.present(ac, animated: true)
-        } else {
-            UserDefaults.standard.setValue(false, forKey: "notificationsEnabled")
-        }
-    }
-    
     @IBAction func disableAnimationsToggled(_ sender: UISwitch) {
         if sender.isOn {
             UserDefaults.standard.setValue(false, forKey: "animationsEnabled")
@@ -168,7 +142,6 @@ class SettingsTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 4
     }
     
@@ -176,7 +149,7 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 1
-        case 1: return 2
+        case 1: return 1
         case 2: return 4
         case 3: return 1
         default: return 0
@@ -194,7 +167,6 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         switch indexPath {
         case [2, 0]: promptRating()
             tableView.deselectRow(at: indexPath, animated: true)
@@ -207,8 +179,6 @@ class SettingsTableViewController: UITableViewController {
         default: print("no class function triggered for index path: \(indexPath)")
         }
     }
-    
-    
 }
 
 extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
