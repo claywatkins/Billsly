@@ -27,9 +27,6 @@ class BillsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-//        for bill in userController.unpaidBills {
-//            scheduleNotifications(bill: bill)
-//        }
     }
     
     // MARK: - Methods
@@ -65,7 +62,6 @@ class BillsViewController: UIViewController {
                 detailVC.bill = bill
             }
         }
-        
     }
 }
 
