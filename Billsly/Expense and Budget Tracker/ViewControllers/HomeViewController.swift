@@ -475,9 +475,11 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         let cell = calendar.dequeueReusableCell(withIdentifier: "calendarCell", for: date, at: position)
         userController.df.dateFormat = "dd"
         let dateStr = userController.df.string(from: date)
-        if userController.dueByDateAndPaid.contains(dateStr) {
+        if userController.dueByDateAndPaid.contains(dateStr) && userController.dueByDateAndUnpaid.contains(dateStr){
+            cell.imageView.tintColor = .systemYellow
+        } else if userController.dueByDateAndPaid.contains(dateStr) {
             cell.imageView.tintColor = ColorsHelper.laurelGreen
-        } else if userController.dueByDateAndUnpaid.contains(dateStr) {
+        } else  {
             cell.imageView.tintColor = ColorsHelper.orangeRedCrayola
         }
         cell.imageView.contentMode = .scaleAspectFit
