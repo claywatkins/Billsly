@@ -320,7 +320,8 @@ class HomeViewController: UIViewController {
                                               name: bill.name,
                                               dollarAmount: bill.dollarAmount,
                                               dueByDate: moveForwardOneMonth,
-                                              category: bill.category)
+                                              category: bill.category,
+                                              isOn30th: bill.isOn30th)
                 fsCalendarView.reloadData()
             }
         }
@@ -337,7 +338,8 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category)
+                                                  category: bill.category,
+                                                  isOn30th: bill.isOn30th)
                     fsCalendarView.reloadData()
                 } else if dateStr == "30" {
                     var dateComponent = DateComponents()
@@ -347,7 +349,8 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category)
+                                                  category: bill.category,
+                                                  isOn30th: bill.isOn30th)
                 }
             }
         }
@@ -366,7 +369,8 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category)
+                                                  category: bill.category,
+                                                  isOn30th: bill.isOn30th)
                     fsCalendarView.reloadData()
                 }
             }
@@ -383,7 +387,8 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category)
+                                                  category: bill.category,
+                                                  isOn30th: bill.isOn30th)
                     fsCalendarView.reloadData()
                 }
             }
@@ -400,7 +405,8 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category)
+                                                  category: bill.category,
+                                                  isOn30th: bill.isOn30th)
                     fsCalendarView.reloadData()
                 }
             }
@@ -417,7 +423,8 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category)
+                                                  category: bill.category,
+                                                  isOn30th: bill.isOn30th)
                     fsCalendarView.reloadData()
                 }
             }
@@ -435,7 +442,8 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category)
+                                                  category: bill.category,
+                                                  isOn30th: bill.isOn30th)
                     fsCalendarView.reloadData()
                 } else if dateNum == 28 {
                     var dateComponent = DateComponents()
@@ -446,7 +454,8 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category)
+                                                  category: bill.category,
+                                                  isOn30th: bill.isOn30th)
                     fsCalendarView.reloadData()
                 } else if dateStr == "29" {
                     var dateComponent = DateComponents()
@@ -457,7 +466,8 @@ class HomeViewController: UIViewController {
                                                   name: bill.name,
                                                   dollarAmount: bill.dollarAmount,
                                                   dueByDate: moveForwardOneMonth,
-                                                  category: bill.category)
+                                                  category: bill.category,
+                                                  isOn30th: bill.isOn30th)
                     fsCalendarView.reloadData()
                 }
             }

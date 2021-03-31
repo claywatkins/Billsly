@@ -103,12 +103,13 @@ class UserController {
     }
     
     // MARK: - CRUD
-    func createBill(identifier: String, name: String, dollarAmount: Double, dueByDate: Date, category: Category) {
+    func createBill(identifier: String, name: String, dollarAmount: Double, dueByDate: Date, category: Category, isOn30th: Bool) {
         let newBill = Bill(identifier: identifier,
                            name: name,
                            dollarAmount: dollarAmount,
                            dueByDate: dueByDate,
-                           category: category)
+                           category: category,
+                           isOn30th: isOn30th)
         userBills.append(newBill)
         print("Bill Added Successfully")
         saveBillsToPersistentStore()
@@ -131,12 +132,13 @@ class UserController {
         }
         saveBillsToPersistentStore()
     }
-    func updateBillData(bill: Bill, name: String, dollarAmount: Double, dueByDate: Date, category: Category) {
+    func updateBillData(bill: Bill, name: String, dollarAmount: Double, dueByDate: Date, category: Category, isOn30th: Bool) {
         if let billIndex = userBills.firstIndex(of: bill) {
             userBills[billIndex].name = name
             userBills[billIndex].dollarAmount = dollarAmount
             userBills[billIndex].dueByDate = dueByDate
             userBills[billIndex].category = category
+            userBills[billIndex].isOn30th = isOn30th
         }
         saveBillsToPersistentStore()
     }

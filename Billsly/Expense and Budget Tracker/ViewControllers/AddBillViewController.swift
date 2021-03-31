@@ -164,11 +164,25 @@ class AddBillViewController: UIViewController{
             return present(ac, animated: true)
         }
         
+        var billDate: Int {
+            userController.df.dateFormat = "d"
+            return Int(userController.df.string(from: saveableDate))!
+        }
+        
+        var isOn30th: bool {
+            if billDate == 30 {
+                return true
+            }
+            return false
+        }
+        
+        
         userController.createBill(identifier: id,
                                   name: name,
                                   dollarAmount: finalAmount,
                                   dueByDate: saveableDate,
-                                  category: Category(name: category))
+                                  category: Category(name: category),
+                                  isOn30th: isOn30th)
         
         self.navigationController?.popViewController(animated: true)
     }
