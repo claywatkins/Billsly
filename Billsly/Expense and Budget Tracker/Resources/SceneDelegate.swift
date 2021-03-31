@@ -49,7 +49,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         for bill in userController.unpaidBills {
             let content = UNMutableNotificationContent()
             content.title = "Upcoming bill due tomorrow"
-            content.body = "\(bill.name) is due tomorrow. Make sure to mark it as paid, after it's paid."
+            content.body = "Don't forget to pay \(bill.name) tomorrow and then mark it as paid in Billsly!"
             content.sound = UNNotificationSound.default
             
             var billDate: Int {
