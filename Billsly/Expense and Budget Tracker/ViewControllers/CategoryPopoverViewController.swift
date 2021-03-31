@@ -50,6 +50,7 @@ class CategoryPopoverViewController: UIViewController {
                 Category(name: "Mortgage"),
                 Category(name: "Loan"),
                 Category(name: "Credit Card"),
+                Category(name: "Insurance"),
                 Category(name: "Car Loan")
             ]
             for i in defaultCategories {
