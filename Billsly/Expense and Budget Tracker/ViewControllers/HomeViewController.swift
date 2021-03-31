@@ -255,12 +255,9 @@ class HomeViewController: UIViewController {
     
     private func askForUserAuthNotifications() {
         let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound]) { (success, error) in
-            if success {
-                UserDefaults.standard.setValue(true, forKey: "notificationsEnabled")
-                print(UserDefaults.standard.bool(forKey: "notificationsEnabled"))
-            } else {
-                UserDefaults.standard.setValue(false, forKey: "notificationsEnabled")
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
+            if let error = error {
+                NSLog(error.localizedDescription)
             }
         }
     }
@@ -315,7 +312,7 @@ class HomeViewController: UIViewController {
         for bill in userController.paidBills {
             userController.updateBillToUnpaid(bill: bill)
         }
-
+        
         for bill in userController.userBills {
             let dateNum = Int(userController.df.string(from: bill.dueByDate))!
             var dateComponents = DateComponents()
@@ -408,7 +405,7 @@ class HomeViewController: UIViewController {
                                                   isOn30th: bill.isOn30th)
                     continue
                 }
-
+                
             default:
                 fatalError()
             }
