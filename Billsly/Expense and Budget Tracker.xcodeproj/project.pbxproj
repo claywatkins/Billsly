@@ -71,6 +71,7 @@
 		0B9DEC99260D0B20006F0EC6 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		0B9EE7E22605AACE005DCE6C /* UIVewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVewExtension.swift; sourceTree = "<group>"; };
 		0B9EE7E42605BE78005DCE6C /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		0BBE98902616E2AB009DDF96 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		0BF254E425F0C5430078BD9F /* userController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userController.swift; sourceTree = "<group>"; };
 		0BF254E825F0C5A90078BD9F /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 				0B6EA1A6260D0F460020060C /* UIApplicationExtension.swift */,
 				0B6EA1A8260D0F6C0020060C /* UIDeviceExtension.swift */,
 				0B18D65F260D85F2004F908D /* IAPManager.swift */,
+				0BBE98902616E2AB009DDF96 /* Configuration.storekit */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

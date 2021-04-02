@@ -13,6 +13,11 @@ protocol reloadHomeView {
     func usernameChanged()
 }
 
+struct IAP {
+    var name: String
+    var handler: (() -> Void)
+}
+
 class SettingsTableViewController: UITableViewController {
     
     // MARK: - IBOutlets
@@ -28,12 +33,17 @@ class SettingsTableViewController: UITableViewController {
     let appURLForSharing = ""
     let supportEmail = "billsly.app@gmail.com"
     var delegate: reloadHomeView?
+    var IAPs = [IAP]()
+    var totalTipped: Double {
+        return UserDefaults.standard.double(forKey: "tipped")
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
         getAppVersion()
+        appendIAPs()
         hideKeyboardWhenTappedAround()
     }
     
@@ -100,21 +110,50 @@ class SettingsTableViewController: UITableViewController {
     private func sendTip() {
         let ac = UIAlertController(title: "Thank you again for you willingness to donate!", message: "All tips go towards the continuation of my app development.", preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Thank you tip - $1.99", style: .default, handler: { _ in
-            // MARK: - TODO:
-            // Add code here
+            self.IAPs[0].handler()
         }))
-        ac.addAction(UIAlertAction(title: "Generous Donater - $4.99", style: .default, handler: { _ in
-            // MARK: - TODO:
-            // Add code here
+        ac.addAction(UIAlertAction(title: "Generous Donator - $4.99", style: .default, handler: { _ in
+            self.IAPs[1].handler()
         }))
         ac.addAction(UIAlertAction(title: "Absolute Mad Lad - $9.99", style: .default, handler: { _ in
-            // MARK: - TODO:
-            // Add code here
+            self.IAPs[2].handler()
         }))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { _ in
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
             ac.dismiss(animated: true, completion: nil)
         }))
         present(ac, animated: true)
+    }
+    
+    func appendIAPs() {
+        IAPs.append(IAP(name: "Thank you tip", handler: {
+            IAPManager.shared.purchase(product: .tier1Tip) { [weak self] tipped in
+                DispatchQueue.main.async {
+                    let currentTipped = self?.totalTipped ?? 0
+                    let newTipped = currentTipped + tipped
+                    UserDefaults.standard.setValue(newTipped, forKey: "tipped")
+                }
+            }
+        }))
+        
+        IAPs.append(IAP(name: "Generous Donater", handler: {
+            IAPManager.shared.purchase(product: .tier2Tip) { [weak self] tipped in
+                DispatchQueue.main.async {
+                    let currentTipped = self?.totalTipped ?? 0
+                    let newTipped = currentTipped + tipped
+                    UserDefaults.standard.setValue(newTipped, forKey: "tipped")
+                }
+            }
+        }))
+        
+        IAPs.append(IAP(name: "Absolute Mad Lad", handler: {
+            IAPManager.shared.purchase(product: .tier2Tip) { [weak self] tipped in
+                DispatchQueue.main.async {
+                    let currentTipped = self?.totalTipped ?? 0
+                    let newTipped = currentTipped + tipped
+                    UserDefaults.standard.setValue(newTipped, forKey: "tipped")
+                }
+            }
+        }))
     }
     
     // MARK: - IBActions
