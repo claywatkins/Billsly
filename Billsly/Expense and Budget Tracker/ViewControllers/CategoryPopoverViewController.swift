@@ -12,7 +12,6 @@ protocol CategoryCellTapped {
 }
 
 class CategoryPopoverViewController: UIViewController {
-
     // MARK: - IBOutlets
     @IBOutlet weak var categoriesLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -103,5 +102,3 @@ extension CategoryPopoverViewController: UITableViewDelegate, UITableViewDataSou
         }
     }
 }
-
-

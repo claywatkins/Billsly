@@ -90,13 +90,6 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
-    private func requestAuthForNotifications() {
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound]) { (success, error) in
-            
-        }
-    }
-    
     private func shareApp() {
         if let appURL = NSURL(string: appURLForSharing) {
             let objectsToShare: [Any] = [appURL]
@@ -236,6 +229,7 @@ class SettingsTableViewController: UITableViewController {
     }
 }
 
+// MARK: - Extension
 extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
     
     func composeShareEmail() {
@@ -248,25 +242,21 @@ extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
     }
     
     func configuredMailComposeViewController() -> MFMailComposeViewController {
-        
         let messageBody: String
         let deviceModelName = UIDevice.modelName
         let iOSVersion = UIDevice.current.systemVersion
         let topDivider = "------- Developer Info -------"
         let divider = "------------------------------"
-        
         if let appVersion = UIApplication.appVersion {
             messageBody =  "\n\n\n\n\(topDivider)\nApp version: \(appVersion)\nDevice model: \(deviceModelName)\niOS version: \(iOSVersion)\n\(divider)"
         } else {
             messageBody = "\n\n\n\n\(topDivider)\nDevice model: \(deviceModelName)\niOS version: \(iOSVersion)\n\(divider)"
         }
-        
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
         mailComposerVC.setToRecipients([supportEmail])
         mailComposerVC.setSubject("Billsly App Feedback")
         mailComposerVC.setMessageBody(messageBody, isHTML: false)
-
         return mailComposerVC
     }
     

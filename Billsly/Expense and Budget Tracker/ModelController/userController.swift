@@ -8,7 +8,6 @@
 import UIKit
 
 class UserController {
-    
     // MARK: - Properties
     static let shared = UserController()
     let df = DateFormatter()
@@ -18,7 +17,6 @@ class UserController {
     let defaults = UserDefaults.standard
     var isLoggedIn: Bool?
     var username: String?
-    
     var persistentBillsFileURL: URL? {
         let fm = FileManager.default
         guard let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
@@ -89,7 +87,6 @@ class UserController {
         let alphabetizeCategories = categories.sorted { $0.name.lowercased() < $1.name.lowercased() }
         return alphabetizeCategories
     }
-    
     var amountSpentOnBills: String {
         var count = 0.0
         for bill in paidBills {
@@ -199,5 +196,4 @@ class UserController {
             print(error.localizedDescription)
         }
     }
-    
 }

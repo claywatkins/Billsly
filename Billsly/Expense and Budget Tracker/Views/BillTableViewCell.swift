@@ -12,7 +12,6 @@ protocol BillTableViewCellDelegate {
 }
 
 class BillTableViewCell: UITableViewCell {
-
     // MARK: - IBOutlets
     @IBOutlet weak var billName: UILabel!
     @IBOutlet weak var paidUnpaidButton: UIButton!

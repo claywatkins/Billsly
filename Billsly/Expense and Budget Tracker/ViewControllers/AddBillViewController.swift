@@ -9,7 +9,6 @@ import UIKit
 import FSCalendar
 
 class AddBillViewController: UIViewController{
-    
     // MARK: - IBOutlets
     @IBOutlet weak var billNameLabel: UILabel!
     @IBOutlet weak var billNameTextField: UITextField!

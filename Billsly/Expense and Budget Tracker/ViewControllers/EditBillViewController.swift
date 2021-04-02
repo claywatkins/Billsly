@@ -9,7 +9,6 @@ import UIKit
 import FSCalendar
 
 class EditBillViewController: UIViewController {
-    
     // MARK: - IBOutlets
     @IBOutlet weak var billNameLabel: UILabel!
     @IBOutlet weak var billNameTextField: UITextField!
@@ -98,20 +97,20 @@ class EditBillViewController: UIViewController {
         fsCalendarView.layer.cornerRadius = 12
     }
     
-    func updateAmount() -> String? {
+    private func updateAmount() -> String? {
         userController.nf.numberStyle = .currency
         userController.nf.locale = Locale.current
         let amount = Double(amt/100) + Double (amt%100)/100
         return userController.nf.string(from: NSNumber(value: amount))
     }
     
-    func convertCurrencyToDouble(input: String) -> Double? {
+    private func convertCurrencyToDouble(input: String) -> Double? {
         userController.nf.numberStyle = .currency
         userController.nf.locale = Locale.current
         return userController.nf.number(from: input)?.doubleValue
     }
     
-    func addDoneButtonOnKeyboard() {
+    private func addDoneButtonOnKeyboard() {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         doneToolbar.barStyle = UIBarStyle.default
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
@@ -198,8 +197,8 @@ class EditBillViewController: UIViewController {
     }
 }
 
+//MARK: - Extension
 extension EditBillViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
-    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
         selectedDateLabel.text = userController.df.string(from: date)

@@ -8,7 +8,6 @@
 import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
-
     // MARK: - IBOutlets
     @IBOutlet weak var categoryNameLabel: UILabel!
     

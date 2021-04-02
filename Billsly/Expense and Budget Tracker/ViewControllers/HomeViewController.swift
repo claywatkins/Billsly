@@ -515,4 +515,3 @@ extension HomeViewController: BillHasBeenPaid {
         animateStrokeProgressCircle(to: userController.calculatedBillProgressFloat)
     }
 }
-
