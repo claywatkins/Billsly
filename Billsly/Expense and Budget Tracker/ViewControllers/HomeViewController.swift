@@ -8,6 +8,7 @@
 import UIKit
 import FSCalendar
 import UserNotifications
+import SwiftConfettiView
 
 class HomeViewController: UIViewController {
     // MARK: - IBOutlets
@@ -76,6 +77,18 @@ class HomeViewController: UIViewController {
         manageBillsButton.configureButton(ColorsHelper.slateGray)
         settingsButton.tintColor = ColorsHelper.cultured
         paidThisMonthLabel.textColor = ColorsHelper.cultured
+    }
+    
+    private func confettiRain() {
+        let confettiView = SwiftConfettiView(frame: self.view.bounds)
+        confettiView.colors = [ColorsHelper.orangeRedCrayola, ColorsHelper.laurelGreen, ColorsHelper.yellow]
+        confettiView.intensity = 0.7
+        confettiView.isUserInteractionEnabled = false
+        view.addSubview(confettiView)
+        confettiView.startConfetti()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
+            confettiView.stopConfetti()
+        }
     }
     
     private func animateViewsIfEnabled() {
@@ -167,6 +180,7 @@ class HomeViewController: UIViewController {
         } else if billsPaid == totalBills{
             amountOfBillsPaid.text = "All bills are paid for this month!"
             paidThisMonthLabel.text = "You have spent \(userController.amountSpentOnBills) on bills this month!"
+            
         } else {
             amountOfBillsPaid.text = "You have \(totalBills - billsPaid) bills left to pay this month."
             paidThisMonthLabel.text = "You have spent \(userController.amountSpentOnBills) on bills this month!"
@@ -220,7 +234,6 @@ class HomeViewController: UIViewController {
             shapeLayer.strokeColor = ColorsHelper.laurelGreen.cgColor
         default:
             shapeLayer.strokeColor = ColorsHelper.orangeRedCrayola.cgColor
-            
         }
         shapeLayer.add(basicAnimation, forKey: "basic")
         animateLabel()
@@ -498,6 +511,7 @@ extension HomeViewController: BillHasBeenPaid {
         animationStartTime = Date()
         fsCalendarView.reloadData()
         billsPaidThisMonth()
+        confettiRain()
         animateStrokeProgressCircle(to: userController.calculatedBillProgressFloat)
     }
 }
