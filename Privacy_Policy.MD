@@ -1,6 +1,6 @@
 # This app does not collect personal data.
 
-If you have any questions or comment, email me at: watkinsclayton921@gmail.com
+If you have any questions or comments, email me at: watkinsclayton921@gmail.com
 
 Personal information is not collected, used, or stored from the use of this application. All information and settings stored within the app are non-personal and only stored on your local device. This app only stores text - it will never ask for access of your camera or photo library.
 
