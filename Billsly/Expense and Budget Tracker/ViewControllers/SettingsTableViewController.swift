@@ -98,7 +98,23 @@ class SettingsTableViewController: UITableViewController {
     }
     
     private func sendTip() {
-        
+        let ac = UIAlertController(title: "Thank you again for you willingness to donate!", message: "All tips go towards the continuation of my app development.", preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Thank you tip - $1.99", style: .default, handler: { _ in
+            // MARK: - TODO:
+            // Add code here
+        }))
+        ac.addAction(UIAlertAction(title: "Generous Donater - $4.99", style: .default, handler: { _ in
+            // MARK: - TODO:
+            // Add code here
+        }))
+        ac.addAction(UIAlertAction(title: "Absolute Mad Lad - $9.99", style: .default, handler: { _ in
+            // MARK: - TODO:
+            // Add code here
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { _ in
+            ac.dismiss(animated: true, completion: nil)
+        }))
+        present(ac, animated: true)
     }
     
     // MARK: - IBActions
@@ -174,7 +190,7 @@ class SettingsTableViewController: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         case [2, 2]: composeShareEmail()
             tableView.deselectRow(at: indexPath, animated: true)
-        case [2, 2]: sendTip()
+        case [2, 3]: sendTip()
             tableView.deselectRow(at: indexPath, animated: true)
         default: print("no class function triggered for index path: \(indexPath)")
         }
