@@ -215,7 +215,7 @@ class HomeViewController: UIViewController {
         case 0...0.49:
             shapeLayer.strokeColor = ColorsHelper.orangeRedCrayola.cgColor
         case 0.5...0.99:
-            shapeLayer.strokeColor = UIColor.systemYellow.cgColor
+            shapeLayer.strokeColor = ColorsHelper.yellow.cgColor
         case 1:
             shapeLayer.strokeColor = ColorsHelper.laurelGreen.cgColor
         default:
@@ -476,7 +476,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         userController.df.dateFormat = "dd"
         let dateStr = userController.df.string(from: date)
         if userController.dueByDateAndPaid.contains(dateStr) && userController.dueByDateAndUnpaid.contains(dateStr){
-            cell.imageView.tintColor = .systemYellow
+            cell.imageView.tintColor = ColorsHelper.yellow
         } else if userController.dueByDateAndPaid.contains(dateStr) {
             cell.imageView.tintColor = ColorsHelper.laurelGreen
         } else  {
