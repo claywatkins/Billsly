@@ -28,6 +28,7 @@
 		0B9EE7E32605AACE005DCE6C /* UIVewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EE7E22605AACE005DCE6C /* UIVewExtension.swift */; };
 		0B9EE7E52605BE78005DCE6C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EE7E42605BE78005DCE6C /* UIButtonExtension.swift */; };
 		0BBE988F2616AA64009DDF96 /* SwiftConfettiView in Frameworks */ = {isa = PBXBuildFile; productRef = 0BBE988E2616AA64009DDF96 /* SwiftConfettiView */; };
+		0BBE98932616E892009DDF96 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BBE98922616E892009DDF96 /* StoreKit.framework */; };
 		0BF254E525F0C5430078BD9F /* userController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E425F0C5430078BD9F /* userController.swift */; };
 		0BF254E925F0C5A90078BD9F /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E825F0C5A90078BD9F /* Bill.swift */; };
 		0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */; };
@@ -72,6 +73,7 @@
 		0B9EE7E22605AACE005DCE6C /* UIVewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVewExtension.swift; sourceTree = "<group>"; };
 		0B9EE7E42605BE78005DCE6C /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		0BBE98902616E2AB009DDF96 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		0BBE98922616E892009DDF96 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		0BF254E425F0C5430078BD9F /* userController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userController.swift; sourceTree = "<group>"; };
 		0BF254E825F0C5A90078BD9F /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BBE98932616E892009DDF96 /* StoreKit.framework in Frameworks */,
 				0B57467F25F690F500EC81DA /* FSCalendar in Frameworks */,
 				0BBE988F2616AA64009DDF96 /* SwiftConfettiView in Frameworks */,
 			);
@@ -98,6 +101,7 @@
 			children = (
 				0B8B697725DB646000B9F55E /* Expense and Budget Tracker */,
 				0B8B697625DB646000B9F55E /* Products */,
+				0BBE98912616E892009DDF96 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +153,14 @@
 				0B8B698325DB646200B9F55E /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		0BBE98912616E892009DDF96 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BBE98922616E892009DDF96 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		0BF254DC25F0C46D0078BD9F /* Model */ = {
