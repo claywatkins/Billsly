@@ -208,6 +208,14 @@ extension EditBillViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
         return ColorsHelper.cultured
     }
+    
+    func maximumDate(for calendar: FSCalendar) -> Date {
+        return fsCalendarView.currentPage.endOfMonth
+    }
+    
+    func minimumDate(for calendar: FSCalendar) -> Date {
+        return fsCalendarView.currentPage.startOfMonth
+    }
 }
 
 extension EditBillViewController: UITextFieldDelegate {
