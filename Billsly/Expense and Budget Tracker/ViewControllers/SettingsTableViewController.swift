@@ -224,6 +224,8 @@ class SettingsTableViewController: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         case [2, 3]: sendTip()
             tableView.deselectRow(at: indexPath, animated: true)
+        case [3, 0]:
+            tableView.deselectRow(at: indexPath, animated: true)
         default: print("no class function triggered for index path: \(indexPath)")
         }
     }
