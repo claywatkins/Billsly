@@ -649,7 +649,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Manage Bills" largeTitleDisplayMode="always" id="8hg-25-yZK">
-                        <barButtonItem key="leftBarButtonItem" image="homekit" catalog="system" id="1jP-Z6-e7z">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="1jP-Z6-e7z">
                             <color key="tintColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="homeButtonTapped:" destination="bYO-ah-Sh8" id="4tB-gQ-XGl"/>
@@ -1107,7 +1107,7 @@
                             </tableViewSection>
                             <tableViewSection id="mZk-Cc-7fa">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedbackCell" rowHeight="120" id="5EH-SW-7VN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="feedbackCell" rowHeight="120" id="5EH-SW-7VN">
                                         <rect key="frame" x="20" y="537.16666412353516" width="388" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5EH-SW-7VN" id="Zey-97-pmU">
@@ -1115,27 +1115,27 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bBP-3f-ZD3">
-                                                    <rect key="frame" x="55.666666666666657" y="75.333333333333329" width="277" height="32"/>
+                                                    <rect key="frame" x="52" y="75.333333333333329" width="284" height="33"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crafted with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXK-rW-D0v">
-                                                            <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="32"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Pdx-0x-MBo">
-                                                            <rect key="frame" x="95.666666666666686" y="2" width="20.666666666666671" height="29"/>
+                                                            <rect key="frame" x="95.666666666666657" y="2" width="20.666666666666671" height="30"/>
                                                             <color key="tintColor" red="0.99607843137254903" green="0.37254901960784315" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29E-0m-3lA">
-                                                            <rect key="frame" x="118.33333333333334" y="0.0" width="18.666666666666657" height="32"/>
+                                                            <rect key="frame" x="118.33333333333334" y="0.0" width="18.666666666666657" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7c5-WH-8mM">
-                                                            <rect key="frame" x="139" y="0.0" width="138" height="32"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            <rect key="frame" x="139" y="0.0" width="145" height="33"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                             <color key="tintColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <state key="normal" title="@CaptainnClayton">
                                                                 <color key="titleColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1231,7 +1231,6 @@
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="paperplane" catalog="system" width="128" height="118"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
