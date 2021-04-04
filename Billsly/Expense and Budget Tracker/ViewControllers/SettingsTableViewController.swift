@@ -29,7 +29,7 @@ class SettingsTableViewController: UITableViewController {
     
     // MARK: - Properties
     var userController = UserController.shared
-    let appURLForRating = "itms-apps://apple.com/us/id1560270556"
+    let appURLForRating = "itms-apps://apple.com/us/app/billsly/id1560270556"
     let appURLForSharing = "https://apps.apple.com/us/app/billsly/id1560270556"
     let supportEmail = "billsly.app@gmail.com"
     var delegate: reloadHomeView?
