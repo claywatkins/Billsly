@@ -157,62 +157,62 @@ class AddBillViewController: UIViewController{
         //           let _ = userController.df.date(from: date){
         //            sender.isUserInteractionEnabled = true
         //        } else {
-        guard let name = billNameTextField.text, !name.isEmpty else {
-            let ac = presentAlertController(missing: "Name")
-            return present(ac, animated: true)
-        }
-        guard let amount = dollarAmountTextField.text, !amount.isEmpty else {
-            let ac = presentAlertController(missing: "Dollar Amount")
-            return present(ac, animated: true)
-        }
-        guard let category = categoryTextField.text, !category.isEmpty else {
-            let ac = presentAlertController(missing: "Category")
-            return present(ac, animated: true)
-        }
-        guard let date = selectedDateLabel.text else { return }
-        guard let saveableDate = userController.df.date(from: date) else {
-            let ac = presentAlertController(missing: "Date")
-            return present(ac, animated: true)
-        }
-        
-        var billDay: Int {
-            userController.df.dateFormat = "d"
-            return Int(userController.df.string(from: saveableDate))!
-        }
-        var billMonth: Int {
-            userController.df.dateFormat = "MM"
-            return Int(userController.df.string(from: saveableDate))!
-        }
-        var billYear: Int {
-            userController.df.dateFormat = "yyyy"
-            return Int(userController.df.string(from: saveableDate))!
-        }
-        
-        var dc = DateComponents()
-        dc.calendar = Calendar.current
-        dc.timeZone = TimeZone.current
-        dc.hour = 12
-        dc.day = billDay
-        dc.month = billMonth
-        dc.year = billYear
-        
-        if sender.isOn {
-            store.requestAccess(to: .reminder) {[weak self](success, error) in
-                if success {
-                    
-                    guard let store = self?.store else { return }
-                    let newReminder = EKReminder(eventStore: store)
-                    newReminder.title = name
-                    newReminder.dueDateComponents = dc
-                    newReminder.completionDate = saveableDate
-                    do {
-                        try store.save(newReminder, commit: true)
-                    } catch {
-                        print(error)
-                    }
-                }
-            }
-        }
+//        guard let name = billNameTextField.text, !name.isEmpty else {
+//            let ac = presentAlertController(missing: "Name")
+//            return present(ac, animated: true)
+//        }
+//        guard let amount = dollarAmountTextField.text, !amount.isEmpty else {
+//            let ac = presentAlertController(missing: "Dollar Amount")
+//            return present(ac, animated: true)
+//        }
+//        guard let category = categoryTextField.text, !category.isEmpty else {
+//            let ac = presentAlertController(missing: "Category")
+//            return present(ac, animated: true)
+//        }
+//        guard let date = selectedDateLabel.text else { return }
+//        guard let saveableDate = userController.df.date(from: date) else {
+//            let ac = presentAlertController(missing: "Date")
+//            return present(ac, animated: true)
+//        }
+//        
+//        var billDay: Int {
+//            userController.df.dateFormat = "d"
+//            return Int(userController.df.string(from: saveableDate))!
+//        }
+//        var billMonth: Int {
+//            userController.df.dateFormat = "MM"
+//            return Int(userController.df.string(from: saveableDate))!
+//        }
+//        var billYear: Int {
+//            userController.df.dateFormat = "yyyy"
+//            return Int(userController.df.string(from: saveableDate))!
+//        }
+//        
+//        var dc = DateComponents()
+//        dc.calendar = Calendar.current
+//        dc.timeZone = TimeZone.current
+//        dc.hour = 12
+//        dc.day = billDay
+//        dc.month = billMonth
+//        dc.year = billYear
+//        
+//        if sender.isOn {
+//            store.requestAccess(to: .reminder) {[weak self](success, error) in
+//                if success {
+//                    
+//                    guard let store = self?.store else { return }
+//                    let newReminder = EKReminder(eventStore: store)
+//                    newReminder.title = name
+//                    newReminder.dueDateComponents = dc
+//                    newReminder.completionDate = saveableDate
+//                    do {
+//                        try store.save(newReminder, commit: true)
+//                    } catch {
+//                        print(error)
+//                    }
+//                }
+//            }
+//        }
     }
     
     
