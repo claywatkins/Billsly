@@ -284,6 +284,16 @@ class HomeViewController: UIViewController {
                                                   category: bill.category,
                                                   hasReminder: bill.hasReminder)
                     fsCalendarView.reloadData()
+                } else if dateStr == "30" {
+                    var dateComponent = DateComponents()
+                    dateComponent.month = 1
+                    let moveForwardOneMonth = Calendar.current.date(byAdding: dateComponent, to: bill.dueByDate)!
+                    userController.updateBillData(bill: bill,
+                                                  name: bill.name,
+                                                  dollarAmount: bill.dollarAmount,
+                                                  dueByDate: moveForwardOneMonth,
+                                                  category: bill.category,
+                                                  hasReminder: bill.hasReminder)
                 }
             }
         }
