@@ -139,7 +139,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzG-ny-3pW">
-                                                <rect key="frame" x="20" y="703.66666666666663" width="388" height="47"/>
+                                                <rect key="frame" x="20" y="674.66666666666663" width="388" height="47"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="47" id="0S1-us-IOP"/>
                                                 </constraints>
@@ -148,37 +148,18 @@
                                                     <action selector="saveBillButtonTapped:" destination="ZJF-go-VFj" eventType="touchUpInside" id="k8k-jj-H1A"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a reminder?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Idd-T9-nKW">
-                                                <rect key="frame" x="20" y="664.66666666666663" width="337" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wkg-0B-1AF">
-                                                <rect key="frame" x="359" y="664.66666666666663" width="51" height="31"/>
-                                                <color key="onTintColor" red="0.69019607839999997" green="0.7725490196" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="thumbTintColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <connections>
-                                                    <action selector="reminderSwitchToggled:" destination="ZJF-go-VFj" eventType="valueChanged" id="86e-Rg-ayY"/>
-                                                </connections>
-                                            </switch>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="Wkg-0B-1AF" firstAttribute="top" secondItem="R92-MQ-pJI" secondAttribute="bottom" constant="20" id="0L5-A6-y0j"/>
-                                            <constraint firstItem="Idd-T9-nKW" firstAttribute="top" secondItem="R92-MQ-pJI" secondAttribute="bottom" constant="20" id="8RR-Uh-J2w"/>
                                             <constraint firstAttribute="height" constant="804" id="AfD-3X-TEY"/>
                                             <constraint firstAttribute="trailing" secondItem="pzG-ny-3pW" secondAttribute="trailing" constant="20" id="Dxi-Jv-xuo"/>
-                                            <constraint firstItem="pzG-ny-3pW" firstAttribute="top" secondItem="Idd-T9-nKW" secondAttribute="bottom" constant="15" id="KlQ-mp-OqG"/>
                                             <constraint firstAttribute="width" constant="428" id="Nqt-5B-1eT"/>
-                                            <constraint firstItem="Idd-T9-nKW" firstAttribute="leading" secondItem="h1p-c3-iIY" secondAttribute="leading" constant="20" symbolic="YES" id="Wis-Hw-orq"/>
+                                            <constraint firstItem="pzG-ny-3pW" firstAttribute="top" secondItem="R92-MQ-pJI" secondAttribute="bottom" constant="30" id="aeT-lp-hDh"/>
                                             <constraint firstAttribute="trailing" secondItem="iN1-qF-iua" secondAttribute="trailing" constant="20" id="bId-um-ef3"/>
                                             <constraint firstItem="R92-MQ-pJI" firstAttribute="leading" secondItem="h1p-c3-iIY" secondAttribute="leading" constant="20" id="cf7-lJ-hDe"/>
                                             <constraint firstAttribute="trailing" secondItem="R92-MQ-pJI" secondAttribute="trailing" constant="20" id="fzp-ic-Vg1"/>
-                                            <constraint firstAttribute="trailing" secondItem="Wkg-0B-1AF" secondAttribute="trailing" constant="20" symbolic="YES" id="iXH-SD-16V"/>
                                             <constraint firstItem="iN1-qF-iua" firstAttribute="leading" secondItem="h1p-c3-iIY" secondAttribute="leading" constant="20" id="o2r-bf-yDt"/>
                                             <constraint firstItem="R92-MQ-pJI" firstAttribute="top" secondItem="iN1-qF-iua" secondAttribute="bottom" constant="20" id="tX2-u9-dZ3"/>
-                                            <constraint firstItem="Wkg-0B-1AF" firstAttribute="leading" secondItem="Idd-T9-nKW" secondAttribute="trailing" constant="2" id="tu2-uH-VbN"/>
                                             <constraint firstItem="iN1-qF-iua" firstAttribute="top" secondItem="h1p-c3-iIY" secondAttribute="top" constant="10" id="xEw-Gb-kSu"/>
                                             <constraint firstItem="pzG-ny-3pW" firstAttribute="leading" secondItem="h1p-c3-iIY" secondAttribute="leading" constant="20" id="xSK-tZ-3m1"/>
                                         </constraints>
@@ -217,8 +198,6 @@
                         <outlet property="dollarAmountLabel" destination="rwd-p0-QIv" id="Qwo-ok-unF"/>
                         <outlet property="dollarAmountTextField" destination="3Ue-2h-ZW9" id="kc5-ta-8Ag"/>
                         <outlet property="fsCalendarView" destination="uRz-ol-N18" id="Izh-D8-BUc"/>
-                        <outlet property="reminderLabel" destination="Idd-T9-nKW" id="HIi-zp-BSc"/>
-                        <outlet property="reminderSwitch" destination="Wkg-0B-1AF" id="IBe-6g-CUe"/>
                         <outlet property="saveBillButton" destination="pzG-ny-3pW" id="uUU-0x-kLh"/>
                         <outlet property="scrollView" destination="rh8-9l-Zfj" id="j1C-RW-TSf"/>
                         <outlet property="selectedDateLabel" destination="qpH-4I-UhW" id="MuY-PP-H5S"/>

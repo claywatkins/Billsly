@@ -82,7 +82,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
             center.getPendingNotificationRequests { requests in
                 for request in requests {
-                    print(request.trigger)
+                    print(request.trigger!)
                 }
             }
         }

@@ -7,8 +7,6 @@
 
 import UIKit
 import FSCalendar
-import EventKit
-import EventKitUI
 
 class AddBillViewController: UIViewController{
     
@@ -32,7 +30,6 @@ class AddBillViewController: UIViewController{
     // MARK: - Properties
     var userController = UserController.shared
     var amt = 0
-    let store = EKEventStore()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -41,7 +38,6 @@ class AddBillViewController: UIViewController{
         addDoneButtonOnKeyboard()
         configureViews()
         self.hideKeyboardWhenTappedAround()
-        reminderSwitch.isUserInteractionEnabled = false
     }
     
     // MARK: - Methods
@@ -87,8 +83,6 @@ class AddBillViewController: UIViewController{
         
         dateDueLabel.textColor = ColorsHelper.cultured
         selectedDateLabel.textColor = ColorsHelper.cultured
-        
-        reminderLabel.textColor = ColorsHelper.cultured
         
         saveBillButton.configureButton(ColorsHelper.slateGray)
     }
@@ -149,76 +143,6 @@ class AddBillViewController: UIViewController{
         }
     }
     
-    @IBAction func reminderSwitchToggled(_ sender: UISwitch) {
-        //        if let name = billNameTextField.text, !name.isEmpty,
-        //           let amount = dollarAmountTextField.text, !amount.isEmpty,
-        //           let category = categoryTextField.text, !category.isEmpty,
-        //           let date = selectedDateLabel.text,
-        //           let _ = userController.df.date(from: date){
-        //            sender.isUserInteractionEnabled = true
-        //        } else {
-//        guard let name = billNameTextField.text, !name.isEmpty else {
-//            let ac = presentAlertController(missing: "Name")
-//            return present(ac, animated: true)
-//        }
-//        guard let amount = dollarAmountTextField.text, !amount.isEmpty else {
-//            let ac = presentAlertController(missing: "Dollar Amount")
-//            return present(ac, animated: true)
-//        }
-//        guard let category = categoryTextField.text, !category.isEmpty else {
-//            let ac = presentAlertController(missing: "Category")
-//            return present(ac, animated: true)
-//        }
-//        guard let date = selectedDateLabel.text else { return }
-//        guard let saveableDate = userController.df.date(from: date) else {
-//            let ac = presentAlertController(missing: "Date")
-//            return present(ac, animated: true)
-//        }
-//        
-//        var billDay: Int {
-//            userController.df.dateFormat = "d"
-//            return Int(userController.df.string(from: saveableDate))!
-//        }
-//        var billMonth: Int {
-//            userController.df.dateFormat = "MM"
-//            return Int(userController.df.string(from: saveableDate))!
-//        }
-//        var billYear: Int {
-//            userController.df.dateFormat = "yyyy"
-//            return Int(userController.df.string(from: saveableDate))!
-//        }
-//        
-//        var dc = DateComponents()
-//        dc.calendar = Calendar.current
-//        dc.timeZone = TimeZone.current
-//        dc.hour = 12
-//        dc.day = billDay
-//        dc.month = billMonth
-//        dc.year = billYear
-//        
-//        if sender.isOn {
-//            store.requestAccess(to: .reminder) {[weak self](success, error) in
-//                if success {
-//                    
-//                    guard let store = self?.store else { return }
-//                    let newReminder = EKReminder(eventStore: store)
-//                    newReminder.title = name
-//                    newReminder.dueDateComponents = dc
-//                    newReminder.completionDate = saveableDate
-//                    do {
-//                        try store.save(newReminder, commit: true)
-//                    } catch {
-//                        print(error)
-//                    }
-//                }
-//            }
-//        }
-    }
-    
-    
-    
-    
-    
     @IBAction func saveBillButtonTapped(_ sender: Any) {
         let id = UUID().uuidString
         guard let name = billNameTextField.text, !name.isEmpty else {
@@ -239,12 +163,7 @@ class AddBillViewController: UIViewController{
             let ac = presentAlertController(missing: "Date")
             return present(ac, animated: true)
         }
-        let hasReminder = reminderSwitch.isOn
-        
-        //        var billDate: Int {
-        //            userController.df.dateFormat = "d"
-        //            return Int(userController.df.string(from: saveableDate))!
-        //        }
+        let hasReminder = true
         
         userController.createBill(identifier: id,
                                   name: name,
@@ -252,57 +171,6 @@ class AddBillViewController: UIViewController{
                                   dueByDate: saveableDate,
                                   category: Category(name: category),
                                   hasReminder: hasReminder)
-        
-        //        if saveableDate <= Date(){
-        //            if UserDefaults.standard.bool(forKey: "ShowAlert") == true {
-        //                let ac = UIAlertController(title: "Date Warning", message: "Due Date is scheduled for today or before today, you will not recieve a notification about this bill this month.", preferredStyle: .alert)
-        //                ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: { _ in
-        //                    self.navigationController?.popViewController(animated: true)
-        //                }))
-        //                ac.addAction(UIAlertAction(title: "Don't Show This Alert Again", style: .default, handler: { _ in
-        //                    UserDefaults.standard.setValue(false, forKey: "ShowAlert")
-        //                    self.navigationController?.popViewController(animated: true)
-        //                }))
-        //                self.present(ac, animated: true)
-        //            }
-        //        } else {
-        //            let content = UNMutableNotificationContent()
-        //            content.title = "Upcoming Bill Due"
-        //            content.body = "\(name) will be due soon, make sure to mark it as paid after paying it!"
-        //
-        //            var dateComponents = DateComponents()
-        //            dateComponents.calendar = Calendar.current
-        //            if billDate <= 5 {
-        //                dateComponents.hour = 11
-        //                switch billDate {
-        //                case 1:
-        //                    dateComponents.day = 1
-        //                case 2:
-        //                    dateComponents.day = -1
-        //                case 3:
-        //                    dateComponents.day = -2
-        //                case 4:
-        //                    dateComponents.day = -3
-        //                case 5:
-        //                    dateComponents.day = -4
-        //                default:
-        //                    dateComponents.day = billDate
-        //                }
-        //            } else {
-        //                dateComponents.day = billDate - 5
-        //                dateComponents.hour = 11
-        //            }
-        //            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        //            let request = UNNotificationRequest(identifier: id,
-        //                                                content: content,
-        //                                                trigger: trigger)
-        //            let center = UNUserNotificationCenter.current()
-        //            center.add(request) { (error) in
-        //                if let error = error {
-        //                    print("Error: \(error.localizedDescription)")
-        //                }
-        //            }
-        //        }
         
         self.navigationController?.popViewController(animated: true)
     }
@@ -315,9 +183,6 @@ extension AddBillViewController: FSCalendarDelegate, FSCalendarDataSource, FSCal
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         userController.df.dateFormat = "EEEE, MMM d, yyyy"
         selectedDateLabel.text = userController.df.string(from: date)
-        if billNameTextField.text != "", dollarAmountTextField.text != "", categoryTextField.text != "" {
-            reminderSwitch.isUserInteractionEnabled = true
-        }
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
@@ -356,20 +221,5 @@ extension AddBillViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
-    }
-}
-
-extension AddBillViewController: EKEventViewDelegate, UINavigationControllerDelegate {
-    func eventViewController(_ controller: EKEventViewController, didCompleteWith action: EKEventViewAction) {
-        switch action {
-        case .done:
-            self.dismiss(animated: true, completion: nil)
-        case .responded:
-            self.dismiss(animated: true, completion: nil)
-        case .deleted:
-            self.dismiss(animated: true, completion: nil)
-        @unknown default:
-            fatalError()
-        }
     }
 }
