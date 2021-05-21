@@ -176,14 +176,14 @@ class HomeViewController: UIViewController {
             paidThisMonthLabel.text = ""
         } else if totalUnpaidBills == 1 {
             amountOfBillsPaid.text = "You have 1 bill left to pay this month"
-            paidThisMonthLabel.text = "You have spent \(userController.amountSpentOnBills) on bills this month!"
+            paidThisMonthLabel.text = "You have spent \(userController.amountSpentOnBills) on bills!"
         } else if billsPaid == totalBills{
             amountOfBillsPaid.text = "All bills are paid for this month!"
-            paidThisMonthLabel.text = "You have spent \(userController.amountSpentOnBills) on bills this month!"
+            paidThisMonthLabel.text = "You have spent \(userController.amountSpentOnBills) on bills!"
             
         } else {
             amountOfBillsPaid.text = "You have \(totalBills - billsPaid) bills left to pay this month."
-            paidThisMonthLabel.text = "You have spent \(userController.amountSpentOnBills) on bills this month!"
+            paidThisMonthLabel.text = "You have spent \(userController.amountSpentOnBills) on bills!"
         }
     }
     
@@ -259,9 +259,9 @@ class HomeViewController: UIViewController {
             let percentage = elapsedTime / duration
             let value = 0.0 + CGFloat(percentage) * (userController.calculatedBillProgressFloat - 0.0) as NSNumber
             if Float(truncating: value).isNaN{
-                self.percentageLabel.text = "0% \n of bills paid!"
+                self.percentageLabel.text = "0% \n of bills paid"
             } else {
-                self.percentageLabel.text = pFormatter.string(from: value)! + "\n of bills paid!"
+                self.percentageLabel.text = pFormatter.string(from: value)! + "\n of bills paid"
             }
         }
     }

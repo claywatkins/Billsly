@@ -452,6 +452,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = XR5S8WV6LB;
 				INFOPLIST_FILE = "Expense and Budget Tracker/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -473,6 +474,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = XR5S8WV6LB;
 				INFOPLIST_FILE = "Expense and Budget Tracker/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
