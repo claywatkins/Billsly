@@ -169,7 +169,7 @@ class AddBillViewController: UIViewController{
             return Int(userController.df.string(from: saveableDate))!
         }
         
-        var isOn30th: bool {
+        var isOn30th: Bool {
             if billDate == 30 {
                 return true
             }

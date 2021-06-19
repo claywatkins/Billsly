@@ -310,6 +310,7 @@ class HomeViewController: UIViewController {
         billsPaidThisMonth()
         
         for bill in userController.userBills {
+            print(bill.dueByDate)
             userController.df.dateFormat = "dd"
             let dateNum = Int(userController.df.string(from: bill.dueByDate))!
             if dateNum < 30 && fsCalendarView.currentPage.month != "March"{
@@ -328,6 +329,7 @@ class HomeViewController: UIViewController {
         
         if fsCalendarView.currentPage.daysInMonth() == 30 {
             for bill in userController.userBills {
+                print(bill.dueByDate)
                 userController.df.dateFormat = "dd"
                 let dateStr = userController.df.string(from: bill.dueByDate)
                 if dateStr == "31" {
@@ -356,12 +358,17 @@ class HomeViewController: UIViewController {
         }
         if fsCalendarView.currentPage.daysInMonth() == 31{
             for bill in userController.userBills {
+                print(bill.dueByDate)
                 userController.df.dateFormat = "dd"
                 let dateStr = userController.df.string(from: bill.dueByDate)
                 if dateStr == "30" {
                     var dateComponent = DateComponents()
-                    dateComponent.month = 1
-                    if fsCalendarView.currentPage.daysInMonth() != fsCalendarView.currentPage.daysInMonth(-1){
+                    let nextMonth = Calendar.current.date(byAdding: .month, value: 1, to: Date())
+                    let daysInNextMonth = nextMonth?.daysInMonth()
+                    if fsCalendarView.currentPage.daysInMonth() != daysInNextMonth{
+                        dateComponent.month = 1
+                    } else {
+                        dateComponent.month = 1
                         dateComponent.day = 1
                     }
                     let moveForwardOneMonth = Calendar.current.date(byAdding: dateComponent, to: bill.dueByDate)!
@@ -377,6 +384,7 @@ class HomeViewController: UIViewController {
         }
         if fsCalendarView.currentPage.month == "August" {
             for bill in userController.userBills {
+                print(bill.dueByDate)
                 userController.df.dateFormat = "dd"
                 let dateStr = userController.df.string(from: bill.dueByDate)
                 if dateStr == "31" {
@@ -395,6 +403,7 @@ class HomeViewController: UIViewController {
         }
         if fsCalendarView.currentPage.month == "January" {
             for bill in userController.userBills {
+                print(bill.dueByDate)
                 userController.df.dateFormat = "dd"
                 let dateStr = userController.df.string(from: bill.dueByDate)
                 if dateStr == "31" {
@@ -413,6 +422,7 @@ class HomeViewController: UIViewController {
         }
         if fsCalendarView.currentPage.month == "February" {
             for bill in userController.userBills {
+                print(bill.dueByDate)
                 userController.df.dateFormat = "dd"
                 let dateStr = userController.df.string(from: bill.dueByDate)
                 if dateStr == "31" {
@@ -431,6 +441,7 @@ class HomeViewController: UIViewController {
         }
         if fsCalendarView.currentPage.month == "March" {
             for bill in userController.userBills {
+                print(bill.dueByDate)
                 userController.df.dateFormat = "dd"
                 let dateStr = userController.df.string(from: bill.dueByDate)
                 let dateNum = Int(dateStr)!
