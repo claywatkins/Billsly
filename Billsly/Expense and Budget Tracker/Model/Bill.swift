@@ -15,13 +15,15 @@ struct Bill: Codable, Equatable{
     var hasBeenPaid: Bool
     var category: Category
     var isOn30th: Bool
+    var hasImage: Bool?
     
     init(identifier: String,
          name: String,
          dollarAmount: Double,
          dueByDate: Date,
          category: Category,
-         isOn30th: Bool) {
+         isOn30th: Bool,
+         hasImage: Bool?) {
         self.identifier = identifier
         self.name = name
         self.dollarAmount = dollarAmount
@@ -29,5 +31,6 @@ struct Bill: Codable, Equatable{
         self.hasBeenPaid = false
         self.category = category
         self.isOn30th = isOn30th
+        self.hasImage = hasImage
     }
 }

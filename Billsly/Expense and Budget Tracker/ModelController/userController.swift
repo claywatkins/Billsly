@@ -106,7 +106,8 @@ class UserController {
                            dollarAmount: dollarAmount,
                            dueByDate: dueByDate,
                            category: category,
-                           isOn30th: isOn30th)
+                           isOn30th: isOn30th,
+                           hasImage: true)
         userBills.append(newBill)
         print("Bill Added Successfully")
         saveBillsToPersistentStore()
@@ -152,10 +153,12 @@ class UserController {
     
     // MARK: - Persistence
     func saveBillsToPersistentStore() {
-        guard let url = persistentBillsFileURL else { return }
+//        guard let url = persistentBillsFileURL else { return }
         do{
             let data = try PropertyListEncoder().encode(self.userBills)
-            try data.write(to: url)
+            if let billsURL = persistentBillsFileURL {
+                try data.write(to: billsURL)
+            }
             print("Bill Saved Succesfully")
         } catch {
             print("Error encoding bill data")
