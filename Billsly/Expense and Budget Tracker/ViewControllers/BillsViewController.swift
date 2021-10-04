@@ -61,17 +61,12 @@ class BillsViewController: UIViewController {
     }
     
     private func darkLightMode() {
+        navigationController?.navigationBar.backgroundColor = UIColor.clear
+        navigationController?.navigationBar.barTintColor = UIColor.clear
         tableView.backgroundColor = UIColor(named: "background")
         view.backgroundColor = UIColor(named: "background")
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "text")!]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "text")!]
-        if traitCollection.userInterfaceStyle == .light {
-            navigationController?.navigationBar.backgroundColor = UIColor(named: "forcedLightBackground")
-            navigationController?.navigationBar.barTintColor = UIColor(named: "forcedLightBackground")
-        } else {
-            navigationController?.navigationBar.backgroundColor = UIColor(named: "forcedDarkBackground")
-            navigationController?.navigationBar.barTintColor = UIColor(named: "forcedDarkBackground")
-        }
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemGray6]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemGray6]
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
