@@ -31,20 +31,28 @@ class BillsViewController: UIViewController {
     
     // MARK: - Methods
     private func updateUIAppearence() {
+        navigationController?.navigationBar.prefersLargeTitles = true
         let defaults = UserDefaults.standard
         let selection = defaults.integer(forKey: "appearanceSelection")
         switch selection {
         case 0:
             customUIAppearance()
         case 1:
+            darkLightMode()
+            darkModeNav()
             overrideUserInterfaceStyle = .dark
-            darkLightMode()
         case 2:
+            darkLightMode()
+            lightModeNav()
             overrideUserInterfaceStyle = .light
-            darkLightMode()
         case 3:
-            overrideUserInterfaceStyle = .unspecified
             darkLightMode()
+            if traitCollection.userInterfaceStyle == .light {
+                lightModeNav()
+            } else {
+                darkModeNav()
+            }
+            overrideUserInterfaceStyle = .unspecified
         default:
             print("Error")
             break
@@ -61,15 +69,23 @@ class BillsViewController: UIViewController {
     }
     
     private func darkLightMode() {
-        navigationController?.navigationBar.backgroundColor = UIColor.clear
-        navigationController?.navigationBar.barTintColor = UIColor.clear
         tableView.backgroundColor = UIColor(named: "background")
         view.backgroundColor = UIColor(named: "background")
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemGray6]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemGray6]
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    private func darkModeNav() {
+        navigationController?.navigationBar.backgroundColor = UIColor.clear
+        navigationController?.navigationBar.barTintColor = UIColor.clear
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
+    }
+        
+    private func lightModeNav() {
+        navigationController?.navigationBar.backgroundColor = UIColor.clear
+        navigationController?.navigationBar.barTintColor = UIColor.clear
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+    }
     private func billFor(indexPath: IndexPath) -> Bill {
         if indexPath.section == 0{
             return userController.unpaidBills[indexPath.row]
