@@ -18,7 +18,6 @@ class BillsViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
         tableView.dataSource = self
         tableView.delegate = self
         userController.loadBillData()
@@ -27,16 +26,47 @@ class BillsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        updateUIAppearence()
     }
     
     // MARK: - Methods
-    private func configureView() {
+    private func updateUIAppearence() {
+        let defaults = UserDefaults.standard
+        let selection = defaults.integer(forKey: "appearanceSelection")
+        switch selection {
+        case 0:
+            customUIAppearance()
+        case 1:
+            overrideUserInterfaceStyle = .dark
+            darkLightMode()
+        case 2:
+            overrideUserInterfaceStyle = .light
+            darkLightMode()
+        case 3:
+            overrideUserInterfaceStyle = .unspecified
+            darkLightMode()
+        default:
+            print("Error")
+            break
+        }
+    }
+    private func customUIAppearance() {
         tableView.backgroundColor = ColorsHelper.blackCoral
         view.backgroundColor = ColorsHelper.blackCoral
         navigationController?.navigationBar.backgroundColor = ColorsHelper.blackCoral
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
         navigationController?.navigationBar.barTintColor = ColorsHelper.blackCoral
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func darkLightMode() {
+        tableView.backgroundColor = UIColor(named: "background")
+        view.backgroundColor = UIColor(named: "background")
+        navigationController?.navigationBar.backgroundColor = UIColor(named: "background")
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "text")!]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "text")!]
+        navigationController?.navigationBar.barTintColor = UIColor(named: "background")
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
