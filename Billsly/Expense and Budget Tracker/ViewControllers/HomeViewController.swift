@@ -9,6 +9,7 @@ import UIKit
 import FSCalendar
 import UserNotifications
 import SwiftConfettiView
+import CryptoKit
 
 class HomeViewController: UIViewController {
     // MARK: - IBOutlets
@@ -73,13 +74,13 @@ class HomeViewController: UIViewController {
             customUIAppearance()
         case 1:
             overrideUserInterfaceStyle = .dark
-            lightModeDarkModeAppearance()
+            darkModeLightMode()
         case 2:
             overrideUserInterfaceStyle = .light
-            lightModeDarkModeAppearance()
+            darkModeLightMode()
         case 3:
             overrideUserInterfaceStyle = .unspecified
-            lightModeDarkModeAppearance()
+            darkModeLightMode()
         default:
             print("Error")
             break
@@ -101,11 +102,30 @@ class HomeViewController: UIViewController {
         fsCalendarView.backgroundColor = ColorsHelper.independence
     }
     
-    private func lightModeDarkModeAppearance(){
+    private func darkModeLightMode() {
+        view.backgroundColor = UIColor(named: "background")
+        view.backgroundColor = UIColor(named: "background")
+        userNameLabel.textColor = UIColor(named: "text")
+        dateLabel.textColor = UIColor(named: "text")
+        amountOfBillsPaid.textColor = UIColor(named: "text")
+        percentageLabel.textColor = UIColor(named: "text")
+        userView.configureView(UIColor(named: "foreground"))
+        calendarHostView.configureView(UIColor(named: "foreground"))
+        progressBarView.configureView(UIColor(named: "foreground"))
+        paidBillButton.configureButton(UIColor(named: "foreground"))
+        paidBillButton.setTitleColor(UIColor(named: "text"), for: .normal)
+        manageBillsButton.configureButton(UIColor(named: "foreground"))
+        manageBillsButton.setTitleColor(UIColor(named: "text"), for: .normal)
+        settingsButton.tintColor = UIColor(named: "text")
+        paidThisMonthLabel.textColor = UIColor(named: "text")
+        fsCalendarView.backgroundColor = UIColor(named: "foreground")
+    }
+    
+    private func darkMode(){
         view.backgroundColor = .systemGray6
-        userNameLabel.textColor = ColorsHelper.cultured
-        dateLabel.textColor = ColorsHelper.cultured
-        amountOfBillsPaid.textColor = ColorsHelper.cultured
+        userNameLabel.textColor = UIColor.white
+        dateLabel.textColor = UIColor.white
+        amountOfBillsPaid.textColor = UIColor.white
         fsCalendarView.backgroundColor = .systemGray2
         userView.configureView(.systemGray2)
         calendarHostView.configureView(.systemGray2)
@@ -113,7 +133,22 @@ class HomeViewController: UIViewController {
         paidBillButton.configureButton(.systemGray2)
         manageBillsButton.configureButton(.systemGray2)
         settingsButton.tintColor = ColorsHelper.cultured
-        paidThisMonthLabel.textColor = ColorsHelper.cultured
+        paidThisMonthLabel.textColor = UIColor.white
+    }
+    
+    private func lightMode() {
+        view.backgroundColor = .systemGray6
+        userNameLabel.textColor = UIColor.black
+        dateLabel.textColor = UIColor.black
+        amountOfBillsPaid.textColor = UIColor.black
+        fsCalendarView.backgroundColor = .systemGray2
+        userView.configureView(.systemGray2)
+        calendarHostView.configureView(.systemGray2)
+        progressBarView.configureView(.systemGray2)
+        paidBillButton.configureButton(.systemGray2)
+        manageBillsButton.configureButton(.systemGray2)
+        settingsButton.tintColor = ColorsHelper.cultured
+        paidThisMonthLabel.textColor = UIColor.black
     }
     
     private func confettiRain() {
@@ -199,9 +234,9 @@ class HomeViewController: UIViewController {
             fsCalendarView.appearance.headerTitleColor = ColorsHelper.powderBlue
             fsCalendarView.calendarHeaderView.tintColor = ColorsHelper.powderBlue
         case 1...3:
-            fsCalendarView.appearance.weekdayTextColor = .systemGray6
-            fsCalendarView.appearance.headerTitleColor = .systemGray6
-            fsCalendarView.calendarHeaderView.tintColor = .systemGray6
+            fsCalendarView.appearance.weekdayTextColor = UIColor(named: "text")
+            fsCalendarView.appearance.headerTitleColor = UIColor(named: "text")
+            fsCalendarView.calendarHeaderView.tintColor = UIColor(named: "text")
         default:
             break
         }
@@ -250,7 +285,7 @@ class HomeViewController: UIViewController {
                                         clockwise: true)
         let trackLayer = CAShapeLayer()
         trackLayer.path = circularPath.cgPath
-        trackLayer.strokeColor = UIColor.lightGray.cgColor
+        trackLayer.strokeColor = UIColor.systemGray4.cgColor
         trackLayer.lineWidth = 12
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.lineCap = CAShapeLayerLineCap.round
@@ -510,7 +545,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         case 0:
             colorSelection = ColorsHelper.cultured
         case 1...3:
-            colorSelection = .systemGray6
+            colorSelection = UIColor(named: "text")
         default:
             break
         }
