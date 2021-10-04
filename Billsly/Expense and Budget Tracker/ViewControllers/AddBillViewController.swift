@@ -112,6 +112,12 @@ class AddBillViewController: UIViewController{
     }
     
     private func darkLightMode() {
+        navigationController?.navigationBar.backgroundColor = UIColor.clear
+        navigationController?.navigationBar.barTintColor = UIColor.clear
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemGray6]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemGray6]
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         contentView.backgroundColor = UIColor(named: "background")
         view.backgroundColor = UIColor(named: "background")
         billNameLabel.textColor = UIColor(named: "text")
