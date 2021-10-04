@@ -58,12 +58,19 @@ class AddBillViewController: UIViewController{
         case 1:
             overrideUserInterfaceStyle = .dark
             darkLightMode()
+            darkModeNav()
         case 2:
             overrideUserInterfaceStyle = .light
             darkLightMode()
+            lightModeNav()
         case 3:
             overrideUserInterfaceStyle = .unspecified
             darkLightMode()
+            if traitCollection.userInterfaceStyle == .light {
+                lightModeNav()
+            } else {
+                darkModeNav()
+            }
         default:
             print("Error")
             break
@@ -112,12 +119,6 @@ class AddBillViewController: UIViewController{
     }
     
     private func darkLightMode() {
-        navigationController?.navigationBar.backgroundColor = UIColor.clear
-        navigationController?.navigationBar.barTintColor = UIColor.clear
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemGray6]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemGray6]
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
         contentView.backgroundColor = UIColor(named: "background")
         view.backgroundColor = UIColor(named: "background")
         billNameLabel.textColor = UIColor(named: "text")
@@ -157,6 +158,16 @@ class AddBillViewController: UIViewController{
         fsCalendarView.calendarHeaderView.tintColor = UIColor(named: "text")
         fsCalendarView.backgroundColor = UIColor(named: "foreground")
         fsCalendarView.appearance.selectionColor = ColorsHelper.celadonGreen
+    }
+    
+    private func darkModeNav() {
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
+    }
+        
+    private func lightModeNav() {
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
     
     private func updateAmount() -> String? {
