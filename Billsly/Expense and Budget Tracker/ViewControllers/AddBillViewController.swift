@@ -137,8 +137,8 @@ class AddBillViewController: UIViewController{
         dollarAmountTextField.layer.cornerRadius = 8
         dollarAmountTextField.attributedPlaceholder = NSAttributedString(string: "Dollar Amount",
                                                                          attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: "text")!])
-        categoryLabel.textColor = ColorsHelper.cultured
-        categoryTextField.textColor = ColorsHelper.cultured
+        categoryLabel.textColor = UIColor(named: "text")
+        categoryTextField.textColor = UIColor(named: "text")
         categoryTextField.backgroundColor = UIColor(named: "foreground")
         categoryTextField.layer.borderWidth = 1
         categoryTextField.layer.borderColor = ColorsHelper.apricot.cgColor
