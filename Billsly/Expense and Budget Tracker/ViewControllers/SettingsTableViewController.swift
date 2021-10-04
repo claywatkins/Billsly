@@ -42,7 +42,6 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViews()
         getAppVersion()
         appendIAPs()
         hideKeyboardWhenTappedAround()
@@ -54,26 +53,13 @@ class SettingsTableViewController: UITableViewController {
     }
     
     // MARK: - Methods
-    private func configureViews() {
-        view.backgroundColor = ColorsHelper.blackCoral
-        navigationController?.navigationBar.barTintColor = ColorsHelper.blackCoral
-        addNameTextField.textColor = ColorsHelper.cultured
-        addNameTextField.backgroundColor = ColorsHelper.slateGray
-        addNameTextField.layer.borderWidth = 1
-        addNameTextField.layer.borderColor = ColorsHelper.apricot.cgColor
-        addNameTextField.layer.cornerRadius = 8
-        addNameTextField.attributedPlaceholder = NSAttributedString(string: "Add your name",
-                                                                    attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
-        uiColorSegementedController.backgroundColor = ColorsHelper.slateGray
-    }
-    
     private func updateViews() {
         if UserDefaults.standard.bool(forKey: "animationsEnabled"){
             animationsSwitch.setOn(false, animated: false)
         } else {
             animationsSwitch.setOn(true, animated: false)
         }
+        updateUIAppearence()
     }
     
     private func getAppVersion(){
@@ -154,6 +140,40 @@ class SettingsTableViewController: UITableViewController {
         }))
     }
     
+    private func customUIAppearance() {
+        view.backgroundColor = ColorsHelper.blackCoral
+        navigationController?.navigationBar.barTintColor = ColorsHelper.blackCoral
+        addNameTextField.textColor = ColorsHelper.cultured
+        addNameTextField.backgroundColor = ColorsHelper.slateGray
+        addNameTextField.layer.borderWidth = 1
+        addNameTextField.layer.borderColor = ColorsHelper.apricot.cgColor
+        addNameTextField.layer.cornerRadius = 8
+        addNameTextField.attributedPlaceholder = NSAttributedString(string: "Add your name",
+                                                                    attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
+        uiColorSegementedController.backgroundColor = ColorsHelper.slateGray
+    }
+    
+    private func updateUIAppearence() {
+        let defaults = UserDefaults.standard
+        let selection = defaults.integer(forKey: "appearanceSelection")
+        uiColorSegementedController.selectedSegmentIndex = selection
+        
+        switch selection {
+        case 0:
+            customUIAppearance()
+        case 1:
+            overrideUserInterfaceStyle = .dark
+        case 2:
+            overrideUserInterfaceStyle = .light
+        case 3:
+            overrideUserInterfaceStyle = .unspecified
+        default:
+            print("Error")
+            break
+        }
+    }
+    
     // MARK: - IBActions
     @IBAction func homeButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -172,7 +192,25 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func UIColorValueChanged(_ sender: Any) {
-
+        let defaults = UserDefaults.standard
+        
+        switch uiColorSegementedController.selectedSegmentIndex {
+        case 0:
+            customUIAppearance()
+            defaults.setValue(0, forKey: "appearanceSelection")
+        case 1:
+            overrideUserInterfaceStyle = .dark
+            defaults.setValue(1, forKey: "appearanceSelection")
+        case 2:
+            overrideUserInterfaceStyle = .light
+            defaults.setValue(2, forKey: "appearanceSelection")
+        case 3:
+            overrideUserInterfaceStyle = .unspecified
+            defaults.setValue(3, forKey: "appearanceSelection")
+        default:
+            print("error setting color")
+            break
+        }
     }
     
     @IBAction func disableAnimationsToggled(_ sender: UISwitch) {
