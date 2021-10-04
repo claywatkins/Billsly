@@ -94,6 +94,7 @@
 		0B87F57F270B83510003FB98 /* BillslyWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillslyWidgets.swift; sourceTree = "<group>"; };
 		0B87F581270B83530003FB98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B87F583270B83530003FB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B87F58B270B85E00003FB98 /* BillslyWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BillslyWidgetsExtension.entitlements; sourceTree = "<group>"; };
 		0B8B697525DB646000B9F55E /* Expense and Budget Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense and Budget Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8B697825DB646000B9F55E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B8B697A25DB646000B9F55E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 		0B8B696C25DB646000B9F55E = {
 			isa = PBXGroup;
 			children = (
+				0B87F58B270B85E00003FB98 /* BillslyWidgetsExtension.entitlements */,
 				0B8B697725DB646000B9F55E /* Expense and Budget Tracker */,
 				0B87F57E270B83510003FB98 /* BillslyWidgets */,
 				0B8B697625DB646000B9F55E /* Products */,
@@ -438,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BillslyWidgetsExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XR5S8WV6LB;
@@ -461,6 +464,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BillslyWidgetsExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XR5S8WV6LB;
