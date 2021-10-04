@@ -61,6 +61,7 @@
 		0B7B904025FADD510059CC6E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0B7B904225FAEC810059CC6E /* EditBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBillViewController.swift; sourceTree = "<group>"; };
 		0B7B904425FB240D0059CC6E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		0B87F538270B7FF80003FB98 /* Expense and Budget Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Expense and Budget Tracker.entitlements"; sourceTree = "<group>"; };
 		0B8B697525DB646000B9F55E /* Expense and Budget Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense and Budget Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8B697825DB646000B9F55E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B8B697A25DB646000B9F55E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		0B8B697725DB646000B9F55E /* Expense and Budget Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				0B87F538270B7FF80003FB98 /* Expense and Budget Tracker.entitlements */,
 				0BF254DC25F0C46D0078BD9F /* Model */,
 				0BF254DD25F0C4720078BD9F /* ModelController */,
 				0BF254DF25F0C4830078BD9F /* ViewControllers */,
@@ -450,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Expense and Budget Tracker/Expense and Budget Tracker.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -473,6 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Expense and Budget Tracker/Expense and Budget Tracker.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
