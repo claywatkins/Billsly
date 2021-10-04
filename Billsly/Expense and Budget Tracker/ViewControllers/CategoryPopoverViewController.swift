@@ -24,11 +24,6 @@ class CategoryPopoverViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = ColorsHelper.blackCoral
-        tableView.backgroundColor = ColorsHelper.blackCoral
-        tableView.layer.cornerRadius = 12
-        categoriesLabel.textColor = ColorsHelper.cultured
-        addCategoryButton.tintColor = ColorsHelper.cultured
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -37,9 +32,46 @@ class CategoryPopoverViewController: UIViewController {
         super.viewWillAppear(animated)
         loadDefaultCategories()
         userController.loadCategoryData()
+        updateUIAppearence()
     }
     
     // MARK: - Methods
+    private func updateUIAppearence() {
+        tableView.layer.cornerRadius = 12
+        let defaults = UserDefaults.standard
+        let selection = defaults.integer(forKey: "appearanceSelection")
+        switch selection {
+        case 0:
+            customUIAppearance()
+        case 1:
+            overrideUserInterfaceStyle = .dark
+            darkLightMode()
+        case 2:
+            overrideUserInterfaceStyle = .light
+            darkLightMode()
+        case 3:
+            overrideUserInterfaceStyle = .unspecified
+            darkLightMode()
+        default:
+            print("Error")
+            break
+        }
+    }
+    
+    private func customUIAppearance() {
+        view.backgroundColor = ColorsHelper.blackCoral
+        tableView.backgroundColor = ColorsHelper.blackCoral
+        categoriesLabel.textColor = ColorsHelper.cultured
+        addCategoryButton.tintColor = ColorsHelper.cultured
+    }
+    
+    private func darkLightMode() {
+        view.backgroundColor = UIColor(named: "background")
+        tableView.backgroundColor = UIColor(named: "background")
+        categoriesLabel.textColor = UIColor(named: "text")
+        addCategoryButton.tintColor = UIColor(named: "text")
+    }
+    
     private func loadDefaultCategories() {
         if userController.userCategories.isEmpty {
             let defaultCategories: [Category] = [
@@ -84,7 +116,6 @@ extension CategoryPopoverViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as? CategoryTableViewCell else { return UITableViewCell()}
         cell.category = userController.alphabetizedCategories[indexPath.row]
-        cell.contentView.backgroundColor = ColorsHelper.slateGray
         return cell
     }
     

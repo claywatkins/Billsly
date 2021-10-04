@@ -25,17 +25,47 @@ class BillPaidPopoverViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViews()
         currentBillSelection = userController.unpaidBills[0]
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUIAppearence()
+    }
     // MARK: - Methods
-    private func configureViews() {
+    private func updateUIAppearence() {
+        pickerView.layer.cornerRadius = 15
+        let defaults = UserDefaults.standard
+        let selection = defaults.integer(forKey: "appearanceSelection")
+        switch selection {
+        case 0:
+            customUIAppearance()
+        case 1:
+            overrideUserInterfaceStyle = .dark
+            darkLightMode()
+        case 2:
+            overrideUserInterfaceStyle = .light
+            darkLightMode()
+        case 3:
+            overrideUserInterfaceStyle = .unspecified
+            darkLightMode()
+        default:
+            print("Error")
+            break
+        }
+    }
+    private func customUIAppearance() {
         view.backgroundColor = ColorsHelper.blackCoral
         pickerView.backgroundColor = ColorsHelper.slateGray
-        pickerView.layer.cornerRadius = 15
         whatBillLabel.textColor = ColorsHelper.cultured
         paidButton.configureButton(ColorsHelper.slateGray)
+    }
+    private func darkLightMode() {
+        view.backgroundColor = UIColor(named: "background")
+        pickerView.backgroundColor = UIColor(named: "foreground")
+        whatBillLabel.textColor = UIColor(named: "text")
+        paidButton.configureButton(UIColor(named: "foreground"))
+        paidButton.setTitleColor(UIColor(named: "text"), for: .normal)
     }
     
     // MARK: - IBActions
@@ -58,7 +88,7 @@ extension BillPaidPopoverViewController: UIPickerViewDelegate, UIPickerViewDataS
     }
         
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: userController.unpaidBills[row].name, attributes: [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured])
+        return NSAttributedString(string: userController.unpaidBills[row].name, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "text")!])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
