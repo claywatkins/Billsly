@@ -958,6 +958,9 @@
                                                         <segment title="Light Mode"/>
                                                         <segment title="Follow System"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="UIColorValueChanged:" destination="F0d-sB-On0" eventType="valueChanged" id="8uu-xI-rwd"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -82,6 +82,9 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
+    
+    
+    
     private func promptRating() {
         if let url = URL(string: appURLForRating) {
             UIApplication.shared.open(url)
@@ -166,6 +169,10 @@ class SettingsTableViewController: UITableViewController {
         let ac = UIAlertController(title: "Name updated", message: "Name changed successfully", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(ac, animated: true)
+    }
+    
+    @IBAction func UIColorValueChanged(_ sender: Any) {
+
     }
     
     @IBAction func disableAnimationsToggled(_ sender: UISwitch) {
