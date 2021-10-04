@@ -70,20 +70,23 @@ class HomeViewController: UIViewController {
         let selection = defaults.integer(forKey: "appearanceSelection")
         switch selection {
         case 0:
-            configureViews()
+            customUIAppearance()
         case 1:
             overrideUserInterfaceStyle = .dark
+            lightModeDarkModeAppearance()
         case 2:
             overrideUserInterfaceStyle = .light
+            lightModeDarkModeAppearance()
         case 3:
             overrideUserInterfaceStyle = .unspecified
+            lightModeDarkModeAppearance()
         default:
             print("Error")
             break
         }
     }
     
-    private func configureViews() {
+    private func customUIAppearance() {
         view.backgroundColor = ColorsHelper.blackCoral
         userNameLabel.textColor = ColorsHelper.cultured
         dateLabel.textColor = ColorsHelper.cultured
@@ -93,6 +96,22 @@ class HomeViewController: UIViewController {
         progressBarView.configureView(ColorsHelper.slateGray)
         paidBillButton.configureButton(ColorsHelper.slateGray)
         manageBillsButton.configureButton(ColorsHelper.slateGray)
+        settingsButton.tintColor = ColorsHelper.cultured
+        paidThisMonthLabel.textColor = ColorsHelper.cultured
+        fsCalendarView.backgroundColor = ColorsHelper.independence
+    }
+    
+    private func lightModeDarkModeAppearance(){
+        view.backgroundColor = .systemGray6
+        userNameLabel.textColor = ColorsHelper.cultured
+        dateLabel.textColor = ColorsHelper.cultured
+        amountOfBillsPaid.textColor = ColorsHelper.cultured
+        fsCalendarView.backgroundColor = .systemGray2
+        userView.configureView(.systemGray2)
+        calendarHostView.configureView(.systemGray2)
+        progressBarView.configureView(.systemGray2)
+        paidBillButton.configureButton(.systemGray2)
+        manageBillsButton.configureButton(.systemGray2)
         settingsButton.tintColor = ColorsHelper.cultured
         paidThisMonthLabel.textColor = ColorsHelper.cultured
     }
@@ -171,10 +190,21 @@ class HomeViewController: UIViewController {
         fsCalendarView.placeholderType = .none
         fsCalendarView.isUserInteractionEnabled = false
         fsCalendarView.layer.cornerRadius = 12
-        fsCalendarView.backgroundColor = ColorsHelper.independence
-        fsCalendarView.appearance.weekdayTextColor = ColorsHelper.powderBlue
-        fsCalendarView.appearance.headerTitleColor = ColorsHelper.powderBlue
-        fsCalendarView.calendarHeaderView.tintColor = ColorsHelper.powderBlue
+        let defaults = UserDefaults.standard
+        let selection = defaults.integer(forKey: "appearanceSelection")
+        
+        switch selection{
+        case 0:
+            fsCalendarView.appearance.weekdayTextColor = ColorsHelper.powderBlue
+            fsCalendarView.appearance.headerTitleColor = ColorsHelper.powderBlue
+            fsCalendarView.calendarHeaderView.tintColor = ColorsHelper.powderBlue
+        case 1...3:
+            fsCalendarView.appearance.weekdayTextColor = .systemGray6
+            fsCalendarView.appearance.headerTitleColor = .systemGray6
+            fsCalendarView.calendarHeaderView.tintColor = .systemGray6
+        default:
+            break
+        }
         userController.df.dateFormat = "d"
         let todayStr = userController.df.string(from: fsCalendarView.today!)
         if userController.dueByDateStrings.contains(todayStr) {
@@ -473,7 +503,18 @@ class HomeViewController: UIViewController {
 // MARK: - Extension
 extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
-        return ColorsHelper.cultured
+        let defaults = UserDefaults.standard
+        let selection = defaults.integer(forKey: "appearanceSelection")
+        var colorSelection: UIColor?
+        switch selection{
+        case 0:
+            colorSelection = ColorsHelper.cultured
+        case 1...3:
+            colorSelection = .systemGray6
+        default:
+            break
+        }
+        return colorSelection ?? ColorsHelper.cultured
     }
     
     func calendar(_ calendar: FSCalendar, titleFor date: Date) -> String? {
