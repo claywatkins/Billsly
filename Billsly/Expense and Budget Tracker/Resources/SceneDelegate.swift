@@ -7,6 +7,7 @@
 
 import UIKit
 import UserNotifications
+import WidgetKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -86,6 +87,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 }
             }
         }
+        
+        let defaults = UserDefaults(suiteName: "group.com.claytonwatkins.Billsly")
+        guard let nextThreeBills = userController.getFirstThreeBills() else { return }
+        defaults?.setValue(nextThreeBills, forKey: "nextThreeBills")
+        WidgetCenter.shared.reloadAllTimelines()
+        
     }
     
     
