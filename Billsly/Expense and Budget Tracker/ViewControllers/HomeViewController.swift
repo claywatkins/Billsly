@@ -46,7 +46,6 @@ class HomeViewController: UIViewController {
         userController.loadBillData()
         userController.loadCategoryData()
         displayDate()
-        configureViews()
         constructProgressCircle()
         checkDefaults()
     }
@@ -62,9 +61,28 @@ class HomeViewController: UIViewController {
         scheduleNotifications()
         animateStrokeProgressCircle(to: userController.calculatedBillProgressFloat)
         animationStartTime = Date()
+        updateUIAppearence()
     }
     
     // MARK: - Methods
+    private func updateUIAppearence() {
+        let defaults = UserDefaults.standard
+        let selection = defaults.integer(forKey: "appearanceSelection")
+        switch selection {
+        case 0:
+            configureViews()
+        case 1:
+            overrideUserInterfaceStyle = .dark
+        case 2:
+            overrideUserInterfaceStyle = .light
+        case 3:
+            overrideUserInterfaceStyle = .unspecified
+        default:
+            print("Error")
+            break
+        }
+    }
+    
     private func configureViews() {
         view.backgroundColor = ColorsHelper.blackCoral
         userNameLabel.textColor = ColorsHelper.cultured
