@@ -32,6 +32,10 @@ class BillsViewController: UIViewController {
     // MARK: - Methods
     private func updateUIAppearence() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
         let defaults = UserDefaults.standard
         let selection = defaults.integer(forKey: "appearanceSelection")
         switch selection {
@@ -74,15 +78,11 @@ class BillsViewController: UIViewController {
     }
     
     private func darkModeNav() {
-        navigationController?.navigationBar.backgroundColor = UIColor.clear
-        navigationController?.navigationBar.barTintColor = UIColor.clear
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
     }
         
     private func lightModeNav() {
-        navigationController?.navigationBar.backgroundColor = UIColor.clear
-        navigationController?.navigationBar.barTintColor = UIColor.clear
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }

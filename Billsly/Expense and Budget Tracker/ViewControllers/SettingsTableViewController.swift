@@ -141,6 +141,9 @@ class SettingsTableViewController: UITableViewController {
     }
     
     private func updateUIAppearence() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
         addNameTextField.layer.borderWidth = 1
         addNameTextField.layer.cornerRadius = 8
         let defaults = UserDefaults.standard
