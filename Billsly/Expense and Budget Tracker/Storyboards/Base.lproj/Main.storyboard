@@ -1227,6 +1227,7 @@
                         <outlet property="addNameTextField" destination="5GP-yw-8AL" id="BH4-F1-SfS"/>
                         <outlet property="animationsSwitch" destination="P7z-jC-X2z" id="nhv-nd-Cjz"/>
                         <outlet property="saveNameButton" destination="AkX-Tb-vE6" id="obo-fX-5Pg"/>
+                        <outlet property="uiColorSegementedController" destination="Dc9-lK-Vtm" id="BW2-fI-tXj"/>
                         <outlet property="versionLabel" destination="OSf-MP-7ek" id="v47-ct-GLx"/>
                     </connections>
                 </tableViewController>

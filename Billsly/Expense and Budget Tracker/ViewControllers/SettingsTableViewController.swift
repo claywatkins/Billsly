@@ -26,6 +26,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var notificationsSwitch: UISwitch!
     @IBOutlet weak var animationsSwitch: UISwitch!
+    @IBOutlet weak var uiColorSegementedController: UISegmentedControl!
     
     // MARK: - Properties
     var userController = UserController.shared
@@ -64,6 +65,7 @@ class SettingsTableViewController: UITableViewController {
         addNameTextField.attributedPlaceholder = NSAttributedString(string: "Add your name",
                                                                     attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
+        uiColorSegementedController.backgroundColor = ColorsHelper.slateGray
     }
     
     private func updateViews() {
@@ -190,7 +192,7 @@ class SettingsTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     
@@ -198,8 +200,9 @@ class SettingsTableViewController: UITableViewController {
         switch section {
         case 0: return 1
         case 1: return 1
-        case 2: return 4
-        case 3: return 1
+        case 2: return 1
+        case 3: return 4
+        case 4: return 1
         default: return 0
         }
     }
