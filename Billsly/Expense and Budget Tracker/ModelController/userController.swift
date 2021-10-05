@@ -107,7 +107,7 @@ class UserController {
         }
     }
     
-    func getValidBillToSend() {
+    func getValidBillAndSend() {
         if let billForWidget = unpaidBills.first {
             sendDataToWidget(bill: billForWidget)
         }
@@ -173,6 +173,7 @@ class UserController {
             let data = try PropertyListEncoder().encode(self.userBills)
             if let billsURL = persistentBillsFileURL {
                 try data.write(to: billsURL)
+                getValidBillAndSend()
             }
             print("Bill Saved Succesfully")
         } catch {
