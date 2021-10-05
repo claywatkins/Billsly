@@ -99,6 +99,20 @@ class UserController {
         return numberStr
     }
     
+    // MARK: - Methods
+    func sendDataToWidget(bill: Bill) {
+        if #available(iOS 14, *) {
+            let billToSend = WidgetData(billToWidget: bill)
+            billToSend.storeBillInUserDefaults()
+        }
+    }
+    
+    func getValidBillAndSend() {
+        if let billForWidget = unpaidBills.first {
+            sendDataToWidget(bill: billForWidget)
+        }
+    }
+    
     // MARK: - CRUD
     func createBill(identifier: String, name: String, dollarAmount: Double, dueByDate: Date, category: Category, isOn30th: Bool) {
         let newBill = Bill(identifier: identifier,
@@ -122,6 +136,7 @@ class UserController {
         if let billIndex = userBills.firstIndex(of: bill) {
             userBills[billIndex].hasBeenPaid.toggle()
         }
+        
         saveBillsToPersistentStore()
     }
     func updateBillToUnpaid(bill: Bill) {
@@ -153,11 +168,12 @@ class UserController {
     
     // MARK: - Persistence
     func saveBillsToPersistentStore() {
-//        guard let url = persistentBillsFileURL else { return }
+        //        guard let url = persistentBillsFileURL else { return }
         do{
             let data = try PropertyListEncoder().encode(self.userBills)
             if let billsURL = persistentBillsFileURL {
                 try data.write(to: billsURL)
+                getValidBillAndSend()
             }
             print("Bill Saved Succesfully")
         } catch {

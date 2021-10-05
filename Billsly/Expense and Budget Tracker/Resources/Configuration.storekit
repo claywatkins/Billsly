@@ -1,4 +1,8 @@
 {
+  "identifier" : "5590D1C3",
+  "nonRenewingSubscriptions" : [
+
+  ],
   "products" : [
     {
       "displayPrice" : "1.99",
@@ -54,6 +58,6 @@
   ],
   "version" : {
     "major" : 1,
-    "minor" : 0
+    "minor" : 1
   }
 }
