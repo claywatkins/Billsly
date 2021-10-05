@@ -100,26 +100,17 @@ class UserController {
     }
     
     // MARK: - Methods
-    func getFirstThreeBills() -> [Bill]? {
-        var firstThreeBills: [Bill] = []
-        let count = unpaidBills.count
-        if count >= 3  {
-            for i in 0...2 {
-                let bill = unpaidBills[i]
-                firstThreeBills.append(bill)
-            }
-        } else if count == 2{
-            for i in 0...1 {
-                let bill = unpaidBills[i]
-                firstThreeBills.append(bill)
-            }
-        } else if count == 1 {
-            let bill = unpaidBills[0]
-            firstThreeBills.append(bill)
-        } else {
-            return nil
+    func sendDataToWidget(bill: Bill) {
+        if #available(iOS 14, *) {
+            let billToSend = WidgetData(billToWidget: bill)
+            billToSend.storeBillInUserDefaults()
         }
-        return firstThreeBills
+    }
+    
+    func getValidBillToSend() {
+        if let billForWidget = unpaidBills.first {
+            sendDataToWidget(bill: billForWidget)
+        }
     }
     
     // MARK: - CRUD
