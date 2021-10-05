@@ -11,10 +11,10 @@ import WidgetKit
 
 @available(iOS 14, *)
 struct WidgetData {
-    @AppStorage("billsData", store: UserDefaults(suiteName: "group.com.claytonwatkins.Billsly")) var widgetBillData: Data = Data()
+    @AppStorage("billData", store: UserDefaults(suiteName: "group.com.claytonwatkins.Billsly")) var widgetBillData: Data = Data()
     let billToWidget: Bill
     
-    func storeBillsInUserDefaults() {
+    func storeBillInUserDefaults() {
         guard let data = try? JSONEncoder().encode(billToWidget) else { print("could not encode"); return }
         widgetBillData = data
         WidgetCenter.shared.reloadAllTimelines()
