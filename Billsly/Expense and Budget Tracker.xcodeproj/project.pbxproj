@@ -12,11 +12,15 @@
 		0B4E71E725F95BE000461B15 /* CategoryPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E71E625F95BE000461B15 /* CategoryPopoverViewController.swift */; };
 		0B53E94C25FE81C9001DD4FB /* BillPaidPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B53E94B25FE81C9001DD4FB /* BillPaidPopoverViewController.swift */; };
 		0B57467F25F690F500EC81DA /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 0B57467E25F690F500EC81DA /* FSCalendar */; };
+		0B575B4E270CEA42006B5BE5 /* ColorsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6AB4C72605D5F6005F2CF6 /* ColorsHelper.swift */; };
+		0B575B4F270CEAA3006B5BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B698125DB646200B9F55E /* Assets.xcassets */; };
 		0B6A7AB6270BC94B001C4194 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E825F0C5A90078BD9F /* Bill.swift */; };
 		0B6A7AB7270BCE99001C4194 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2A16425F9873800308C04 /* Category.swift */; };
 		0B6AB4C82605D5F6005F2CF6 /* ColorsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6AB4C72605D5F6005F2CF6 /* ColorsHelper.swift */; };
 		0B6EA1A7260D0F460020060C /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6EA1A6260D0F460020060C /* UIApplicationExtension.swift */; };
 		0B6EA1A9260D0F6C0020060C /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6EA1A8260D0F6C0020060C /* UIDeviceExtension.swift */; };
+		0B727304270CCF7E00704549 /* userController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E425F0C5430078BD9F /* userController.swift */; };
+		0B727306270CDA8F00704549 /* WidgetDataBills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B727305270CDA8F00704549 /* WidgetDataBills.swift */; };
 		0B7B904125FADD510059CC6E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B904025FADD510059CC6E /* HomeViewController.swift */; };
 		0B7B904325FAEC810059CC6E /* EditBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B904225FAEC810059CC6E /* EditBillViewController.swift */; };
 		0B7B904525FB240D0059CC6E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B904425FB240D0059CC6E /* UIViewControllerExtension.swift */; };
@@ -36,7 +40,6 @@
 		0B9EE7E52605BE78005DCE6C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EE7E42605BE78005DCE6C /* UIButtonExtension.swift */; };
 		0BBE988F2616AA64009DDF96 /* SwiftConfettiView in Frameworks */ = {isa = PBXBuildFile; productRef = 0BBE988E2616AA64009DDF96 /* SwiftConfettiView */; };
 		0BBE98932616E892009DDF96 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BBE98922616E892009DDF96 /* StoreKit.framework */; };
-		0BF254E525F0C5430078BD9F /* userController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E425F0C5430078BD9F /* userController.swift */; };
 		0BF254E925F0C5A90078BD9F /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E825F0C5A90078BD9F /* Bill.swift */; };
 		0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */; };
 		0BF254F325F0CF510078BD9F /* BillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254F225F0CF510078BD9F /* BillTableViewCell.swift */; };
@@ -86,6 +89,7 @@
 		0B6AB4C72605D5F6005F2CF6 /* ColorsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsHelper.swift; sourceTree = "<group>"; };
 		0B6EA1A6260D0F460020060C /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		0B6EA1A8260D0F6C0020060C /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
+		0B727305270CDA8F00704549 /* WidgetDataBills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataBills.swift; sourceTree = "<group>"; };
 		0B7B904025FADD510059CC6E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0B7B904225FAEC810059CC6E /* EditBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBillViewController.swift; sourceTree = "<group>"; };
 		0B7B904425FB240D0059CC6E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 			children = (
 				0BF254E825F0C5A90078BD9F /* Bill.swift */,
 				0BF2A16425F9873800308C04 /* Category.swift */,
+				0B727305270CDA8F00704549 /* WidgetDataBills.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B575B4F270CEAA3006B5BE5 /* Assets.xcassets in Resources */,
 				0B87F582270B83530003FB98 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +383,7 @@
 				0B6A7AB6270BC94B001C4194 /* Bill.swift in Sources */,
 				0B87F580270B83510003FB98 /* BillslyWidgets.swift in Sources */,
 				0B6A7AB7270BCE99001C4194 /* Category.swift in Sources */,
+				0B575B4E270CEA42006B5BE5 /* ColorsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +401,7 @@
 				0B7B904325FAEC810059CC6E /* EditBillViewController.swift in Sources */,
 				0B8B697925DB646000B9F55E /* AppDelegate.swift in Sources */,
 				0B7B904125FADD510059CC6E /* HomeViewController.swift in Sources */,
-				0BF254E525F0C5430078BD9F /* userController.swift in Sources */,
+				0B727304270CCF7E00704549 /* userController.swift in Sources */,
 				0B8B697B25DB646000B9F55E /* SceneDelegate.swift in Sources */,
 				0B6EA1A7260D0F460020060C /* UIApplicationExtension.swift in Sources */,
 				0B53E94C25FE81C9001DD4FB /* BillPaidPopoverViewController.swift in Sources */,
@@ -403,6 +410,7 @@
 				0B968E3725FE91A700B7AE84 /* DateExtension.swift in Sources */,
 				0B6EA1A9260D0F6C0020060C /* UIDeviceExtension.swift in Sources */,
 				0B9DEC9A260D0B20006F0EC6 /* SettingsTableViewController.swift in Sources */,
+				0B727306270CDA8F00704549 /* WidgetDataBills.swift in Sources */,
 				0B1FEBA225F6B2BE00F0FC87 /* AddBillViewController.swift in Sources */,
 				0BF2A16925F9CBFC00308C04 /* CategoryTableViewCell.swift in Sources */,
 				0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */,
