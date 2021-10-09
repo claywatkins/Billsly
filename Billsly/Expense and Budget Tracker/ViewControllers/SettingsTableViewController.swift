@@ -68,9 +68,6 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
-    
-    
-    
     private func promptRating() {
         if let url = URL(string: appURLForRating) {
             UIApplication.shared.open(url)
@@ -284,7 +281,8 @@ class SettingsTableViewController: UITableViewController {
         case 0: return 35
         case 1: return 35
         case 2: return 35
-        case 3: return 6
+        case 3: return 35
+        case 4: return 6
         default: return 0
         }
     }
