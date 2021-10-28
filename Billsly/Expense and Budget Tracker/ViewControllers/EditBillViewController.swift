@@ -33,10 +33,14 @@ class EditBillViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-        configureViews()
         configureCalendar()
         addDoneButtonOnKeyboard()
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUIAppearence()
     }
     
     // MARK: - Methods
@@ -53,7 +57,40 @@ class EditBillViewController: UIViewController {
         selectedDateLabel.text = userController.df.string(from: bill.dueByDate)
     }
     
-    private func configureViews() {
+    private func updateUIAppearence() {
+        let defaults = UserDefaults.standard
+        let selection = defaults.integer(forKey: "appearanceSelection")
+        switch selection {
+        case 0:
+            customUIAppearance()
+        case 1:
+            overrideUserInterfaceStyle = .dark
+            darkLightMode()
+            darkModeNav()
+        case 2:
+            overrideUserInterfaceStyle = .light
+            darkLightMode()
+            lightModeNav()
+        case 3:
+            overrideUserInterfaceStyle = .unspecified
+            darkLightMode()
+            if traitCollection.userInterfaceStyle == .light {
+                lightModeNav()
+            } else {
+                darkModeNav()
+            }
+        default:
+            print("Error")
+            break
+        }
+    }
+    
+    private func customUIAppearance() {
+        fsCalendarView.appearance.weekdayTextColor = ColorsHelper.powderBlue
+        fsCalendarView.appearance.headerTitleColor = ColorsHelper.powderBlue
+        fsCalendarView.calendarHeaderView.tintColor = ColorsHelper.powderBlue
+        fsCalendarView.backgroundColor = ColorsHelper.slateGray
+        
         contentView.backgroundColor = ColorsHelper.blackCoral
         view.backgroundColor = ColorsHelper.blackCoral
         billNameLabel.textColor = ColorsHelper.cultured
@@ -71,7 +108,7 @@ class EditBillViewController: UIViewController {
         dollarAmountTextField.layer.borderColor = ColorsHelper.apricot.cgColor
         dollarAmountTextField.layer.cornerRadius = 8
         dollarAmountTextField.attributedPlaceholder = NSAttributedString(string: "Dollar Amount",
-                                                                     attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
+                                                                         attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
         categoryLabel.textColor = ColorsHelper.cultured
         categoryTextField.textColor = ColorsHelper.cultured
         categoryTextField.backgroundColor = ColorsHelper.slateGray
@@ -81,18 +118,75 @@ class EditBillViewController: UIViewController {
         categoryTextField.attributedPlaceholder = NSAttributedString(string: "Tap + to add a category or create your own",
                                                                      attributes: [NSAttributedString.Key.foregroundColor : ColorsHelper.cultured])
         addCategoryButton.tintColor = ColorsHelper.cultured
+        
         dateDueLabel.textColor = ColorsHelper.cultured
         selectedDateLabel.textColor = ColorsHelper.cultured
+        
         updateBillButton.configureButton(ColorsHelper.slateGray)
+    
+        fsCalendarView.appearance.weekdayTextColor = ColorsHelper.powderBlue
+        fsCalendarView.appearance.headerTitleColor = ColorsHelper.powderBlue
+        fsCalendarView.calendarHeaderView.tintColor = ColorsHelper.powderBlue
+        fsCalendarView.backgroundColor = ColorsHelper.slateGray
+        fsCalendarView.appearance.selectionColor = ColorsHelper.celadonGreen
+    }
+    
+    private func darkLightMode() {
+        contentView.backgroundColor = UIColor(named: "background")
+        view.backgroundColor = UIColor(named: "background")
+        billNameLabel.textColor = UIColor(named: "text")
+        billNameTextField.textColor = UIColor(named: "text")
+        billNameTextField.backgroundColor = UIColor(named: "foreground")
+
+        billNameTextField.layer.borderWidth = 1
+        billNameTextField.layer.borderColor = ColorsHelper.apricot.cgColor
+        billNameTextField.layer.cornerRadius = 8
+        billNameTextField.attributedPlaceholder = NSAttributedString(string: "Bill Name",
+                                                                     attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: "text")!])
+        dollarAmountLabel.textColor = UIColor(named: "text")
+        dollarAmountTextField.textColor = UIColor(named: "text")
+        dollarAmountTextField.backgroundColor = UIColor(named: "foreground")
+        dollarAmountTextField.layer.borderWidth = 1
+        dollarAmountTextField.layer.borderColor = ColorsHelper.apricot.cgColor
+        dollarAmountTextField.layer.cornerRadius = 8
+        dollarAmountTextField.attributedPlaceholder = NSAttributedString(string: "Dollar Amount",
+                                                                         attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: "text")!])
+        categoryLabel.textColor = UIColor(named: "text")
+        categoryTextField.textColor = UIColor(named: "text")
+        categoryTextField.backgroundColor = UIColor(named: "foreground")
+        categoryTextField.layer.borderWidth = 1
+        categoryTextField.layer.borderColor = ColorsHelper.apricot.cgColor
+        categoryTextField.layer.cornerRadius = 8
+        categoryTextField.attributedPlaceholder = NSAttributedString(string: "Tap + to add a category or create your own",
+                                                                     attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: "text")!])
+        addCategoryButton.tintColor = UIColor(named: "text")
+        
+        dateDueLabel.textColor = UIColor(named: "text")
+        selectedDateLabel.textColor = UIColor(named: "text")
+        
+        updateBillButton.configureButton(UIColor(named: "foreground"))
+        updateBillButton.setTitleColor(UIColor(named: "text"), for: .normal)
+        
+        fsCalendarView.appearance.weekdayTextColor = UIColor(named: "text")
+        fsCalendarView.appearance.headerTitleColor = UIColor(named: "text")
+        fsCalendarView.calendarHeaderView.tintColor = UIColor(named: "text")
+        fsCalendarView.backgroundColor = UIColor(named: "foreground")
+        fsCalendarView.appearance.selectionColor = ColorsHelper.celadonGreen
+    }
+    
+    private func darkModeNav() {
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
+    }
+        
+    private func lightModeNav() {
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
     
     private func configureCalendar() {
         fsCalendarView.today = nil
         fsCalendarView.placeholderType = .none
-        fsCalendarView.appearance.weekdayTextColor = ColorsHelper.powderBlue
-        fsCalendarView.appearance.headerTitleColor = ColorsHelper.powderBlue
-        fsCalendarView.calendarHeaderView.tintColor = ColorsHelper.powderBlue
-        fsCalendarView.backgroundColor = ColorsHelper.slateGray
         fsCalendarView.appearance.selectionColor = ColorsHelper.celadonGreen
         fsCalendarView.layer.cornerRadius = 12
     }
@@ -205,7 +299,18 @@ extension EditBillViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
-        return ColorsHelper.cultured
+        let defaults = UserDefaults.standard
+        let selection = defaults.integer(forKey: "appearanceSelection")
+        var colorSelection: UIColor?
+        switch selection{
+        case 0:
+            colorSelection = ColorsHelper.cultured
+        case 1...3:
+            colorSelection = UIColor(named: "text")
+        default:
+            break
+        }
+        return colorSelection ?? ColorsHelper.cultured
     }
     
     func maximumDate(for calendar: FSCalendar) -> Date {

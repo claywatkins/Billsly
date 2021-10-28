@@ -18,7 +18,6 @@ class BillsViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
         tableView.dataSource = self
         tableView.delegate = self
         userController.loadBillData()
@@ -27,10 +26,43 @@ class BillsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        updateUIAppearence()
     }
     
     // MARK: - Methods
-    private func configureView() {
+    private func updateUIAppearence() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        let defaults = UserDefaults.standard
+        let selection = defaults.integer(forKey: "appearanceSelection")
+        switch selection {
+        case 0:
+            customUIAppearance()
+        case 1:
+            darkLightMode()
+            darkModeNav()
+            overrideUserInterfaceStyle = .dark
+        case 2:
+            darkLightMode()
+            lightModeNav()
+            overrideUserInterfaceStyle = .light
+        case 3:
+            darkLightMode()
+            if traitCollection.userInterfaceStyle == .light {
+                lightModeNav()
+            } else {
+                darkModeNav()
+            }
+            overrideUserInterfaceStyle = .unspecified
+        default:
+            print("Error")
+            break
+        }
+    }
+    private func customUIAppearance() {
         tableView.backgroundColor = ColorsHelper.blackCoral
         view.backgroundColor = ColorsHelper.blackCoral
         navigationController?.navigationBar.backgroundColor = ColorsHelper.blackCoral
@@ -40,6 +72,20 @@ class BillsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    private func darkLightMode() {
+        tableView.backgroundColor = UIColor(named: "background")
+        view.backgroundColor = UIColor(named: "background")
+    }
+    
+    private func darkModeNav() {
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorsHelper.cultured]
+    }
+        
+    private func lightModeNav() {
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+    }
     private func billFor(indexPath: IndexPath) -> Bill {
         if indexPath.section == 0{
             return userController.unpaidBills[indexPath.row]

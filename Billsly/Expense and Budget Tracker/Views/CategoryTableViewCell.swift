@@ -14,18 +14,47 @@ class CategoryTableViewCell: UITableViewCell {
     // MARK: - Properties
     var category: Category? {
         didSet {
-            updateViews()
+            updateText()
         }
     }
     
     // MARK: - Lifecycle
     override func layoutSubviews() {
         super.layoutSubviews()
-        categoryNameLabel.textColor = ColorsHelper.cultured
+        updateUIAppearence()
     }
 
     // MARK: - Methods
-    private func updateViews() {
+    private func updateText() {
         categoryNameLabel.text = category?.name ?? "Unknown"
+    }
+    
+    private func updateUIAppearence() {
+        let defaults = UserDefaults.standard
+        let selection = defaults.integer(forKey: "appearanceSelection")
+        switch selection {
+        case 0:
+            customUIAppearance()
+        case 1:
+            overrideUserInterfaceStyle = .dark
+            darkLightMode()
+        case 2:
+            overrideUserInterfaceStyle = .light
+            darkLightMode()
+        case 3:
+            overrideUserInterfaceStyle = .unspecified
+            darkLightMode()
+        default:
+            print("Error")
+            break
+        }
+    }
+    private func customUIAppearance(){
+        categoryNameLabel.textColor = ColorsHelper.cultured
+        contentView.backgroundColor = ColorsHelper.slateGray
+    }
+    private func darkLightMode(){
+        categoryNameLabel.textColor = UIColor(named: "text")
+        contentView.backgroundColor = UIColor(named: "foreground")
     }
 }

@@ -29,11 +29,42 @@ class BillTableViewCell: UITableViewCell {
     // MARK: - Lifecycle
     override func layoutSubviews() {
         super.layoutSubviews()
+        updateUIAppearence()
+    }
+    
+    // MARK: - Private Methods
+    private func updateUIAppearence() {
+        let defaults = UserDefaults.standard
+        let selection = defaults.integer(forKey: "appearanceSelection")
+        switch selection {
+        case 0:
+            customUIAppearance()
+        case 1:
+            overrideUserInterfaceStyle = .dark
+            darkLightMode()
+        case 2:
+            overrideUserInterfaceStyle = .light
+            darkLightMode()
+        case 3:
+            overrideUserInterfaceStyle = .unspecified
+            darkLightMode()
+        default:
+            print("Error")
+            break
+        }
+    }
+    
+    private func customUIAppearance() {
         billName.textColor = ColorsHelper.cultured
         dateDueLabel.textColor = ColorsHelper.cultured
     }
     
-    // MARK: - Private Methods
+    private func darkLightMode() {
+        contentView.backgroundColor = UIColor(named: "foreground")
+        billName.textColor = UIColor(named: "text")
+        dateDueLabel.textColor = UIColor(named: "text")
+    }
+    
     private func updateViews(){
         guard let bill = bill else { return }
         billName.text = bill.name
