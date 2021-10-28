@@ -86,8 +86,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 }
             }
         }
+        
     }
-    
-    
 }
 

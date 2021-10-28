@@ -12,12 +12,23 @@
 		0B4E71E725F95BE000461B15 /* CategoryPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E71E625F95BE000461B15 /* CategoryPopoverViewController.swift */; };
 		0B53E94C25FE81C9001DD4FB /* BillPaidPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B53E94B25FE81C9001DD4FB /* BillPaidPopoverViewController.swift */; };
 		0B57467F25F690F500EC81DA /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 0B57467E25F690F500EC81DA /* FSCalendar */; };
+		0B575B4E270CEA42006B5BE5 /* ColorsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6AB4C72605D5F6005F2CF6 /* ColorsHelper.swift */; };
+		0B575B4F270CEAA3006B5BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B698125DB646200B9F55E /* Assets.xcassets */; };
+		0B6A7AB6270BC94B001C4194 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E825F0C5A90078BD9F /* Bill.swift */; };
+		0B6A7AB7270BCE99001C4194 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2A16425F9873800308C04 /* Category.swift */; };
 		0B6AB4C82605D5F6005F2CF6 /* ColorsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6AB4C72605D5F6005F2CF6 /* ColorsHelper.swift */; };
 		0B6EA1A7260D0F460020060C /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6EA1A6260D0F460020060C /* UIApplicationExtension.swift */; };
 		0B6EA1A9260D0F6C0020060C /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6EA1A8260D0F6C0020060C /* UIDeviceExtension.swift */; };
+		0B727304270CCF7E00704549 /* userController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E425F0C5430078BD9F /* userController.swift */; };
+		0B727306270CDA8F00704549 /* WidgetDataBills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B727305270CDA8F00704549 /* WidgetDataBills.swift */; };
 		0B7B904125FADD510059CC6E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B904025FADD510059CC6E /* HomeViewController.swift */; };
 		0B7B904325FAEC810059CC6E /* EditBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B904225FAEC810059CC6E /* EditBillViewController.swift */; };
 		0B7B904525FB240D0059CC6E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B904425FB240D0059CC6E /* UIViewControllerExtension.swift */; };
+		0B87F57B270B83510003FB98 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B87F57A270B83510003FB98 /* WidgetKit.framework */; };
+		0B87F57D270B83510003FB98 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B87F57C270B83510003FB98 /* SwiftUI.framework */; };
+		0B87F580270B83510003FB98 /* BillslyWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87F57F270B83510003FB98 /* BillslyWidgets.swift */; };
+		0B87F582270B83530003FB98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B87F581270B83530003FB98 /* Assets.xcassets */; };
+		0B87F586270B83530003FB98 /* BillslyWidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0B87F579270B83510003FB98 /* BillslyWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0B8B697925DB646000B9F55E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B697825DB646000B9F55E /* AppDelegate.swift */; };
 		0B8B697B25DB646000B9F55E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B697A25DB646000B9F55E /* SceneDelegate.swift */; };
 		0B8B698025DB646000B9F55E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8B697E25DB646000B9F55E /* Main.storyboard */; };
@@ -29,13 +40,22 @@
 		0B9EE7E52605BE78005DCE6C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EE7E42605BE78005DCE6C /* UIButtonExtension.swift */; };
 		0BBE988F2616AA64009DDF96 /* SwiftConfettiView in Frameworks */ = {isa = PBXBuildFile; productRef = 0BBE988E2616AA64009DDF96 /* SwiftConfettiView */; };
 		0BBE98932616E892009DDF96 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BBE98922616E892009DDF96 /* StoreKit.framework */; };
-		0BF254E525F0C5430078BD9F /* userController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E425F0C5430078BD9F /* userController.swift */; };
 		0BF254E925F0C5A90078BD9F /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254E825F0C5A90078BD9F /* Bill.swift */; };
 		0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254EF25F0CCEB0078BD9F /* BillsViewController.swift */; };
 		0BF254F325F0CF510078BD9F /* BillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF254F225F0CF510078BD9F /* BillTableViewCell.swift */; };
 		0BF2A16525F9873800308C04 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2A16425F9873800308C04 /* Category.swift */; };
 		0BF2A16925F9CBFC00308C04 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2A16825F9CBFC00308C04 /* CategoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0B87F584270B83530003FB98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B8B696D25DB646000B9F55E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B87F578270B83510003FB98;
+			remoteInfo = BillslyWidgetsExtension;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		0B480B6925F1BAC80036FC10 /* Embed Frameworks */ = {
@@ -48,6 +68,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0B87F587270B83530003FB98 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0B87F586270B83530003FB98 /* BillslyWidgetsExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -58,9 +89,18 @@
 		0B6AB4C72605D5F6005F2CF6 /* ColorsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsHelper.swift; sourceTree = "<group>"; };
 		0B6EA1A6260D0F460020060C /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		0B6EA1A8260D0F6C0020060C /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
+		0B727305270CDA8F00704549 /* WidgetDataBills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataBills.swift; sourceTree = "<group>"; };
 		0B7B904025FADD510059CC6E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0B7B904225FAEC810059CC6E /* EditBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBillViewController.swift; sourceTree = "<group>"; };
 		0B7B904425FB240D0059CC6E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		0B87F538270B7FF80003FB98 /* Expense and Budget Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Expense and Budget Tracker.entitlements"; sourceTree = "<group>"; };
+		0B87F579270B83510003FB98 /* BillslyWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BillslyWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B87F57A270B83510003FB98 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		0B87F57C270B83510003FB98 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		0B87F57F270B83510003FB98 /* BillslyWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillslyWidgets.swift; sourceTree = "<group>"; };
+		0B87F581270B83530003FB98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0B87F583270B83530003FB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B87F58B270B85E00003FB98 /* BillslyWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BillslyWidgetsExtension.entitlements; sourceTree = "<group>"; };
 		0B8B697525DB646000B9F55E /* Expense and Budget Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense and Budget Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8B697825DB646000B9F55E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B8B697A25DB646000B9F55E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +123,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0B87F576270B83510003FB98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B87F57D270B83510003FB98 /* SwiftUI.framework in Frameworks */,
+				0B87F57B270B83510003FB98 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0B8B697225DB646000B9F55E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -96,10 +145,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B87F57E270B83510003FB98 /* BillslyWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				0B87F57F270B83510003FB98 /* BillslyWidgets.swift */,
+				0B87F581270B83530003FB98 /* Assets.xcassets */,
+				0B87F583270B83530003FB98 /* Info.plist */,
+			);
+			path = BillslyWidgets;
+			sourceTree = "<group>";
+		};
 		0B8B696C25DB646000B9F55E = {
 			isa = PBXGroup;
 			children = (
+				0B87F58B270B85E00003FB98 /* BillslyWidgetsExtension.entitlements */,
 				0B8B697725DB646000B9F55E /* Expense and Budget Tracker */,
+				0B87F57E270B83510003FB98 /* BillslyWidgets */,
 				0B8B697625DB646000B9F55E /* Products */,
 				0BBE98912616E892009DDF96 /* Frameworks */,
 			);
@@ -109,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				0B8B697525DB646000B9F55E /* Expense and Budget Tracker.app */,
+				0B87F579270B83510003FB98 /* BillslyWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,6 +178,7 @@
 		0B8B697725DB646000B9F55E /* Expense and Budget Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				0B87F538270B7FF80003FB98 /* Expense and Budget Tracker.entitlements */,
 				0BF254DC25F0C46D0078BD9F /* Model */,
 				0BF254DD25F0C4720078BD9F /* ModelController */,
 				0BF254DF25F0C4830078BD9F /* ViewControllers */,
@@ -159,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				0BBE98922616E892009DDF96 /* StoreKit.framework */,
+				0B87F57A270B83510003FB98 /* WidgetKit.framework */,
+				0B87F57C270B83510003FB98 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -168,6 +233,7 @@
 			children = (
 				0BF254E825F0C5A90078BD9F /* Bill.swift */,
 				0BF2A16425F9873800308C04 /* Category.swift */,
+				0B727305270CDA8F00704549 /* WidgetDataBills.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +272,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0B87F578270B83510003FB98 /* BillslyWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B87F58A270B83530003FB98 /* Build configuration list for PBXNativeTarget "BillslyWidgetsExtension" */;
+			buildPhases = (
+				0B87F575270B83510003FB98 /* Sources */,
+				0B87F576270B83510003FB98 /* Frameworks */,
+				0B87F577270B83510003FB98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BillslyWidgetsExtension;
+			productName = BillslyWidgetsExtension;
+			productReference = 0B87F579270B83510003FB98 /* BillslyWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		0B8B697425DB646000B9F55E /* Expense and Budget Tracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B8B698925DB646200B9F55E /* Build configuration list for PBXNativeTarget "Expense and Budget Tracker" */;
@@ -214,10 +297,12 @@
 				0B8B697225DB646000B9F55E /* Frameworks */,
 				0B8B697325DB646000B9F55E /* Resources */,
 				0B480B6925F1BAC80036FC10 /* Embed Frameworks */,
+				0B87F587270B83530003FB98 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0B87F585270B83530003FB98 /* PBXTargetDependency */,
 			);
 			name = "Expense and Budget Tracker";
 			packageProductDependencies = (
@@ -234,9 +319,12 @@
 		0B8B696D25DB646000B9F55E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					0B87F578270B83510003FB98 = {
+						CreatedOnToolsVersion = 12.5;
+					};
 					0B8B697425DB646000B9F55E = {
 						CreatedOnToolsVersion = 12.3;
 					};
@@ -260,11 +348,21 @@
 			projectRoot = "";
 			targets = (
 				0B8B697425DB646000B9F55E /* Expense and Budget Tracker */,
+				0B87F578270B83510003FB98 /* BillslyWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0B87F577270B83510003FB98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B575B4F270CEAA3006B5BE5 /* Assets.xcassets in Resources */,
+				0B87F582270B83530003FB98 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0B8B697325DB646000B9F55E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,6 +376,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0B87F575270B83510003FB98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B6A7AB6270BC94B001C4194 /* Bill.swift in Sources */,
+				0B87F580270B83510003FB98 /* BillslyWidgets.swift in Sources */,
+				0B6A7AB7270BCE99001C4194 /* Category.swift in Sources */,
+				0B575B4E270CEA42006B5BE5 /* ColorsHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0B8B697125DB646000B9F55E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,7 +401,7 @@
 				0B7B904325FAEC810059CC6E /* EditBillViewController.swift in Sources */,
 				0B8B697925DB646000B9F55E /* AppDelegate.swift in Sources */,
 				0B7B904125FADD510059CC6E /* HomeViewController.swift in Sources */,
-				0BF254E525F0C5430078BD9F /* userController.swift in Sources */,
+				0B727304270CCF7E00704549 /* userController.swift in Sources */,
 				0B8B697B25DB646000B9F55E /* SceneDelegate.swift in Sources */,
 				0B6EA1A7260D0F460020060C /* UIApplicationExtension.swift in Sources */,
 				0B53E94C25FE81C9001DD4FB /* BillPaidPopoverViewController.swift in Sources */,
@@ -301,6 +410,7 @@
 				0B968E3725FE91A700B7AE84 /* DateExtension.swift in Sources */,
 				0B6EA1A9260D0F6C0020060C /* UIDeviceExtension.swift in Sources */,
 				0B9DEC9A260D0B20006F0EC6 /* SettingsTableViewController.swift in Sources */,
+				0B727306270CDA8F00704549 /* WidgetDataBills.swift in Sources */,
 				0B1FEBA225F6B2BE00F0FC87 /* AddBillViewController.swift in Sources */,
 				0BF2A16925F9CBFC00308C04 /* CategoryTableViewCell.swift in Sources */,
 				0BF254F025F0CCEB0078BD9F /* BillsViewController.swift in Sources */,
@@ -308,6 +418,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B87F585270B83530003FB98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B87F578270B83510003FB98 /* BillslyWidgetsExtension */;
+			targetProxy = 0B87F584270B83530003FB98 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0B8B697E25DB646000B9F55E /* Main.storyboard */ = {
@@ -329,6 +447,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0B87F588270B83530003FB98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BillslyWidgetsExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XR5S8WV6LB;
+				INFOPLIST_FILE = BillslyWidgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.claytonwatkins.Billsly.BillslyWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0B87F589270B83530003FB98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BillslyWidgetsExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XR5S8WV6LB;
+				INFOPLIST_FILE = BillslyWidgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.claytonwatkins.Billsly.BillslyWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		0B8B698725DB646200B9F55E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -448,8 +614,10 @@
 		0B8B698A25DB646200B9F55E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Expense and Budget Tracker/Expense and Budget Tracker.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -471,8 +639,10 @@
 		0B8B698B25DB646200B9F55E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Expense and Budget Tracker/Expense and Budget Tracker.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -494,6 +664,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0B87F58A270B83530003FB98 /* Build configuration list for PBXNativeTarget "BillslyWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B87F588270B83530003FB98 /* Debug */,
+				0B87F589270B83530003FB98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0B8B697025DB646000B9F55E /* Build configuration list for PBXProject "Expense and Budget Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
