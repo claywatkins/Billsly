@@ -4,6 +4,10 @@
 <p align="center"> <img width="100" height="100" src="https://user-images.githubusercontent.com/60490642/113513506-f5c7c680-951e-11eb-95da-d5729d6b053d.png"> </p>
 
 ## App Preview
+![Simulator Screen Recording - iPhone 12 Pro Max - 2021-10-28 at 12 43 11](https://user-images.githubusercontent.com/60490642/139324774-41be9ffd-2681-41b5-9d4b-a096c51c6e85.gif)
+![Simulator Screen Recording - iPhone 12 Pro Max - 2021-10-28 at 12 43 37](https://user-images.githubusercontent.com/60490642/139324738-2f00ea90-f2a8-43d0-8ad2-e0d1c03f8e60.gif)
+![Simulator Screen Recording - iPhone 12 Pro Max - 2021-10-28 at 12 44 10](https://user-images.githubusercontent.com/60490642/139324762-c2b891b5-7747-470f-b454-c9f3bee25dfe.gif)
+
 
 
 ## Features
