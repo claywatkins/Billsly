@@ -110,6 +110,15 @@ class UserController {
     func getValidBillAndSend() {
         if let billForWidget = unpaidBills.first {
             sendDataToWidget(bill: billForWidget)
+        } else {
+            let nilBill = Bill(identifier: UUID().uuidString,
+                               name: "All Bills Paid!",
+                               dollarAmount: 0.00,
+                               dueByDate: Date(),
+                               category: Category(name: ""),
+                               isOn30th: false,
+                               hasImage: false)
+            sendDataToWidget(bill: nilBill)
         }
     }
     

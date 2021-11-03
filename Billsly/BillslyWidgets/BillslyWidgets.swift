@@ -59,26 +59,41 @@ struct SmallWidget: View {
     var body: some View {
         ZStack {
             Color.init(ColorsHelper.blackCoral)
-            VStack(alignment: .center, spacing: 6) {
-                Text("Your next bill is:")
-                    .font(.headline)
-                    .foregroundColor(Color.init(ColorsHelper.cultured))
-                    .padding(.top)
-                Text(entry.bill.name)
-                    .foregroundColor(Color.init(ColorsHelper.cultured))
-                    .minimumScaleFactor(0.5)
-                    .lineLimit(1)
-                Text("It's due on:")
-                    .font(.headline)
-                    .foregroundColor(Color.init(ColorsHelper.cultured))
-                Text(entry.bill.dueByDate, style: .date)
-                    .foregroundColor(Color.init(ColorsHelper.cultured))
-                    .minimumScaleFactor(0.5)
-                HStack {
-                    Image("BillslyAppLogo")
-                        .resizable()
-                        .frame(width: 35, height: 35)
+            VStack(alignment: .center, spacing: 10) {
+                if entry.bill.name == "All Bills Paid!" {
+                    Text("All Bills Paid!")
+                        .font(.headline)
+                        .foregroundColor(Color.init(ColorsHelper.cultured))
+                        .padding(.top, 10)
+//                    Text(entry.bill.name)
+//                        .foregroundColor(Color.init(ColorsHelper.cultured))
+//                        .minimumScaleFactor(0.5)
+//                        .lineLimit(1)
+                    Text("Open Billsly next month to reset.")
+                        .font(.subheadline)
+                        .foregroundColor(Color.init(ColorsHelper.cultured))
+                        .minimumScaleFactor(0.5)
+                        .multilineTextAlignment(.center)
+                        .padding(12)
+                } else {
+                    Text("Your next bill is:")
+                        .font(.headline)
+                        .foregroundColor(Color.init(ColorsHelper.cultured))
+                        .padding(.top)
+                    Text(entry.bill.name)
+                        .foregroundColor(Color.init(ColorsHelper.cultured))
+                        .minimumScaleFactor(0.8)
+                        .lineLimit(1)
+                    Text("It's due on:")
+                        .font(.headline)
+                        .foregroundColor(Color.init(ColorsHelper.cultured))
+                    Text(entry.bill.dueByDate, style: .date)
+                        .foregroundColor(Color.init(ColorsHelper.cultured))
+                        .minimumScaleFactor(0.8)
                 }
+                Image("BillslyAppLogo")
+                    .resizable()
+                    .frame(width: 35, height: 35)
             }.padding(3)
         }
     }
@@ -110,6 +125,7 @@ struct MediumWidget: View {
                         Image("BillslyAppLogo")
                             .resizable()
                             .frame(width: 40, height: 40)
+
                     }
                 }.padding(3)
 
@@ -161,7 +177,7 @@ struct BillslyWidgets: Widget {
 
 struct BillslyWidgets_Previews: PreviewProvider {
     static let bill = Bill(identifier: UUID().uuidString,
-                           name: "Hyundai Car Payment",
+                           name: "Car Payment: Hyundai",
                            dollarAmount: 22.44,
                            dueByDate: Date(),
                            category: Category(name: "Rent"),
