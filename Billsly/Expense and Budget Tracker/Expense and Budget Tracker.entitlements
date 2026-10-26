@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+	Some capabilities below are DISABLED (commented out), not deleted, because a
+	free (Personal Team) Apple ID cannot provision them.
+
+	Tested against team XR5S8WV6LB on 2026-08-08 by building for a device:
+	  App Groups  - SUPPORTED on a free team. MUST STAY ENABLED (see below).
+	  iCloud      - NOT supported. "Personal development teams do not support
+	                the iCloud capability."
+	  Push        - not tested; left off because no remote-push code exists.
+
+	*** DO NOT DISABLE THE APP GROUP ENTITLEMENT. ***
+	SwiftData's ModelConfiguration defaults to groupContainer: .automatic. With the
+	App Group entitlement present, the store lives in the SHARED App Group container.
+	Remove the entitlement and SwiftData silently creates a brand-new empty store in
+	the app's own container - the app looks wiped - and iOS garbage-collects the old
+	shared container once no installed app references the group, destroying the data.
+	This already happened once on 2026-08-08. See ENTITLEMENTS.md.
+
+	WARNING: if you open this file in Xcode's Property List editor and save it,
+	Xcode strips XML comments and these disabled keys will be lost. Edit it as
+	source text (right-click > Open As > Source Code), or recover the original
+	contents from ENTITLEMENTS.md.
+-->
 <plist version="1.0">
 <dict>
+	<!-- DISABLED: Push Notifications.
+	     Safe to leave off - the app only schedules LOCAL notifications, which
+	     require no entitlement. No remote-push code exists in the project.
 	<key>aps-environment</key>
 	<string>development</string>
+	-->
+
+	<!-- DISABLED: iCloud / CloudKit. Free teams cannot provision this (verified).
+	     Disabling it stops SwiftData's CloudKit mirroring but does NOT move the
+	     local store. Re-enable only with a paid account.
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
 		<string>iCloud.com.ClaytonWatkins.Billsly</string>
@@ -12,6 +43,9 @@
 	<array>
 		<string>CloudKit</string>
 	</array>
+	-->
+
+	<!-- ENABLED and must stay enabled - this controls where SwiftData stores data. -->
 	<key>com.apple.security.application-groups</key>
 	<array>
 		<string>group.com.claytonwatkins.Billsly</string>

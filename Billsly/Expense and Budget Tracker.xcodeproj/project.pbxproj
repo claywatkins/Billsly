@@ -48,7 +48,6 @@
 		0B9EE7E52605BE78005DCE6C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EE7E42605BE78005DCE6C /* UIButtonExtension.swift */; };
 		0BBA18D72BE981DF004D3267 /* FluidGradient in Frameworks */ = {isa = PBXBuildFile; productRef = 0BBA18D62BE981DF004D3267 /* FluidGradient */; };
 		0BBE988F2616AA64009DDF96 /* SwiftConfettiView in Frameworks */ = {isa = PBXBuildFile; productRef = 0BBE988E2616AA64009DDF96 /* SwiftConfettiView */; };
-		0BBE98932616E892009DDF96 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BBE98922616E892009DDF96 /* StoreKit.framework */; };
 		0BD8462A2BE994F400139ED5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD846292BE994F400139ED5 /* MainView.swift */; };
 		0BD8462C2BEA8AD400139ED5 /* ShadowViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD8462B2BEA8AD400139ED5 /* ShadowViewModifier.swift */; };
 		0BD8462E2BEA8ED400139ED5 /* QuickPaidBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD8462D2BEA8ED400139ED5 /* QuickPaidBillView.swift */; };
@@ -163,7 +162,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B7D91F02BEC04F000FB91B3 /* ConfettiSwiftUI in Frameworks */,
-				0BBE98932616E892009DDF96 /* StoreKit.framework in Frameworks */,
 				0B57467F25F690F500EC81DA /* FSCalendar in Frameworks */,
 				0BBE988F2616AA64009DDF96 /* SwiftConfettiView in Frameworks */,
 				0BBA18D72BE981DF004D3267 /* FluidGradient in Frameworks */,
